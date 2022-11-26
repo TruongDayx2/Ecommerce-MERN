@@ -1,0 +1,26 @@
+.nb_container{
+    height: 60px;
+}
+
+.nb_wrapper{
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nb_left{
+    flex: 1;
+}
+
+.nb_language{
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.nb_center{
+    flex: 1;
+}
+
+.nb_right{
+    flex: 1;
+}
