@@ -26,7 +26,7 @@ const Chat = ({ user }) => {
     if (input !== "") {
       const newMessage = {
         message:input,
-        role:'customer',
+        role:'You',
       }
 
       mes.push(newMessage)
