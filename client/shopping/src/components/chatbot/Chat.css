@@ -1,3 +1,15 @@
+.chat__icon{
+  font-weight: bold;
+  color: #008080;
+  position: fixed;
+  z-index: 9999!important;
+  display: block;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+  padding: 10px;
+}
+
 .chat__container{
   margin: 20px;
   position: fixed!important;
@@ -36,6 +48,10 @@
   border-top-right-radius: 7.5px;
 }
 
+.chat__header__right{
+  cursor: pointer;
+  padding: 10px;
+}
 
 .chat__header span {
   font-weight: bold;
@@ -59,7 +75,7 @@
   padding: 12px 16px;
   border-radius: 7.5px;
   border: none;
-  width: 75%;
+  width: 70%;
   margin-right: 10px;
 }
 
