@@ -1,13 +1,37 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
-import React from "react";
+import React, { useCallback } from "react";
 import { useState } from "react";
 import "./slider.css";
 import { sliderItems } from "../../data";
+import { useEffect } from "react";
 
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
 
-  const handleClick = (direction) => {};
+  const handleClick = (direction) => {
+    if (direction === "left") {
+      setSlideIndex(slideIndex - 1 < 0 ? sliderItems.length - 1 : slideIndex - 1);
+    } else {
+      setSlideIndex(slideIndex + 1 === sliderItems.length ? 0 : slideIndex + 1);
+    }
+  };
+
+  const nextSlide = useCallback(
+    () => {
+      const index = slideIndex + 1 === sliderItems.length ? 0 : slideIndex + 1;
+      setSlideIndex(index)
+    },
+    [slideIndex],
+  )
+
+  useEffect(() => {
+    const slideAuto = setInterval(() => {
+      nextSlide("right");
+    }, 4000);
+    return () => {
+      clearInterval(slideAuto);
+    };
+  }, [nextSlide]);
 
   return (
     <div className="sl_container">
@@ -15,26 +39,8 @@ const Slider = () => {
         <ArrowLeftOutlined />
       </div>
       <div className="sl_wrapper">
-        {sliderItems.map((item) => (
-          <div className="sl_slide">
-            <div className="sl_img">
-              <img
-                src="https://cdn.ssstutter.com/products/po0EUQXd52Ks47dT/112022/1667804871800.jpeg"
-                alt=""
-                className="sl_img__item"
-              />
-              <img
-                src="https://cdn.ssstutter.com/products/po0EUQXd52Ks47dT/112022/1667904482646.jpeg"
-                alt=""
-                className="sl_img__item"
-              />
-            </div>
-            <div className="sl_info">
-              <h1 className="sl_title">FALL into SWEATER</h1>
-              <p className="sl_desc">Immerse Yourself in The Midst Of Nature</p>
-              <button className="sl_btn">SHOW NOW</button>
-            </div>
-          </div>
+        {sliderItems.map((item, index) => (
+          <HeroSliderItem key={index} item={item} active={index === slideIndex} />
         ))}
       </div>
       <div className="sl_arrow sl_right" onClick={() => handleClick("right")}>
@@ -43,5 +49,19 @@ const Slider = () => {
     </div>
   );
 };
+
+const HeroSliderItem = (props) => (
+  <div className={`sl_slide ${props.active ? "active" : ""}`}>
+    <div className="sl_img">
+      <img src={props.item.img1} alt="" className="sl_img__item" />
+      <img src={props.item.img2} alt="" className="sl_img__item" />
+    </div>
+    <div className="sl_info">
+      <h1 className="sl_title">{props.item.title}</h1>
+      <p className="sl_desc">{props.item.desc}</p>
+      <button className="sl_btn">SHOW NOW</button>
+    </div>
+  </div>
+);
 
 export default Slider;

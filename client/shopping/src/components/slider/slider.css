@@ -8,7 +8,7 @@
 
 .sl_wrapper{
     height: 100%;
-    display: flex;
+    position: relative;
 }
 
 .sl_slide{
@@ -16,12 +16,26 @@
     height: 100vh;
     display: flex;
     align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+}
+
+.sl_slide.active{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: visible;
 }
 
 .sl_img{
     height: 100%;
     flex: 1;
     display: flex;
+    transform: translateX(-100%);
+    transition:  transform 1.5s ease;
+
 }
 
 .sl_img__item{
@@ -31,6 +45,17 @@
 .sl_info{
     flex: 1;
     padding: 50px;
+    display: block;
+    transform: translateY(-100%);
+    transition: transform 1.5s ease;
+}
+
+.sl_slide.active > .sl_info{
+    transform: translateY(0);
+}
+
+.sl_slide.active > .sl_img{
+    transform: translateX(0) ;
 }
 
 .sl_title{
@@ -68,8 +93,10 @@
 
 .sl_arrow.sl_left{
     left: 10px;
+    z-index: 100;
 }
 
 .sl_arrow.sl_right{
     right: 10px;
+    z-index: 100;
 }

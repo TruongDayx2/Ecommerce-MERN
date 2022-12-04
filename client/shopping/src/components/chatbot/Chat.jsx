@@ -33,11 +33,9 @@ const Chat = ({ user }) => {
       mes.push(newMessage);
       setInput("");
       scrollRef.current.scrollIntoView({ behavior: "smooth" });
-      console.log(mes);
     }
   };
 
-  console.log(turnChat);
   return (
     <>
       {!turnChat && (
