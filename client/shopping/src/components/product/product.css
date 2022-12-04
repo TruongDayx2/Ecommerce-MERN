@@ -1,0 +1,22 @@
+.pro_container{
+    display: flex;
+    margin: 5px;
+    min-width: 280px;
+    height: 350px;
+}
+
+.pro_circle{
+
+}
+
+.pro_img{
+    height: 75%;
+}
+
+.pro_info{
+
+}
+
+.pro_icon{
+
+}

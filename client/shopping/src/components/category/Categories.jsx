@@ -7,8 +7,8 @@ import './categories.css'
 const Categories = () => {
   return (
     <div className="cate_container">
-      {categories.map((item, index) => (
-        <CategoryItem key={index} item={item} />
+      {categories.map((item) => (
+        <CategoryItem key={item.id} item={item} />
       ))}
     </div>
   );
