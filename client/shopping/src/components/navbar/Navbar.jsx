@@ -25,7 +25,7 @@ const Navbar = () => {
             <div className="nb_menuItem">REGISTER</div>
             <div className="nb_menuItem">SIGN IN</div>
             <div className="nb_menuItem">
-              <Badge badgeContent={3} color="primary">
+              <Badge badgeContent={3} color="primary" overlap="rectangular">
                 <ShoppingCartOutlined/>
               </Badge>
             </div>

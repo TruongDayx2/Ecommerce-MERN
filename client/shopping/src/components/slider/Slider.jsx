@@ -26,7 +26,7 @@ const Slider = () => {
 
   useEffect(() => {
     const slideAuto = setInterval(() => {
-      nextSlide("right");
+      nextSlide();
     }, 4000);
     return () => {
       clearInterval(slideAuto);

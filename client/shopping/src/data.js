@@ -14,3 +14,16 @@ export const sliderItems = [
         desc:"Spruce Up Your Everyday Luxury Look",
     }
 ]
+
+export const categories = [
+    {
+        id:1,
+        img:"https://cdn.ssstutter.com/products/po0EUQXd52Ks47dT/112022/1668409522619.jpeg",
+        title:"FOR HIM"
+    },
+    {
+        id:2,
+        img:"https://cdn.ssstutter.com/products/po0EUQXd52Ks47dT/062022/1655785734929.jpeg",
+        title:"FOR HER"
+    }
+]
