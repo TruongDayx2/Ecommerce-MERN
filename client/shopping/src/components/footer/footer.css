@@ -1,0 +1,68 @@
+.ft_container{
+    display: flex;
+}
+
+.ft_left{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.ft_desc{
+    margin: 20px 0;
+}
+
+.ft_social{
+    display: flex;
+}
+
+.ft_socialIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+}
+
+
+.ft_center{
+    flex: 1;
+    padding: 20px;
+}
+
+.ft_title{
+    margin-bottom: 25px;
+}
+
+.ft_list{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ft_listItem{
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+
+.ft_right{
+    flex: 1;
+    padding: 20px;
+}
+
+.ft_contactItem{
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.ft_payment{
+    width: 50%;
+}

@@ -5,6 +5,7 @@ import Chat from '../components/chatbot/Chat'
 import Categories from '../components/category/Categories'
 import Products from '../components/product/Products'
 import NewLetter from '../components/newLetter/NewLetter'
+import Footer from '../components/footer/Footer'
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <Categories/>
       <Products/>
       <NewLetter/>
+      <Footer/>
       <Chat/>
     </div>
   )
