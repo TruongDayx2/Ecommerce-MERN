@@ -4,6 +4,7 @@ import Slider from '../components/slider/Slider'
 import Chat from '../components/chatbot/Chat'
 import Categories from '../components/category/Categories'
 import Products from '../components/product/Products'
+import NewLetter from '../components/newLetter/NewLetter'
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <Slider/>
       <Categories/>
       <Products/>
+      <NewLetter/>
       <Chat/>
     </div>
   )

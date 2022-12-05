@@ -1,0 +1,42 @@
+.letter_container{
+    height: 60vh;
+    background-color: #fcf5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.letter_title{
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.letter_desc{
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.letter_inputContainet{
+    width: 50%;
+    height: 40px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    border: solid 1px lightgray
+}
+
+.letter_input{
+    border: none;
+    flex:8;
+    padding-left: 12px;
+}
+
+.letter_btn{
+    flex:1;
+    border: none;
+    cursor: pointer;
+    background-color: teal;
+    color: white;
+}
