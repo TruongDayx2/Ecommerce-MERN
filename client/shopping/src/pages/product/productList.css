@@ -1,0 +1,34 @@
+.proL_container{
+
+}
+
+.proL_title{
+    margin: 20px;
+}
+
+.proL_filterContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.proL_filterText{
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 20px;
+}
+
+.proL_filterItem{
+    display: flex;
+    margin: 20px;
+    align-items: center;
+}   
+
+.proL_select{
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.proL_option{
+
+}
+
