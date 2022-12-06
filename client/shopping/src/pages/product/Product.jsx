@@ -1,5 +1,5 @@
 import { Add, Remove } from "@material-ui/icons";
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
 import NewLetter from "../../components/newLetter/NewLetter";
@@ -7,6 +7,17 @@ import NewLetter from "../../components/newLetter/NewLetter";
 import "./product.css";
 
 const Product = () => {
+
+    const [quantity, setQuantity] = useState(1)
+
+    const updateQuantity = (type) =>{
+        if (type === 'plus'){
+            setQuantity(quantity+1)
+        }else{
+            setQuantity(quantity-1 < 1 ? 1 : quantity - 1)
+        }
+    }
+
   return (
     <div className="p_container">
       <Navbar />
@@ -46,9 +57,13 @@ const Product = () => {
           </div>
           <div className="p_addContainer">
             <div className="p_amountContainer">
-                <Remove/>
-                <sspan className="p_amount">1</sspan>
-                <Add/>
+                <div className="p_minus" onClick={()=>updateQuantity('minus')}>
+                    <Remove/>
+                </div>
+                <span className="p_amount">{quantity}</span>
+                <div className="p_plus" onClick={()=>updateQuantity('plus')}>
+                    <Add/>
+                </div>
             </div>
             <button className="p_addBtn">ADD TO CART</button>
           </div>

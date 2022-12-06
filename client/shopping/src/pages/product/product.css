@@ -60,11 +60,10 @@
 .p_filterSize{
     margin-left: 10px;
     padding: 5px;
-    cursor: pointer;
 }
 
-.p_filterSizeOption{
-
+.p_minis,.p_plus{
+    cursor: pointer;
 }
 
 .p_addContainer{
@@ -90,6 +89,7 @@
     justify-content: center;
     align-items: center;
     margin: 0 5px;
+    cursor: default;
 }
 
 .p_addBtn{
