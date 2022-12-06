@@ -1,0 +1,106 @@
+.p_wrapper{
+    display: flex;
+    padding: 50px;
+}
+
+.p_imgContainer{
+    flex: 1;
+}
+
+.p_img{
+    width: 100%;
+    height: 90vh;
+    object-fit: cover;
+}
+
+.p_infoContainer{
+    flex: 1;
+    padding: 0 50px;
+}
+
+.p_title{
+    font-weight: 200;
+}
+
+.p_desc{
+    margin: 20px 0;
+}
+
+.p_price{
+    font-weight: 100;
+    font-size: 40px;
+}
+
+.p_filterContainer{
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    margin: 30px 0;
+}
+
+.p_filter{
+    display: flex;
+    align-items: center;
+}
+
+.p_filterTitle{
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.p_filterColor{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+
+.p_filterSize{
+    margin-left: 10px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.p_filterSizeOption{
+
+}
+
+.p_addContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.p_amountContainer{
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.p_amount{
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    border: solid 1px teal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+}
+
+.p_addBtn{
+    padding: 15px;
+    border: solid 1.5px teal;
+    background-color: white;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.p_addBtn:hover{
+    background-color: rgb(207, 231, 223);
+}
+
