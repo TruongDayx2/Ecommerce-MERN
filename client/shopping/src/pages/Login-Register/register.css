@@ -1,0 +1,49 @@
+.rg_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-size:cover ;
+    background: linear-gradient(
+        rgba(225,225,225,0.5),
+        rgba(225,225,225,0.5)
+    ), url("https://i.pinimg.com/originals/9b/72/e0/9b72e0d69aec4ccc2756db1616754d63.jpg") center;
+}
+
+.rg_wrapper{
+    width: 40%;
+    padding: 20px;
+    background-color: white;
+}
+
+.rg_title{
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.rg_form{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.rg_input{
+    flex: 1;
+    min-width: 40%;
+    margin: 20px 10px 0 0;
+    padding: 10px;
+}
+
+.rg_agreement{
+    font-size: 12px;
+    margin: 15px 0;
+}
+
+.rg_btn{
+    width: 40%;
+    background-color: teal;
+    border: none;
+    padding: 10px 10px;
+    cursor: pointer;
+    color: white;
+}

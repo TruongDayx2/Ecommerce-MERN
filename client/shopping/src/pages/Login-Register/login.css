@@ -1,0 +1,52 @@
+.lg_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-size:cover ;
+    background: linear-gradient(
+        rgba(225,225,225,0.5),
+        rgba(225,225,225,0.5)
+    ), url("https://i.pinimg.com/originals/9b/72/e0/9b72e0d69aec4ccc2756db1616754d63.jpg") center;
+
+}
+
+.lg_wrapper{
+    width: 25%;
+    padding: 20px;
+    background-color: white;
+}
+
+.lg_title{
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.lg_form{
+    display: flex;
+    flex-direction: column;
+}
+
+.lg_input{
+    flex: 1;
+    min-width: 40%;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.lg_btn{
+    width: 40%;
+    background-color: teal;
+    border: none;
+    padding: 10px 10px;
+    cursor: pointer;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.lg_link{
+    margin: 5px 0;
+    font-size: 12px;
+    cursor: pointer;
+}
