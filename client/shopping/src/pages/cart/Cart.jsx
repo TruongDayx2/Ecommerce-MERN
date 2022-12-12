@@ -43,9 +43,9 @@ const Cart = () => {
               </div>
               <div className="cart_priceDetail">
                 <div className="cart_proAmountContainer">
-                  <Add/>
-                  <div className="cart_proAmount">2</div>
                   <Remove/>
+                  <div className="cart_proAmount">2</div>
+                  <Add/>
                 </div>
                 <div className="cart_proPrice">$ 30</div>
               </div>
@@ -73,9 +73,9 @@ const Cart = () => {
               </div>
               <div className="cart_priceDetail">
                 <div className="cart_proAmountContainer">
-                  <Add/>
-                  <div className="cart_proAmount">2</div>
                   <Remove/>
+                  <div className="cart_proAmount">2</div>
+                  <Add/>
                 </div>
                 <div className="cart_proPrice">$ 30</div>
               </div>

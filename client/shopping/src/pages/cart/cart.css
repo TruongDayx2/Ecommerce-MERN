@@ -160,3 +160,29 @@
 .cart_summaryItem_Price{
 
 }
+
+@media only screen and (max-width: 740px){
+    .cart_wrapper{
+        padding: 10px;
+    }
+
+    .cart_topTexts{
+        display: none;
+    }
+
+    .cart_product{
+        flex-direction: column;
+    }
+
+    .cart_bottom{
+        flex-direction: column;
+    }
+
+    .cart_proAmount{
+        margin: 5px 15px;
+    }
+
+    .cart_proPrice{
+        margin-bottom: 20px;
+    }
+}
