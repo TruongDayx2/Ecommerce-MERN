@@ -1,5 +1,6 @@
 .nb_container{
     height: 60px;
+    
 }
 
 .nb_wrapper{
@@ -52,4 +53,36 @@
     font-size: 14px;
     cursor: pointer;
     margin-left: 25px;
+}
+
+@media only screen and (max-width:740px){
+    .nb_container{
+        height: 50px;
+    }
+
+    .nb_wrapper{
+        padding: 10px 0;
+    }
+
+    .nb_language{
+        display: none;
+    }
+
+    .nb_input{
+        width: 50px;
+    }
+
+    .nb_logo{
+        font-size: 24px;
+    }
+
+    .nb_right{
+        justify-content: center;
+        flex: 2;
+    }
+
+    .nb_menuItem{
+        font-size: 12px;
+        margin-left: 10px;
+    }
 }

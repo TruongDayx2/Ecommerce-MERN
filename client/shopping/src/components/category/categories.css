@@ -2,7 +2,13 @@
     display: flex;
     padding: 20px;
     justify-content: space-between;
-    top: -100px;
     position: relative;
+}
+
+@media only screen and (max-width:740px){
+    .cate_container{
+        padding: 0;
+        flex-direction: column;
+    }
 }
 

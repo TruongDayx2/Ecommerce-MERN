@@ -13,12 +13,12 @@ const Navbar = () => {
           <div className="nb_left">
             <div className="nb_language">EN</div>
             <div className="nb_search">
-              <input type="text" className="nb_input" />
+              <input type="text" className="nb_input" placeholder='Search'/>
               <Search style={{color:'gray',fontSize:16}}/>
             </div>
           </div>
           <div className="nb_center">
-            <h1>77Shop</h1>
+            <h1 className='nb_logo'>77Shop</h1>
           </div>
           <div className="nb_right">
   

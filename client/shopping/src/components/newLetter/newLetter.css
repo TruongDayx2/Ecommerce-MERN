@@ -18,7 +18,7 @@
     margin-bottom: 20px;
 }
 
-.letter_inputContainet{
+.letter_inputContainer{
     width: 50%;
     height: 40px;
     background-color: white;
@@ -39,4 +39,14 @@
     cursor: pointer;
     background-color: teal;
     color: white;
+}
+
+@media only screen and (max-width:740px){
+    .letter_desc{
+        text-align: center;
+    }
+
+    .letter_inputContainer{
+        width: 80%;
+    }
 }

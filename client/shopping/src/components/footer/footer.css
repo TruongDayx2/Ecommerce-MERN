@@ -66,3 +66,17 @@
 .ft_payment{
     width: 50%;
 }
+
+@media only screen and (max-width:740px){
+    .ft_container{
+        flex-direction: column;
+    }
+
+    .ft_center{
+        display: none;
+    }
+
+    .ft_right{
+        background-color: rgb(244, 237, 237);
+    }
+}
