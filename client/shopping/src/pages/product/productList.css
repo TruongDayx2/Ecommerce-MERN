@@ -32,3 +32,18 @@
 
 }
 
+@media only screen and (max-width: 740px){
+    .proL_filterItem{
+        flex-direction: column;   
+    }
+
+    .proL_filterText{
+        margin-right: 0;
+    }
+
+    .proL_select{
+        width: 100px;
+        margin: 10px 0; 
+    }
+
+}
