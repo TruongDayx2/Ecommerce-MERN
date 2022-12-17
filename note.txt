@@ -3,3 +3,7 @@ Client: commit 096167f
 
 FE:
     npm i @material-ui/core @material-ui/icons
+
+BE:
+	npm init -y
+	npm i express mongoose dotenv nodemon
