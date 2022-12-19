@@ -6,4 +6,4 @@ FE:
 
 BE:
 	npm init -y
-	npm i express mongoose dotenv nodemon crypto-js
+	npm i express mongoose dotenv nodemon crypto-js jsonwebtoken
