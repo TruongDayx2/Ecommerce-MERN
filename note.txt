@@ -3,6 +3,7 @@ Client: commit 096167f
 
 FE:
     npm i @material-ui/core @material-ui/icons
+	react-router-dom
 
 BE:
 	npm init -y

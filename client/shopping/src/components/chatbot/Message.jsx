@@ -1,7 +1,6 @@
 import "./Message.css";
 
 const Message = ({ message }) => {
-  console.log(message.role);
   return (
     <>
       {message.role === "You" ? (

@@ -1,9 +1,13 @@
 import { ForumOutlined, RemoveOutlined, SendOutlined } from "@material-ui/icons";
 import { useState, useEffect, useRef } from "react";
+import axios from 'axios';
 import "./Chat.css";
 import Message from "./Message";
 
 const mes = [];
+const baseURL = 'http://localhost:8080';
+
+console.log(baseURL)
 
 const Chat = ({ user }) => {
   const [input, setInput] = useState("");
@@ -31,6 +35,25 @@ const Chat = ({ user }) => {
       };
 
       mes.push(newMessage);
+
+      // axios.post(baseURL, { msg: input })
+      // .then(res => {
+      //   console.log(res);
+      //   console.log(res.data);
+      // })
+      let axiosConfig = {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+      };
+      (async () => {
+        // POST request using axios with async/await
+        const mesPush = { msg: input  };
+        const response = await axios.post("http://localhost:8080/api/chatbot", mesPush, axiosConfig);
+        console.log(response.data)
+
+      })();
+
       setInput("");
       scrollRef.current.scrollIntoView({ behavior: "smooth" });
     }
@@ -56,8 +79,8 @@ const Chat = ({ user }) => {
               </div>
             </div>
             <div className="chat__messages">
-              {mes.map((message) => (
-                <Message key={message.id} message={message} />
+              {mes.map((message,index) => (
+                <Message key={index} message={message} />
               ))}
               <div
                 ref={scrollRef}
@@ -83,5 +106,4 @@ const Chat = ({ user }) => {
     </>
   );
 };
-
 export default Chat;

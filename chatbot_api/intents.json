@@ -1,0 +1,528 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hello",
+                "Hi",
+                "Có ai ở đó không?",
+                "Hey",
+                "Alo",
+                "hai",
+                "Có ai ở đây không nhỉ",
+                "Hú hú",
+                "Tôi cần người hỗ trợ"
+            ],
+            "responses": [
+                "Hello",
+                "Rất vui khi được tư vấn cho bạn",
+                "Chào mừng bạn đến với shop thời trang Nguyên! Shop có thể hỗ trợ gì cho bạn ạ",
+                "Shop có thể giúp gì cho bạn",
+                "Chào ông/bà, tôi có thể giúp thể giúp gì cho quý khách?"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Bye",
+                "Bai",
+                "Tạm biệt",
+                "Không mua nữa",
+                "baibai",
+                "bbye"
+            ],
+            "responses": [
+                "Hẹn gặp lại quý ông/bà",
+                "Chúc quý khách một ngày tốt lành",
+                "Mong rằng quý khách sẽ trở lại sớm"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": [
+                "Thanks",
+                "Thank you",
+                "Cảm ơn bạn rất nhiều",
+                "Tuyệt vời lắm",
+                "Oke lắm anh bạn"
+            ],
+            "responses": [
+                "Rất vui khi được giúp đỡ",
+                "Đó là trách nhiệm của tôi",
+                "Gọi cho tôi bất cứ lúc nào cần thiết",
+                "Quá khen rồi ạ",
+                "Hân hạnh được giúp đỡ ông/bà"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "noanswer",
+            "patterns": [],
+            "responses": [
+                "Xin lỗi, không thể hiểu bạn bạn đang nói gì",
+                "Vui lòng cho tôi biết thêm thông tin đi ạ",
+                "Không chắc là tôi hiểu",
+                "Quý khách đang đang hỏi gì vậy ạ, có thể nói lại dễ hiểu hơn không ạ"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "options",
+            "patterns": [
+                "Món hàng này còn không nhỉ",
+                "Bạn có thể giúp gì cho tôi",
+                "Mặt hàng này có còn không",
+                "Chiếc áo đang được nhất shop",
+                "Tôi cần người hỗ trợ"
+            ],
+            "responses": [
+                "Chào mừng bạn đã đến với thế giới thời trang nam-nữ Nguyên.Tôi là một chatbot phục vụ cho việc tư vấn sản phẩm của shop, Tôi có thể giúp gì cho bạn đây.\n Tôi muốn mua sản phẩm\n Tôi muốn mua hàng\n Shop có chương trình khuyến mãi không"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "shirtForGirlMen",
+            "patterns": [
+                "Tư vấn cho tôi về mẫu áo cho nữ",
+                "Tôi muốn mua áo",
+                "Tư vấn cho tôi về mẫu áo cho nữ",
+                "Muốn hỏi về mẫu áo cho nam cao 1m8",
+                "áo nam",
+                "Áo nữ",
+                "Muốn hỏi về mẫu áo ..",
+                "Áo phông nam",
+                "Áo phông nữ",
+                "Cần mua áo phông",
+                "Muốn hỏi về áo sơ mi dành cho nữ"
+            ],
+            "responses": [
+                "Shop gửi bạn các sản phẩm phù hợp với câu hỏi để bạn dễ tham khảo. \n 1. Áo sơ mi  \n 2. Áo polo  \n 3. Áo phông. Shop tư vấn cho mình về áo dành cho nam-nữ, không biết bạn muốn mua sản phẩm nào ạ?,"
+            ],
+            "context": [
+                "shirtForGirlMen"
+            ]
+        },
+        {
+            "tag": "polo",
+            "patterns": [
+                "Áo polo",
+                "Còn áo polo chứ",
+                "Tư vấn về áo polo",
+                "Mình hỏi về áo polo",
+                "Shop mình còn áo polo không?"
+            ],
+            "responses": [
+                "Dạ áo polo shop vẫn còn hàng ạ. Quý khách muốn tôi tư vấn gì về sản phẩm áo polo ạ?"
+            ]
+        },
+        {
+            "tag": "pricepolo",
+            "patterns": [
+                "Áo polo giá bao nhiêu ạ",
+                "Áo polo bán như thế nào",
+                "áo polo bán giá ntn",
+                "Áo polo bán thế nào",
+                "Xin giá áo polo",
+                "Áo polo bao nhiêu tiền",
+                "Áo polo bán giá ntn"
+            ],
+            "responses": [
+                "Dạ hiện tại áo polo bên em đang sale còn 189.000đ/ 1 áo thôi ạ"
+            ]
+        },
+        {
+            "tag": "shirtmaterialandcolor",
+            "patterns": [
+                "Áo polo chất vải gì, có mấy màu",
+                "Chất vải gì, mấy màu",
+                "Có mấy màu, chất liệu gì",
+                "Có mấy màu",
+                "Chất liệu gì thế",
+                "Áo có mấy màu, chất vải gì"
+            ],
+            "responses": [
+                "Dạ áo bên shop có 4 màu: \n 1. Màu đỏ \n 2.Màu trắng  \n 3.Màu vàng \n 4.Màu navy. Cùng với chất liệu từ 50% sợi café và 50% sợi PET mặc mềm và mát, rất an toàn cho da ạ."
+            ]
+        },
+        {
+            "tag": "polosize",
+            "patterns": [
+                "Áo có mấy size thế",
+                "Có những size nào",
+                "Bé 5 tuổi mặc size nào",
+                "Xin bảng size shop ơi",
+                "55kg mặc size gì?",
+                "Người hơi mập nên mặc size nào thế ạ",
+                "Hơi gầy thì mặc vừa size S không nhỉ "
+            ],
+            "responses": [
+                "Dạ shop xin gửi bảng size áo polo ạ"
+            ]
+        },
+        {
+            "tag": "shirt",
+            "patterns": [
+                "Shop mình còn áo sơ mi không",
+                "Còn áo sơ mi k shop",
+                "Còn áo sơ mi chứ",
+                "Áo sơ mi",
+                "Mình hỏi về áo sơ mi",
+                "Áo sơ mi còn không shop"
+            ],
+            "responses": [
+                "Dạ áo sơ mi shop mình vẫn còn hàng nhé. Quý khách muốn tôi tư vấn gì về sản phẩm ạ?"
+            ]
+        },
+        {
+            "tag": "shirtprice",
+            "patterns": [
+                "Áo sơ mi giá bao nhiêu ạ?",
+                "Áo sơ mi bán thế nào?",
+                "Áo sơ mi bao nhiêu tiền?",
+                "Áo sơ mi bao nhiêu?",
+                "Áo sơ mi bán sao?",
+                "Xin giá áo sơ mi?"
+            ],
+            "responses": [
+                "Dạ áo sơ mi bên shop đang sale còn 134.500đ/ 1 áo thôi ạ. Qúy khách cần tư vấn thêm thông tin gì về sản phẩm áo sơ mi không ạ?"
+            ]
+        },
+        {
+            "tag": "shirtcolorandmaterial",
+            "patterns": [
+                "Áo sơ mi chất vải gì thế, có mấy màu v",
+                "Có mấy màu, chất liệu gì",
+                "Áo sơ mi những màu gì, chất liệu gì thế",
+                "Cho xin thông tin chất liệu, màu sắc áo sơ mi đi shop",
+                "Áo có mấy màu, chất vải gì",
+                "Chất vải gì, mấy màu"
+            ],
+            "responses": [
+                "Dạ áo sơ mi kẻ sọc caro bên shop hiện có 5 màu đó ạ: \n 1. Kẻ tím than  \n 2. Kẻ đen  \n 3. Kẻ vàng  \n 4. Kẻ hồng . Cùng với chất liệu sản phẩm từ 100% cotton rất mềm mại và an toàn cho da."
+            ]
+        },
+        {
+            "tag": "shirtsize",
+            "patterns": [
+                "Áo có mấy size",
+                "Có những size nào",
+                "Xin bảng size đi shop",
+                "Mình xin bảng size đi",
+                "Size nào thì mặc ok nhất",
+                "Hơi thấp thì nên mặc size nào v",
+                "Hơi mập thì nên mặc size nào"
+            ],
+            "responses": [
+                "Dạ shop xin gửi bạn bảng size áo sơ mi của shop cho bạn dễ tham khảo và lựa chọn hơn ạ"
+            ]
+        },
+        {
+            "tag": "address",
+            "patterns": [
+                "Địa chỉ shop ỏ đâu thế ạ",
+                "Cho xin địa chỉ?",
+                "Nhà ở TPHCM thì đến đâu để mua",
+                "Có địa điểm nào ở Hà Nội không",
+                "Có mấy chi nhánh thế",
+                "Chi nhánh của shop mình ở những đâu v"
+            ],
+            "responses": [
+                "Bạn có thể ghé qua 3 chi nhánh tại TPHCM của Nguyên để mua hàng bạn nha.(Thêm 3 cái địa chỉ chi nhánh dô nha em Nguyên"
+            ]
+        },
+        {
+            "tag": "ordersuggestions",
+            "patterns": [
+                "Tôi mua áo này",
+                "Đặt 1 áo sơ mi kẻ vàng số 4 về Lê Văn Việt nhé shop",
+                "Tôi mua 1 áo polo màu vàng và 1 áo sơ mi kẻ đen số 6",
+                "Làm sao để đặt hàng",
+                "Đặt hàng",
+                "Mua hàng như nào",
+                "Mua hàng",
+                "Đặt hàng ntn v"
+            ],
+            "responses": [
+                "Đẻ mua hàng bạn cho shop xin tên + sđt + địa chỉ để shop lên đơn hàng giúp bạn nhé. Tổng thanh toán bao gồm tiền hàng và phí ship bên cửa hàng là 20k áp dụng ở TPHCM và 30k áp dụng cho các tỉnh khác. Bạn vui lòng chú ý điện thoại để nhận đơn hàng nhé.  "
+            ]
+        },
+        {
+            "tag": "cancelorder",
+            "patterns": [
+                "Được hủy đơn không shop",
+                "hủy đơn",
+                "Mình xin hủy đơn hàng nhé",
+                "Hủy giúp mình đơn này nhé",
+                "Cho tôi hủy đơn này",
+                "Mình muốn hủy đơn",
+                "Hủy giúp em đơn vừa rồi với shop ơi",
+                "Tôi muốn hủy đơn vừa đặt nhé"
+            ],
+            "responses": [
+                "Bạn vui lòng chờ chút tôi sẽ thông báo cho chủ shop check lại đơn hàng của bạn nhé"
+            ]
+        },
+        {
+            "tag": "wrongaddress",
+            "patterns": [
+                "Giao sai mẫu rồi shop ơi",
+                "Giao hàng bị lỗi rồi",
+                "Nhầm size của tôi rồi",
+                "Hàng bị lỗi rồi ạ",
+                "Shop ơi hàng bị lỗi rồi",
+                "Hàng của tôi bị thiếu rồi"
+            ],
+            "responses": [
+                "Dạ trước hết thay mặt shop xin lỗi quý khách vì sự nhầm lẫn này ạ. Mình cho shop xin sdt để shop check đơn và phiền bạn chụp ảnh hàng bạn đã nhận để được shop hỗ trợ đổi cho bạn nha! Cảm ơn bạn!"
+            ]
+        },
+        {
+            "tag": "introduce",
+            "patterns": [
+                "Shop bán mặt hàng gì vậy",
+                "Bán gì vậy shop",
+                "Sản phẩm",
+                "Gồm những sản phẩm nào thế"
+            ],
+            "responses": [
+                "Hiện tại shop Nguyên đang kinh doanh các mặt hàng như áo sơ mi, áo polo, quần âu, quần short. Bạn muốn mua mặt hàng nào shop nhỉ ?"
+            ]
+        },
+        {
+            "tag": "norequest",
+            "patterns": [
+                "Giảm giá được không",
+                "Giảm giá di shop ơi đắt quá",
+                "Bớt tí được không shop",
+                "Đắt quá sao mua nổi",
+                "Đắt quá"
+            ],
+            "responses": [
+                "Hông bé ơi, hông giảm được đâu. Nhưng hiện tại có 1 số mặt hàng đang sale mạnh đó ạ, quý khách có thể tham khảo qua giá cả sản phẩm ạ"
+            ]
+        },
+        {
+            "tag": "ship",
+            "patterns": [
+                "Phí ship đắt quá",
+                "Ship đắt",
+                "Ship đắt quá",
+                "Có thể miễn phí vận chuyển không?",
+                "Giảm tiền ship được k"
+            ],
+            "responses": [
+                "Hông được bạn ơi 🙁. Không có tiền ship thì không có ai chuyển cho bạn hết"
+            ]
+        },
+        {
+            "tag": "pay",
+            "patterns": [
+                "Thanh toán hàng kiểu gì vậy",
+                "Thanh toán",
+                "Kiểu thanh toán",
+                "Loại thanh toán",
+                "Có thể thanh toán bằng Alipay k",
+                "Tôi muốn thanh toán"
+            ],
+            "responses": [
+                "Hiện tại bên shop nhận 2 hình thức thanh toán chính đó là tiền mặt và chuyển khoản đó ạ. Quý khách tham khảo và chọn phương án phù hợp cho mình ạ !"
+            ]
+        },
+        {
+            "tag": "T-shirt",
+            "patterns": [
+                "Áo phông",
+                "Còn áo phông chứ",
+                "Tư vấn về áo phông",
+                "Mình hỏi về áo polo nam",
+                "Áo phông bán như nào",
+                "Shop mình còn áo phông không?"
+            ],
+            "responses": [
+                "Dạ áo phông shop vẫn còn hàng ạ. Quý khách muốn tôi tư vấn gì về sản phẩm áo phông ạ?"
+            ]
+        },
+        {
+            "tag": "priceT-shirt",
+            "patterns": [
+                "Áo phông giá bao nhiêu ạ",
+                "Áo phông bán như thế nào",
+                "áo phông bán giá ntn",
+                "Áo phông bán thế nào",
+                "Xin giá áo phông",
+                "Áo phông bao nhiêu tiền",
+                "Áo phông bán giá ntn"
+            ],
+            "responses":
+            [
+                "Dạ hiện tại áo phông bên em đang sale còn 150.000đ/ 1 áo thôi ạ"
+            ]
+        },
+        {
+            "tag": "T-shirtmaterialandcolor",
+            "patterns": [
+                "Áo phông chất vải gì, có mấy màu",
+                "Chất vải gì, mấy màu",
+                "Có mấy màu, chất liệu gì",
+                "Có mấy màu",
+                "Màu sắc",
+                "Chất liệu",
+                "Chất liệu gì thế",
+                "Áo có mấy màu, chất vải gì"
+            ],
+            "responses": [
+                "Dạ áo bên shop có 4 màu: \n 1. Màu kem sữa \n 2.Màu trắng  \n 3.Màu đen \n 4.Màu navy. Cùng với chất liệu từ 100% Cotton mặc mềm và mát, thoáng khí ạ."
+            ]
+        },
+        {
+            "tag": "T-shirtsize",
+            "patterns": [
+                "Áo có mấy size thế",
+                "Có những size nào",
+                "Bé 5 tuổi mặc size nào",
+                "Xin bảng size shop ơi",
+                "55kg mặc size gì?",
+                "Người hơi mập nên mặc size nào thế ạ",
+                "Hơi gầy thì mặc vừa size S không nhỉ "
+            ],
+            "responses": [
+                "Dạ shop xin gửi bảng size áo polo ạ"
+            ]
+        },
+        {
+            "tag": "short&trousers",
+            "patterns": [
+                "Tư vấn cho tôi về mẫu quần cho nữ",
+                "Tôi muốn mua quần",
+                "Tư vấn cho tôi về mẫu quần cho nữ",
+                "Muốn hỏi về mẫu quần cho nam cao 1m8",
+                "quần nam",
+                "quần nữ",
+                "Muốn hỏi về mẫu quần ..",
+                "Quần short nam",
+                "Quần âu nữ",
+                "Cần mua quần âu",
+                "Quần âu nam",
+                "Muốn hỏi về quần âu cho nữ"
+            ],
+            "responses": [
+                "Shop gửi bạn các sản phẩm phù hợp với câu hỏi để bạn dễ tham khảo. \n 1. Quần âu \n 2. Quần short. Shop tư vấn cho mình về quần dành cho nam-nữ, không biết bạn muốn mua sản phẩm nào ạ?,"
+            ],
+            "context": [
+                "short&trousers"
+            ]
+        },
+        {
+            "tag": "cricket",
+            "patterns": [
+                "current cricket matches",
+                "cricket score"
+            ],
+            "responses": [
+                "..."
+            ]
+        },
+        {
+            "tag": "song",
+            "patterns": [
+                "top songs",
+                "best songs",
+                "hot songs",
+                " top 10 songs",
+                "top ten songs"
+            ],
+            "responses": [
+                "..."
+            ]
+        },
+        {
+            "tag": "greetreply",
+            "patterns": [
+                "i am good",
+                "I'm good",
+                "i am fine",
+                " i'm fine",
+                "good"
+            ],
+            "responses": [
+                "Good to know!"
+            ]
+        },
+        {
+            "tag": "timer",
+            "patterns": [
+                "set a timer"
+            ],
+            "responses": [
+                "..."
+            ]
+        },
+        {
+            "tag": "covid19",
+            "patterns": [
+                "covid 19 "
+            ],
+            "responses": [
+                "..."
+            ]
+        },
+        {
+            "tag": "suggest",
+            "patterns": [
+                "you are useless",
+                "useless",
+                "suggest",
+                "suggestions",
+                "you are bad"
+            ],
+            "responses": [
+                "Please mail your suggestions to ted.thedlbot.suggestions@gmail.com. Thank you for helping me improve!"
+            ]
+        },
+        {
+            "tag": "riddle",
+            "patterns": [
+                "Ask me a riddle",
+                "Ask me a question",
+                "Riddle"
+            ],
+            "responses": [
+                "What two things can you never eat for breakfast?.....Lunch and Dinner!",
+                "What word is spelled incorrectly in every single dictionary?.....Incorrectly",
+                " How can a girl go 25 days without sleep?.....She sleeps and night!",
+                "How do you make the number one disappear?.....Add the letter G and it’s 'gone'!",
+                " What will you actually find at the end of every rainbow?.....The letter 'w'",
+                "What can be caught but never thrown?.....A cold!",
+                "What has a thumb and four fingers but is not actually alive?.....Your Gloves!",
+                " What 5-letter word becomes shorter when you add two letters to it?.....Short",
+                "Why can't a bike stand on it's own?.....It is two-tired."
+            ],
+            "context": [
+                "riddles"
+            ]
+        },
+        {
+            "tag": "age",
+            "patterns": [
+                "how old are you",
+                "when were you made",
+                "what is your age"
+            ],
+            "responses": [
+                "I was made in 2020, if that's what you are asking!"
+            ]
+        }
+    ]
+}
