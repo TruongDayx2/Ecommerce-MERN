@@ -25,7 +25,7 @@ const ProductList = () => {
   return (
     <div className="proL_container">
       <Navbar />
-      <h1 className="proL_title">Shirt</h1>
+      <h1 className="proL_title">{cate}</h1>
       <div className="proL_filterContainer">
         <div className="proL_filterItem">
           <div className="proL_filterText">Filter Product:</div>
@@ -39,22 +39,22 @@ const ProductList = () => {
             <option value="1" disabled className="proL_option">
               Color
             </option>
-            <option value="White" className="proL_option">
+            <option value="white" className="proL_option">
               White
             </option>
-            <option value="Black" className="proL_option">
+            <option value="black" className="proL_option">
               Black
             </option>
-            <option value="Red" className="proL_option">
+            <option value="red" className="proL_option">
               Red
             </option>
-            <option value="Blue" className="proL_option">
+            <option value="blue" className="proL_option">
               Blue
             </option>
-            <option value="Yellow" className="proL_option">
+            <option value="yellow" className="proL_option">
               Yellow
             </option>
-            <option value="Green" className="proL_option">
+            <option value="green" className="proL_option">
               Green
             </option>
           </select>
