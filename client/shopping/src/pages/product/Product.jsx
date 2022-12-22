@@ -1,14 +1,33 @@
 import { Add, Remove } from "@material-ui/icons";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import  { useLocation } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
 import NewLetter from "../../components/newLetter/NewLetter";
+import { publicRequest } from "../../requestMethods";
 
 import "./product.css";
 
 const Product = () => {
 
-    const [quantity, setQuantity] = useState(1)
+  const [product, setProduct] = useState({});
+  const [quantity, setQuantity] = useState(1)
+  const [color, setColor] = useState("")
+  const [size, setSize] = useState("")
+
+  const location = useLocation();
+  const id = location.pathname.split("/")[2];
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = await publicRequest.get("/products/find/" + id);
+        setProduct(res.data);
+      } catch {}
+    };
+    getProduct();
+  }, [id]);
+    
 
     const updateQuantity = (type) =>{
         if (type === 'plus'){
@@ -24,34 +43,32 @@ const Product = () => {
       <div className="p_wrapper">
         <div className="p_imgContainer">
           <img
-            src="https://cdn.ssstutter.com/products/po0EUQXd52Ks47dT/112022/1667904313497.jpeg"
+            src={product.img}
             alt=""
             className="p_img"
           />
         </div>
         <div className="p_infoContainer">
-          <h1 className="p_title">CITY SWEATSHIRT</h1>
+          <h1 className="p_title">{product.title}</h1>
           <p className="p_desc">
-            Sweatshirt with a firm neckline, elastic sleeves and tail Graphic hand-embroidered
-            letters, chest position. Thickened crab leg felt material, keeps warm well Model 1m75
-            tall, weighs 60kg, wears size 2
+            {product.desc}
           </p>
-          <span className="p_price">$ 100</span>
+          <span className="p_price">$ {product.price}</span>
           <div className="p_filterContainer">
             <div className="p_filter">
                 <span className="p_filterTitle">Color</span>
-                <div className="p_filterColor" style={{backgroundColor:"red"}}></div>
-                <div className="p_filterColor" style={{backgroundColor:"blue"}}></div>
-                <div className="p_filterColor" style={{backgroundColor:"black"}}></div>
+                {product.color?.map((c)=>(
+                  <div key={c} className={`p_filterColor ${color === c ? 'active' : ''}`} onClick={()=>setColor(c)}>
+                    <div className='p_circle' style={{backgroundColor:`${c}`}} ></div>
+                  </div>
+                ))}
             </div>
             <div className="p_filter">
                 <span className="p_filterTitle">Size</span>
-                <select name="" id="" className="p_filterSize" defaultValue={'XS'}>
-                    <option value="XS" className="p_filterSizeOption">XS</option>
-                    <option value="S" className="p_filterSizeOption">S</option>
-                    <option value="M" className="p_filterSizeOption">M</option>
-                    <option value="L" className="p_filterSizeOption">L</option>
-                    <option value="XL" className="p_filterSizeOption">XL</option>
+                <select name="" id="" className="p_filterSize" onClick={(e)=>setColor(e.target.value)} >
+                  {product.size?.map((s)=>(
+                    <option key={s} value={s} className="p_filterSizeOption">{s}</option>
+                  ))}
                 </select>
             </div>
           </div>

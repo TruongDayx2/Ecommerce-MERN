@@ -54,6 +54,7 @@
     border-radius: 50%;
     background-color: white;
     transition: all .5s ease;
+    color: black;
 }
 
 .pro_icon:hover{

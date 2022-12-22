@@ -20,7 +20,6 @@ const Products = ({ cate, filter, sort }) => {
             : "http://localhost:5000/api/products"
         );
         setProducts(res.data);
-        console.log(res.data)
       } catch (err) {
         console.log(err);
       }
