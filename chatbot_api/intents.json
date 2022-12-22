@@ -14,11 +14,7 @@
                 "Tôi cần người hỗ trợ"
             ],
             "responses": [
-                "Hello",
-                "Rất vui khi được tư vấn cho bạn",
-                "Chào mừng bạn đến với shop thời trang Nguyên! Shop có thể hỗ trợ gì cho bạn ạ",
-                "Shop có thể giúp gì cho bạn",
-                "Chào ông/bà, tôi có thể giúp thể giúp gì cho quý khách?"
+                "https://stackoverflow.com/questions/44786669/warning-use-the-defaultvalue-or-value-props-on-select-instead-of-setting"
             ],
             "context": [
                 ""
@@ -35,9 +31,7 @@
                 "bbye"
             ],
             "responses": [
-                "Hẹn gặp lại quý ông/bà",
-                "Chúc quý khách một ngày tốt lành",
-                "Mong rằng quý khách sẽ trở lại sớm"
+               "https://laptrinhcanban.com/javascript/javascript-co-ban-den-nang-cao/kien-thuc-co-ban-ve-javascript/xuong-dong-trong-javascript/"
             ],
             "context": [
                 ""
@@ -153,7 +147,7 @@
                 "Áo có mấy màu, chất vải gì"
             ],
             "responses": [
-                "Dạ áo bên shop có 4 màu: \n 1. Màu đỏ \n 2.Màu trắng  \n 3.Màu vàng \n 4.Màu navy. Cùng với chất liệu từ 50% sợi café và 50% sợi PET mặc mềm và mát, rất an toàn cho da ạ."
+                "Dạ áo bên shop có 4 màu: <br/> 1. Màu đỏ <br> 2.Màu trắng  <br> 3.Màu vàng \n 4.Màu navy. Cùng với chất liệu từ 50% sợi café và 50% sợi PET mặc mềm và mát, rất an toàn cho da ạ."
             ]
         },
         {

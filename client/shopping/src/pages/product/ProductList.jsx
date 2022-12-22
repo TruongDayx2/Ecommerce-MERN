@@ -5,8 +5,23 @@ import Products from "../../components/product/Products";
 import NewLetter from "../../components/newLetter/NewLetter";
 import Footer from "../../components/footer/Footer";
 import "./productList.css";
+import { useLocation } from "react-router-dom";
+import { useState } from "react";
 
 const ProductList = () => {
+  const location = useLocation();
+  const cate = location.pathname.split("/")[2];
+  const [filter, setFilter] = useState({});
+  const [sort, setSort] = useState("newest");
+
+  const handleFilter = (e) => {
+    const value = e.target.value;
+    setFilter({
+      ...filter,
+      [e.target.name]: value,
+    });
+  };
+
   return (
     <div className="proL_container">
       <Navbar />
@@ -14,42 +29,81 @@ const ProductList = () => {
       <div className="proL_filterContainer">
         <div className="proL_filterItem">
           <div className="proL_filterText">Filter Product:</div>
-          <select name="" id="" className="proL_select">
-            <option value="" disabled selected className="proL_option">
+          <select
+            name="color"
+            id=""
+            className="proL_select"
+            onChange={handleFilter}
+            defaultValue={"1"}
+          >
+            <option value="1" disabled className="proL_option">
               Color
             </option>
-            <option value="" className="proL_option">White</option>
-            <option value="" className="proL_option">Black</option>
-            <option value="" className="proL_option">Red</option>
-            <option value="" className="proL_option">Blue</option>
-            <option value="" className="proL_option">Yellow</option>
-            <option value="" className="proL_option">Green</option>
+            <option value="White" className="proL_option">
+              White
+            </option>
+            <option value="Black" className="proL_option">
+              Black
+            </option>
+            <option value="Red" className="proL_option">
+              Red
+            </option>
+            <option value="Blue" className="proL_option">
+              Blue
+            </option>
+            <option value="Yellow" className="proL_option">
+              Yellow
+            </option>
+            <option value="Green" className="proL_option">
+              Green
+            </option>
           </select>
-          <select name="" id="" className="proL_select">
-            <option value="" disabled selected className="proL_option">
+          <select
+            name="size"
+            id=""
+            className="proL_select"
+            onChange={handleFilter}
+            defaultValue={"1"}
+          >
+            <option value="1" disabled className="proL_option">
               Size
             </option>
-            <option value="" className="proL_option">XS</option>
-            <option value="" className="proL_option">S</option>
-            <option value="" className="proL_option">M</option>
-            <option value="" className="proL_option">L</option>
-            <option value="" className="proL_option">XL</option>
-            <option value="" className="proL_option">XXL</option>
+            <option value="XS" className="proL_option">
+              XS
+            </option>
+            <option value="S" className="proL_option">
+              S
+            </option>
+            <option value="M" className="proL_option">
+              M
+            </option>
+            <option value="L" className="proL_option">
+              L
+            </option>
+            <option value="XL" className="proL_option">
+              XL
+            </option>
+            <option value="XXL" className="proL_option">
+              XXL
+            </option>
           </select>
         </div>
         <div className="proL_filterItem">
           <div className="proL_filterText">Sort Product:</div>
-          <select name="" id="" className="proL_select">
-            <option value=""  selected className="proL_option">
+          <select name="" id="" className="proL_select" onChange={e=>setSort(e.target.value)}>
+            <option value="Newest" className="proL_option">
               Newest
             </option>
-            <option value="" className="proL_option">Price (asc)</option>
-            <option value="" className="proL_option">Price (desc)</option>
-        
+            <option value="asc" className="proL_option">
+              Price (asc)
+            </option>
+            <option value="desc" className="proL_option">
+              Price (desc)
+            </option>
           </select>
         </div>
       </div>
-      <Products />
+      <Products cate={cate} filter={filter} sort={sort}/>
       <NewLetter />
       <Footer />
     </div>

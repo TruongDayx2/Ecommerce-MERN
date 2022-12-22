@@ -19,12 +19,14 @@ export const categories = [
     {
         id:1,
         img:"https://cdn.ssstutter.com/products/po0EUQXd52Ks47dT/112022/1668409522619.jpeg",
-        title:"FOR HIM"
+        title:"FOR HIM",
+        cate:"men"
     },
     {
         id:2,
         img:"https://cdn.ssstutter.com/products/po0EUQXd52Ks47dT/062022/1655785734929.jpeg",
-        title:"FOR HER"
+        title:"FOR HER",
+        cate:"women"
     }
 ]
 

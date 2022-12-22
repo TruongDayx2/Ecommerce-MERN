@@ -1,13 +1,12 @@
 import { ForumOutlined, RemoveOutlined, SendOutlined } from "@material-ui/icons";
 import { useState, useEffect, useRef } from "react";
-import axios from 'axios';
+import axios from "axios";
 import "./Chat.css";
 import Message from "./Message";
 
-const mes = [];
-const baseURL = 'http://localhost:8080';
+const baseURL = "http://localhost:8080";
 
-console.log(baseURL)
+const mes = [];
 
 const Chat = ({ user }) => {
   const [input, setInput] = useState("");
@@ -28,7 +27,7 @@ const Chat = ({ user }) => {
   const sendMessages = (e) => {
     e.preventDefault();
 
-    if (input !== "" && input.trim() !=="") {
+    if (input !== "" && input.trim() !== "") {
       const newMessage = {
         message: input,
         role: "You",
@@ -36,25 +35,36 @@ const Chat = ({ user }) => {
 
       mes.push(newMessage);
 
-      // axios.post(baseURL, { msg: input })
-      // .then(res => {
-      //   console.log(res);
-      //   console.log(res.data);
-      // })
       let axiosConfig = {
         headers: {
           "Access-Control-Allow-Origin": "*",
         },
       };
-      (async () => {
-        // POST request using axios with async/await
-        const mesPush = { msg: input  };
-        const response = await axios.post("http://localhost:8080/api/chatbot", mesPush, axiosConfig);
-        console.log(response.data)
+      // (async () => {
+      //   // POST request using axios with async/await
+      //   const mesPush = { msg: input  };
+      //   const res = await axios.post("http://localhost:8080/api/chatbot", mesPush, axiosConfig);
+      //   var newBotMessage = {
+      //     message: res.data.response,
+      //     role: "Bot",
+      //   };
+      //   console.log(res.data.response)
 
-      })();
+      // })();
+      axios.post("http://localhost:8080/api/chatbot", { msg: input }, axiosConfig)
+      .then((res) => {
+        const newBotMessage = {
+          message: res.data.response,
+          role: "Bot",
+        };
 
-      setInput("");
+        mes.push(newBotMessage);
+        setInput("");
+
+      });
+
+      // console.log("mes is here:", mes);
+
       scrollRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
@@ -79,7 +89,7 @@ const Chat = ({ user }) => {
               </div>
             </div>
             <div className="chat__messages">
-              {mes.map((message,index) => (
+              {mes.map((message, index) => (
                 <Message key={index} message={message} />
               ))}
               <div
@@ -88,7 +98,10 @@ const Chat = ({ user }) => {
               ></div>
             </div>
             <div className="chat__input">
-              <form onSubmit={sendMessages} style={{ width: "375px",display:"flex",alignItems:"center" }}>
+              <form
+                onSubmit={sendMessages}
+                style={{ width: "375px", display: "flex", alignItems: "center" }}
+              >
                 <input
                   type="text"
                   placeholder="Type a message here"
@@ -96,7 +109,7 @@ const Chat = ({ user }) => {
                   onChange={(e) => setInput(e.target.value)}
                 />
                 <button>
-                  <SendOutlined/>
+                  <SendOutlined />
                 </button>
               </form>
             </div>

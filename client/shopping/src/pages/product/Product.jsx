@@ -46,12 +46,12 @@ const Product = () => {
             </div>
             <div className="p_filter">
                 <span className="p_filterTitle">Size</span>
-                <select name="" id="" className="p_filterSize">
-                    <option value="" className="p_filterSizeOption">XS</option>
-                    <option value="" className="p_filterSizeOption">S</option>
-                    <option value="" className="p_filterSizeOption">M</option>
-                    <option value="" className="p_filterSizeOption">L</option>
-                    <option value="" className="p_filterSizeOption">XL</option>
+                <select name="" id="" className="p_filterSize" defaultValue={'XS'}>
+                    <option value="XS" className="p_filterSizeOption">XS</option>
+                    <option value="S" className="p_filterSizeOption">S</option>
+                    <option value="M" className="p_filterSizeOption">M</option>
+                    <option value="L" className="p_filterSizeOption">L</option>
+                    <option value="XL" className="p_filterSizeOption">XL</option>
                 </select>
             </div>
           </div>

@@ -23,6 +23,18 @@
   width: fit-content;
   padding: 10px;
   border-radius: 7.5px;
+  /* max-width: 360px; */
+  word-wrap:break-word;
+}
+
+.chat__message a {
+  color: #fff;
+  background: #545e75;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 7.5px;
+  /* max-width: 360px; */
+  word-wrap:break-word;
 }
 
 .chat__message img {
