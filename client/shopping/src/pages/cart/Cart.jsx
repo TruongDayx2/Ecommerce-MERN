@@ -59,7 +59,7 @@ const Cart = () => {
             <h1 className="cart_summaryTitle">ORDER SUMMARY</h1>
             <div className="cart_summaryItem">
               <span className="cart_summaryItem_Text">Subtotal</span>
-              <span className="cart_summaryItem_Price">$ 60</span>
+              <span className="cart_summaryItem_Price">$ {cart.total}</span>
             </div>
             <div className="cart_summaryItem">
               <span className="cart_summaryItem_Text">Estimated Shipping</span>
@@ -71,7 +71,7 @@ const Cart = () => {
             </div>
             <div className="cart_summaryItem" style={{ fontWeight: "500", fontSize: "24px" }}>
               <span className="cart_summaryItem_Text">Total</span>
-              <span className="cart_summaryItem_Price">$ 60</span>
+              <span className="cart_summaryItem_Price">$ {cart.total}</span>
             </div>
             <button className="cart_summaryBtn">CHECKOUT NOW</button>
           </div>

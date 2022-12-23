@@ -1,0 +1,17 @@
+.lg_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.lg_input{
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.lg_btn{
+    padding: 10px;
+    width: 100px;
+}
