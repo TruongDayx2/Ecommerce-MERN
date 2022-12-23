@@ -57,6 +57,7 @@
 .cart_product{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10px;
 }
 
 .cart_productDetail{

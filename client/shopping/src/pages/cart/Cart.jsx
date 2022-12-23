@@ -1,11 +1,13 @@
 import { Add, Remove } from "@material-ui/icons";
 import React from "react";
+import { useSelector } from "react-redux";
 import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
 
 import "./cart.css";
 
 const Cart = () => {
+  const cart = useSelector((state) => state.cart);
   return (
     <div className="cart_container">
       <Navbar />
@@ -21,65 +23,37 @@ const Cart = () => {
         </div>
         <div className="cart_bottom">
           <div className="cart_info">
-            <div className="cart_product">
-              <div className="cart_productDetail">
-                <img
-                  src="https://cdn.ssstutter.com/products/po0EUQXd52Ks47dT/112022/1668409522619.jpeg"
-                  alt=""
-                  className="cart_proImg"
-                />
-                <div className="cart_proDetail">
-                  <span className="cart_proName">
-                    <b>Product:</b> LONG SLEEVED SHIRT
-                  </span>
-                  <span className="cart_proId">
-                    <b>Id:</b> 8391037456
-                  </span>
-                  <div className="cart_proColor" style={{ backgroundColor: "red" }}></div>
-                  <span className="cart_proSize">
-                    <b>Size:</b> L
-                  </span>
+            {cart.products?.map((product,index) => (
+              <div className="cart_product" key={index}>
+                <div className="cart_productDetail">
+                  <img
+                    src={product.img}
+                    alt=""
+                    className="cart_proImg"
+                  />
+                  <div className="cart_proDetail">
+                    <span className="cart_proName">
+                      <b>Product:</b> {product.title}
+                    </span>
+                    <span className="cart_proId">
+                      <b>Id:</b> {product._id}
+                    </span>
+                    <div className="cart_proColor" style={{ backgroundColor: `${product.color}` }}></div>
+                    <span className="cart_proSize">
+                      <b>Size:</b> {product.size}
+                    </span>
+                  </div>
+                </div>
+                <div className="cart_priceDetail">
+                  <div className="cart_proAmountContainer">
+                    <Remove />
+                    <div className="cart_proAmount">{product.quantity}</div>
+                    <Add />
+                  </div>
+                  <div className="cart_proPrice">$ {product.price * product.quantity}</div>
                 </div>
               </div>
-              <div className="cart_priceDetail">
-                <div className="cart_proAmountContainer">
-                  <Remove/>
-                  <div className="cart_proAmount">2</div>
-                  <Add/>
-                </div>
-                <div className="cart_proPrice">$ 30</div>
-              </div>
-            </div>
-            <hr className="cart_hr"></hr>
-            <div className="cart_product">
-              <div className="cart_productDetail">
-                <img
-                  src="https://cdn.ssstutter.com/products/po0EUQXd52Ks47dT/112022/1668409522619.jpeg"
-                  alt=""
-                  className="cart_proImg"
-                />
-                <div className="cart_proDetail">
-                  <span className="cart_proName">
-                    <b>Product:</b> LONG SLEEVED SHIRT
-                  </span>
-                  <span className="cart_proId">
-                    <b>Id:</b> 8391037456
-                  </span>
-                  <div className="cart_proColor" style={{ backgroundColor: "red" }}></div>
-                  <span className="cart_proSize">
-                    <b>Size:</b> L
-                  </span>
-                </div>
-              </div>
-              <div className="cart_priceDetail">
-                <div className="cart_proAmountContainer">
-                  <Remove/>
-                  <div className="cart_proAmount">2</div>
-                  <Add/>
-                </div>
-                <div className="cart_proPrice">$ 30</div>
-              </div>
-            </div>
+            ))}
           </div>
           <div className="cart_summary">
             <h1 className="cart_summaryTitle">ORDER SUMMARY</h1>
@@ -95,7 +69,7 @@ const Cart = () => {
               <span className="cart_summaryItem_Text">Shipping Discount</span>
               <span className="cart_summaryItem_Price">$ -5</span>
             </div>
-            <div className="cart_summaryItem" style={{fontWeight:'500', fontSize:'24px'}}>
+            <div className="cart_summaryItem" style={{ fontWeight: "500", fontSize: "24px" }}>
               <span className="cart_summaryItem_Text">Total</span>
               <span className="cart_summaryItem_Price">$ 60</span>
             </div>
