@@ -22,7 +22,9 @@ const Navbar = () => {
             </div>
           </div>
           <div className="nb_center">
-            <h1 className="nb_logo">77Shop</h1>
+            <Link to={'/'} style={{textDecoration: "none",color:"black"}}>
+              <h1 className="nb_logo">77Shop</h1>
+            </Link >
           </div>
           <div className="nb_right">
             <div className="nb_menuItem">REGISTER</div>

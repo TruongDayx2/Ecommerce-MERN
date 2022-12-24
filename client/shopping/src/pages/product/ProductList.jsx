@@ -1,18 +1,24 @@
 import React from "react";
-
+import { Add } from "@material-ui/icons";
 import Navbar from "../../components/navbar/Navbar";
 import Products from "../../components/product/Products";
 import NewLetter from "../../components/newLetter/NewLetter";
 import Footer from "../../components/footer/Footer";
 import "./productList.css";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
 
 const ProductList = () => {
   const location = useLocation();
   const cate = location.pathname.split("/")[2];
+  const catePath = location.pathname.split("/")[3];
   const [filter, setFilter] = useState({});
   const [sort, setSort] = useState("newest");
+  const [catePathMen, setCatePathMen] = useState([]);
+  const [catePathWomen, setCatePathWomen] = useState([]);
+  const [hideCate, setHideCate] = useState(false);
 
   const handleFilter = (e) => {
     const value = e.target.value;
@@ -22,10 +28,83 @@ const ProductList = () => {
     });
   };
 
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const res = await axios.get(
+          cate === "men"
+            ? `http://localhost:5000/api/products/find/63a072fec23ddef64575c1e4`
+            : `http://localhost:5000/api/products/find/63a6a688e798c7ce969e7c71`
+        );
+        setCatePathMen(res.data.cateMen);
+        setCatePathWomen(res.data.cateWomen);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getProducts();
+  }, [cate]);
+
   return (
     <div className="proL_container">
       <Navbar />
       <h1 className="proL_title">{cate}</h1>
+      <div className="proL_cate">
+        <span onClick={() => setHideCate(!hideCate)} className="proL_cateTitle">
+          Danh Mục
+          <Add className="proL_cateIcon" />
+        </span>
+        {/* { hideCate && 
+        (
+          <ul className="proL_cateMenu">
+          {cate === "men"
+            ? catePathMen.map((item, index) => <Link key={index}  to={`/products/${cate}/${item}`}><li className="proL_catePathItem">{item}</li></Link>)
+            : catePathWomen.map((item, index) => <Link key={index}  to={`/products/${cate}/${item}`}><li  className="proL_catePathItem">{item}</li></Link>)}
+          </ul>
+          )
+        } */}
+        {hideCate && (
+          <ul className="proL_cateMenu">
+            {cate === "men" ? (
+              <>
+                <Link to={`/products/${cate}/Polo`}>
+                  <li className="proL_catePathItem">Polo</li>
+                </Link>
+                <Link to={`/products/${cate}/T-shirts`}>
+                  <li className="proL_catePathItem">Phông</li>
+                </Link>
+                <Link to={`/products/${cate}/Somi`}>
+                  <li className="proL_catePathItem">somi</li>
+                </Link>
+                <Link to={`/products/${cate}/WesternPants`}>
+                  <li className="proL_catePathItem">Quần Tây Âu</li>
+                </Link>
+                <Link to={`/products/${cate}/Shorts`}>
+                  <li className="proL_catePathItem">Quần Ngắn</li>
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to={`/products/${cate}/Polo`}>
+                  <li className="proL_catePathItem">Polo</li>
+                </Link>
+                <Link to={`/products/${cate}/T-shirts`}>
+                  <li className="proL_catePathItem">Phông</li>
+                </Link>
+                <Link to={`/products/${cate}/Somi`}>
+                  <li className="proL_catePathItem">somi</li>
+                </Link>
+                <Link to={`/products/${cate}/Dress`}>
+                  <li className="proL_catePathItem">Váy</li>
+                </Link>
+                <Link to={`/products/${cate}/FemaleJeans`}>
+                  <li className="proL_catePathItem">Quần Jean Nữ</li>
+                </Link>
+              </>
+            )}
+          </ul>
+        )}
+      </div>
       <div className="proL_filterContainer">
         <div className="proL_filterItem">
           <div className="proL_filterText">Filter Product:</div>
@@ -87,10 +166,32 @@ const ProductList = () => {
               XXL
             </option>
           </select>
+          {/* <select
+            name=""
+            id=""
+            className="proL_select"
+            onChange={(e) => setCatePath(e.target.value)}
+            defaultValue={"1"}
+          >
+            <option value="1" disabled className="proL_option">
+              Danh Mục
+            </option>
+            {cate === "men"
+              ? catePathMen.map((item, index) => (
+                  <option className="proL_option" value={item} key={index}>
+                    {item}
+                  </option>
+                ))
+              : catePathWomen.map((item, index) => (
+                  <option className="proL_option" value={item} key={index}>
+                    {item}
+                  </option>
+                ))}
+          </select> */}
         </div>
         <div className="proL_filterItem">
           <div className="proL_filterText">Sort Product:</div>
-          <select name="" id="" className="proL_select" onChange={e=>setSort(e.target.value)}>
+          <select name="" id="" className="proL_select" onChange={(e) => setSort(e.target.value)}>
             <option value="Newest" className="proL_option">
               Newest
             </option>
@@ -103,7 +204,7 @@ const ProductList = () => {
           </select>
         </div>
       </div>
-      <Products cate={cate} filter={filter} sort={sort}/>
+      <Products cate={cate} filter={filter} sort={sort} catePath={catePath} />
       <NewLetter />
       <Footer />
     </div>

@@ -6,18 +6,24 @@ import Product from "./Product";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-const Products = ({ cate, filter, sort }) => {
+const Products = ({ cate, filter, sort, catePath }) => {
   const [products, setProducts] = useState([]);
   const [filterProducts, setFilterProducts] = useState([]);
-
+  console.log(catePath);
   useEffect(() => {
     const getProducts = async () => {
       try {
         const res = await axios.get(
-          cate
-            ? `http://localhost:5000/api/products?category=${cate}`
-            : "http://localhost:5000/api/products"
+          catePath
+            ? `http://localhost:5000/api/products/?category=${cate}/${catePath}`
+            : cate
+              ? `http://localhost:5000/api/products?category=${cate}`
+              : "http://localhost:5000/api/products"
+          // cate
+          // ? `http://localhost:5000/api/products?category=${cate}`
+          // : "http://localhost:5000/api/products"
         );
         setProducts(res.data);
       } catch (err) {
@@ -25,7 +31,7 @@ const Products = ({ cate, filter, sort }) => {
       }
     };
     getProducts();
-  }, [cate]);
+  }, [cate, catePath]);
 
   useEffect(() => {
     cate &&
@@ -36,23 +42,21 @@ const Products = ({ cate, filter, sort }) => {
       );
   }, [cate, filter, products]);
 
-  useEffect(()=>{
-    if(sort === "newest"){
-      setFilterProducts(prev=>[...prev].sort((a,b)=>a.createdAt - b.createdAt))
-    }else if ((sort === "asc")){
-      setFilterProducts(prev=>[...prev].sort((a,b)=>a.price - b.price))
-    }else {
-      setFilterProducts(prev=>[...prev].sort((a,b)=>b.price - a.price))
+  useEffect(() => {
+    if (sort === "newest") {
+      setFilterProducts((prev) => [...prev].sort((a, b) => a.createdAt - b.createdAt));
+    } else if (sort === "asc") {
+      setFilterProducts((prev) => [...prev].sort((a, b) => a.price - b.price));
+    } else {
+      setFilterProducts((prev) => [...prev].sort((a, b) => b.price - a.price));
     }
-  },[sort])
+  }, [sort]);
 
   return (
     <div className="proS_container">
       {cate
         ? filterProducts.map((item) => <Product item={item} key={item._id} />)
-        : products
-            .slice(0, 8)
-            .map((item) => <Product item={item} key={item._id} />)}
+        : products.slice(0, 8).map((item) => <Product item={item} key={item._id} />)}
     </div>
   );
 };
