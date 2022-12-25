@@ -17,6 +17,16 @@ with open('intents.json', 'r', encoding='utf8') as f:
 FILE = 'data.pth'
 data = torch.load(FILE)
 
+
+import requests
+api_url = "http://localhost:5000/api/products"
+domain = "Đây là sản link sản phẩm ạ@@@@http://localhost:3000/products/find/"
+response = requests.get(api_url)
+response.json()
+name_product = []
+for i in range(len(response.json())):
+    name_product.append((response.json()[i].get('title').split(' ')[-1]))
+
 input_size = data['input_size']
 hidden_size = data['hidden_size']
 output_size = data['output_size']
@@ -62,10 +72,20 @@ async def get_response(messenge: Message):
 
         result = ""
         if prob.item() > 0.75:
-            for intent in intents['intents']:
-                if tag == intent["tag"]:
-                    result = random.choice(intent['responses'])
-                    print(result)
+            if tag == 'name-product':
+    #check if sentence contain product name
+                for i in range(len(name_product)):
+                    for j in range(len(sentence)):
+                        if name_product[i] == sentence[j]:
+                            if response.json()[i].get('title').split(' ')[-1] == name_product[i]:
+                                result=str(domain)+str(response.json()[i].get('_id'))+"@@@@"+str(response.json()[i].get('img')  )           
+                                print(result)
+                            break
+            else:
+                for intent in intents['intents']:
+                    if tag == intent["tag"]:
+                        result = random.choice(intent['responses'])
+                        print(result)
         else:
             result = "I do not understand..."
             print(result)

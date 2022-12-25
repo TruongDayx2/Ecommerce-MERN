@@ -769,6 +769,17 @@
             "responses": [
                 "Hiện tại bên shop đang nhận 2 hình thức thanh toán chính đó là tiền mặt và chuyển khoản đó ạ. Quý khách tham khảo và chọn phương án phù hợp để dễ dàng thanh toán cho đơn hàng của mình ạ !"
             ]
+        },
+        {
+            "tag": "name-product",
+            "patterns": [
+                "tôi muôn xem sản phẩm RelaxShirt125",
+                "tôi muốn xem sản phẩm sssBlank8",
+                "to muon xem san pham Pique29"
+            ],
+            "responses": [
+                ""
+            ]
         }
     ]
 }
