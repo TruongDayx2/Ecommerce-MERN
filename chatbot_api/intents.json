@@ -193,7 +193,6 @@
         {
             "tag": "SSSLogo7",
             "patterns": [
-                "Tôi muốn xem áo polo SSSLogo7",
                 "Áo polo SSSLogo7 được bán như thế nào",
                 "thông tin chi tiết sản phẩm áo polo SSSLogo7 ",
                 "giá áo polo SSSLogo7"
@@ -220,7 +219,7 @@
         {
             "tag": "Shirtforher",
             "patterns": [
-                "Áo sơ mi nữ",
+                "áo sơ mi nữ",
                 "cần xem sản phẩm áo sơ mi nữ",
                 "tôi muốn xem áo sơ mi của nữ",
                 "tôi cần tìm áo sơ mi nữ",
@@ -237,7 +236,7 @@
         {
             "tag": "Shirtforhim",
             "patterns": [
-                "Áo sơ mi nam",
+                "áo sơ mi nam",
                 "cần xem sản phẩm áo sơ mi nam",
                 "tôi muốn xem áo sơ mi của nam",
                 "tôi cần tìm áo sơ mi nam",
@@ -251,44 +250,6 @@
                 "Shop xin gửi link áo sơ mi dành cho nam để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:@@@@http://localhost:3000/products/men/Somi"
             ]
         },
-
-        {
-            "tag": "RelaxShirt125",
-            "patterns": [
-                "Tôi muốn xem áo sơ mi RelaxShirt125",
-                "Áo sơ mi RelaxShirt125 được bán như thế nào",
-                "thông tin chi tiết sản phẩm áo sơ mi RelaxShirt125 ",
-                "giá áo sơ mi RelaxShirt125"
-            ],
-            "responses": [
-                "Shop gửi bạn link để xem chi tiết thông tin sản phẩm ạ:@@@@http://localhost:3000/product/63a072fec23ddef64575c1e4"
-            ]
-        },
-        {
-            "tag": "Green79",
-            "patterns": [
-                "Tôi muốn xem áo sơ mi Green79",
-                "Áo sơ mi Green79 được bán như thế nào",
-                "thông tin chi tiết sản phẩm áo sơ mi Green79 ",
-                "giá áo sơ mi Green79"
-            ],
-            "responses": [
-                "Shop gửi bạn link để xem chi tiết thông tin sản phẩm ạ:@@@@http://localhost:3000/product/63a5cd29b3fc49440ba632f4"
-            ]
-        },
-        {
-            "tag": "TankTop7",
-            "patterns": [
-                "Tôi muốn xem áo sơ mi TankTop7",
-                "Áo sơ mi TankTop7 được bán như thế nào",
-                "thông tin chi tiết sản phẩm áo sơ mi TankTop7 ",
-                "giá áo sơ mi TankTop7"
-            ],
-            "responses": [
-                "Shop gửi bạn link để xem chi tiết thông tin sản phẩm ạ:@@@@http://localhost:3000/product/63a5d429b3fc49440ba63306"
-            ]
-        },
-
         {
             "tag": "buy-Tshirt",
             "patterns": [
@@ -541,22 +502,6 @@
             ],
             "responses": [
                 "Shop xin gửi link quần âu dành cho nam để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:@@@@http://localhost:3000/products/men/WesternPants"
-            ]
-        },
-        {
-            "tag": "ST-size",
-            "patterns": [
-                "có mấy loại size quần",
-                "Có những size quần",
-                "size quần short nam",
-                "size quần âu nữ",
-                "size quần âu nam",
-                "Xin bảng size quần âu",
-                "cao",
-                "cân nặng"
-            ],
-            "responses": [
-                "Dạ shop xin gửi toàn bộ size quần nam-nữ để quý khách dễ tham khảo. \n\n\t\tSize quần nam \n Size\tChiều cao\tCân nặng \n 28\t1m60-1m65\t44kg-48kg \n 29\t1m65-1m71\t49kg-54kg \n 30\t1m68-1m72\t55kg-60kg \n 31\t1m68-1m73\t60kg-64kg \n 30\t1m70-1m75\t64kg-68kg \n 33\t1m70-1m76\t68kg-72kg \n 34\t1m72-1m80\t71kg-75kg \n 35\t1m75-1m85\t75kg-80kg \n 36\t1m75-1m85\t80kg-85kg \n\n\t\tSize quần nữ \n Size\tChiều cao\tCân nặng \n XS\t1m48-1m61\t34kg-42kg \n S\t1m5-1m663\t40kg-48kg \n M\t1m52-1m65\t46kg-54kg \n L\t1m54-1m67\t52kg-60kg \n XL\t1m56-1m69\t58kg-66kg \n XXL\t1m58-1m71\t64kg-72kg"
             ]
         },
         {
