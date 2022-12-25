@@ -7,6 +7,8 @@ import NewLetter from "../../components/newLetter/NewLetter";
 import { addProduct } from "../../redux/cartRedux";
 import { publicRequest } from "../../requestMethods";
 import { useDispatch } from "react-redux";
+import Chat from '../../components/chatbot/Chat'
+
 
 import "./product.css";
 
@@ -98,6 +100,7 @@ const Product = () => {
       </div>
       <NewLetter />
       <Footer />
+      <Chat/>
     </div>
   );
 };

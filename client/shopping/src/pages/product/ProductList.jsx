@@ -9,6 +9,8 @@ import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import Chat from '../../components/chatbot/Chat'
+
 
 const ProductList = () => {
   const location = useLocation();
@@ -211,6 +213,8 @@ const ProductList = () => {
       <Products cate={cate} filter={filter} sort={sort} catePath={catePath} />
       <NewLetter />
       <Footer />
+      <Chat/>
+
     </div>
   );
 };

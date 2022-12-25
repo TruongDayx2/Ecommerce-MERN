@@ -3,6 +3,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
+import Chat from '../../components/chatbot/Chat'
 
 import "./cart.css";
 
@@ -78,6 +79,7 @@ const Cart = () => {
         </div>
       </div>
       <Footer />
+      <Chat/>
     </div>
   );
 };
