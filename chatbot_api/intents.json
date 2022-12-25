@@ -65,19 +65,7 @@
                 ""
             ]
         },
-        {
-            "tag": "polomen",
-            "patterns": [
-                "Tôi cần thông tin áo polo nam",
-                "Tôi cần tìm áo polo nam"
-            ],
-            "responses": [
-                "Dạ shop gửi bạn link sản phẩm:@@@@http://localhost:3000/products/men/Polo"
-            ],
-            "context": [
-                ""
-            ]
-        },
+        
         {
             "tag": "shirtmen",
             "patterns": [
@@ -155,6 +143,7 @@
                 "Bạn cần mua mã sản phẩm nào ạ?: Áo polo nam hay Áo polo nữ"
             ]
         },
+        
         {
             "tag": "poloforher",
             "patterns": [
@@ -165,6 +154,7 @@
                 "cần mua áo polo nữ",
                 "cần mua sản phẩm áo polo nữ",
                 "muốn mua áo polo dành cho nữ",
+                "Tôi cần thông tin áo polo nam",
                 "muốn mua sản phẩm áo polo nữ"
             ],
             "responses": [
@@ -181,6 +171,7 @@
                 "cần mua áo polo nam",
                 "cần mua sản phẩm áo polo nam",
                 "muốn mua áo polo dành cho nam",
+                "Tôi cần thông tin áo polo nam",
                 "muốn mua sản phẩm áo polo nam"
             ],
             "responses": [
