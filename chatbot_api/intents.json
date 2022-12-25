@@ -91,6 +91,7 @@
                 "cần mua áo sơ mi nữ",
                 "cần mua sản phẩm áo sơ mi nữ",
                 "muốn mua áo sơ mi dành cho nữ",
+                "Tôi cần thông tin áo polo nữ",
                 "muốn mua sản phẩm áo sơ mi nữ"
             ],
             "responses": [
@@ -189,7 +190,7 @@
                 "cần mua áo polo nữ",
                 "cần mua sản phẩm áo polo nữ",
                 "muốn mua áo polo dành cho nữ",
-                "Tôi cần thông tin áo polo nam",
+                "Tôi cần thông tin áo polo nữ",
                 "muốn mua sản phẩm áo polo nữ"
             ],
             "responses": [
@@ -213,6 +214,57 @@
                 "Shop xin gửi link áo polo dành cho nam để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:@@@@http://localhost:3000/products/men/Polo"
             ]
         },
+
+        {
+            "tag": "buy-Tshirt",
+            "patterns": [
+                "cần mua áo phông",
+                "muốn mua sản phẩm áo phông",
+                "tôi cần xem sản phẩm áo phông",
+                "em cần xem sản phẩm áo phông",
+                "tôi cần xem các mẫu áo phông",
+                "tôi muốn xem qua các sản phẩm áo phông",
+                "cần xem mẫu áo phông"
+            ],
+            "responses": [
+                "Bạn cần mua mã sản phẩm nào ạ?: Áo phông nam hay Áo phông nữ"
+            ]
+        },
+        
+        {
+            "tag": "Tshirtforher",
+            "patterns": [
+                "Áo phông nữ",
+                "cần xem sản phẩm áo phông nữ",
+                "tôi muốn xem áo phông của nữ",
+                "tôi cần tìm áo phông nữ",
+                "cần mua áo phông nữ",
+                "cần mua sản phẩm áo phông nữ",
+                "muốn mua áo phông dành cho nữ",
+                "Tôi cần thông tin áo phông nữ",
+                "muốn mua sản phẩm áo phông nữ"
+            ],
+            "responses": [
+                "Shop xin gửi link áo phông dành cho nữ để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:@@@@http://localhost:3000/products/women/T-shirts"
+            ]
+        },
+        {
+            "tag": "Tshirtforhim",
+            "patterns": [
+                "Áo phông nam",
+                "tôi cần xem sản phẩm áo phông nam",
+                "muốn xem áo phông dành cho nam",
+                "cần tìm áo phông nam",
+                "cần mua áo phông nam",
+                "cần mua sản phẩm áo phông nam",
+                "muốn mua áo phông dành cho nam",
+                "Tôi cần thông tin áo phông nam",
+                "muốn mua sản phẩm áo phông nam"
+            ],
+            "responses": [
+                "Shop xin gửi link áo phông dành cho nam để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:@@@@http://localhost:3000/products/men/T-shirts"
+            ]
+        },
         {
             "tag": "S-size",
             "patterns": [
@@ -227,98 +279,6 @@
             ],
             "responses": [
                 "hinh anh size"
-            ]
-        },
-        {
-            "tag": "buy-sơ mi",
-            "patterns": [
-                "tôi muốn mua áo sơ mi size",
-                "cần mua áo sơ mi",
-                "muốn mua sản phẩm áo sơ mi",
-                "tôi cần xem sản phẩm áo sơ mi",
-                "em cần xem sản phẩm áo sơ mi",
-                "tôi cần xem các mẫu áo sơ mi",
-                "tôi muốn xem qua các sản phẩm áo sơ mi",
-                "cần xem mẫu áo sơ mi"
-            ],
-            "responses": [
-                "Bạn cần mua mã sản phẩm nào ạ?: Áo sơ mi nam hay Áo sơ mi nữ"
-            ]
-        },
-        {
-            "tag": "shitforher",
-            "patterns": [
-                "cần xem sản phẩm áo sơ mi nữ",
-                "tôi muốn xem áo sơ mi của nữ",
-                "tôi cần tìm áo sơ mi nữ",
-                "cần mua áo sơ mi nữ",
-                "cần mua sản phẩm áo sơ mi nữ",
-                "muốn mua áo sơ mi dành cho nữ",
-                "muốn mua sản phẩm áo sơ mi nữ"
-            ],
-            "responses": [
-                "Shop xin gửi link áo sơ mi dành cho nữ để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:@@@@http://localhost:3000/products/women/Somi"
-            ]
-        },
-        {
-            "tag": "shitforhim",
-            "patterns": [
-                "tôi cần xem sản phẩm áo sơ mi nam",
-                "muốn xem áo sơ mi dành cho nam",
-                "cần tìm áo sơ mi nam",
-                "cần mua áo sơ mi nam",
-                "cần mua sản phẩm áo sơ mi nam",
-                "muốn mua áo sơ mi dành cho nam",
-                "muốn mua sản phẩm áo sơ mi nam"
-            ],
-            "responses": [
-                "Shop xin gửi link áo sơ mi dành cho nam để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:@@@@http://localhost:3000/products/men/Somi"
-            ]
-        },
-        {
-            "tag": "buy-T-shirt",
-            "patterns": [
-                "tôi muốn mua áo phông size",
-                "cần mua áo phông",
-                "muốn mua sản phẩm áo phông",
-                "tôi cần xem sản phẩm áo phông",
-                "em cần xem sản phẩm áo phông",
-                "tôi cần xem các mẫu áo phông",
-                "tôi muốn xem qua các sản phẩm áo phông",
-                "cần xem mẫu áo phông"
-            ],
-            "responses": [
-                "Bạn cần mua mã sản phẩm nào ạ?: Áo phông nam hay Áo phông nữ"
-            ]
-        },
-        {
-            "tag": "Tshirtforher",
-            "patterns": [
-                "cần xem sản phẩm áo phông nữ",
-                "tôi muốn xem áo phông của nữ",
-                "tôi cần tìm áo phông nữ",
-                "cần mua áo phông nữ",
-                "cần mua sản phẩm áo phông nữ",
-                "muốn mua áo phông dành cho nữ",
-                "muốn mua sản phẩm áo phông nữ"
-            ],
-            "responses": [
-                "Shop xin gửi link áo phông dành cho nữ để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:@@@@http://localhost:3000/products/women/T-shirts"
-            ]
-        },
-        {
-            "tag": "Tshirtforhim",
-            "patterns": [
-                "tôi cần xem sản phẩm áo phông nam",
-                "muốn xem áo phông dành cho nam",
-                "cần tìm áo phông nam",
-                "cần mua áo phông nam",
-                "cần mua sản phẩm áo phông nam",
-                "muốn mua áo phông dành cho nam",
-                "muốn mua sản phẩm áo phông nam"
-            ],
-            "responses": [
-                "Shop xin gửi link áo phông dành cho nam để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:@@@@http://localhost:3000/products/men/T-shirts"
             ]
         },
         {
