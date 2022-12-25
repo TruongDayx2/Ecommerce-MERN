@@ -6,6 +6,19 @@
     margin: 20px;
 }
 
+.proL_cate{
+    margin-left: 20px;
+}
+
+.proL_catePathLink{
+    color: black;
+    text-decoration: none;
+}
+
+.proL_cateTitle{
+    display: flex;
+}
+
 .proL_filterContainer{
     display: flex;
     justify-content: space-between;
