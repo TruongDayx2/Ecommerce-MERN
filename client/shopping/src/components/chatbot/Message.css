@@ -8,6 +8,14 @@
   width: fit-content;
 }
 
+.chat__message_img{
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  width: 50%;
+  margin-top: 5px;
+}
+
 .chat__message.cus{
   align-self: flex-end;
   align-items: flex-end;
@@ -18,6 +26,7 @@
 }
   
 .chat__message p {
+  margin-bottom: 5px;
   color: #fff;
   background: #545e75;
   width: fit-content;
@@ -37,8 +46,4 @@
   word-wrap:break-word;
 }
 
-.chat__message img {
-  width: 15%;
-  border-radius: 50%;
-  margin-right: 12px;
-}
+

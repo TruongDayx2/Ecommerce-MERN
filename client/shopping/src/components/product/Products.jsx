@@ -11,7 +11,6 @@ import { Link } from "react-router-dom";
 const Products = ({ cate, filter, sort, catePath }) => {
   const [products, setProducts] = useState([]);
   const [filterProducts, setFilterProducts] = useState([]);
-  console.log(catePath);
   useEffect(() => {
     const getProducts = async () => {
       try {
