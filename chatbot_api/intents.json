@@ -66,55 +66,7 @@
             ]
         },
         
-        {
-            "tag": "buy-Shirt",
-            "patterns": [
-                "cần mua áo sơ mi",
-                "muốn mua sản phẩm áo sơ mi",
-                "tôi cần xem sản phẩm áo sơ mi",
-                "em cần xem sản phẩm áo sơ mi",
-                "tôi cần xem các mẫu áo sơ mi",
-                "tôi muốn xem qua các sản phẩm áo sơ mi",
-                "cần xem mẫu áo sơ mi"
-            ],
-            "responses": [
-                "Bạn cần mua mã sản phẩm nào ạ?: Áo sơ mi nam hay Áo sơ mi nữ"
-            ]
-        },
-        {
-            "tag": "Shirtforher",
-            "patterns": [
-                "Áo sơ mi nữ",
-                "cần xem sản phẩm áo sơ mi nữ",
-                "tôi muốn xem áo sơ mi của nữ",
-                "tôi cần tìm áo sơ mi nữ",
-                "cần mua áo sơ mi nữ",
-                "cần mua sản phẩm áo sơ mi nữ",
-                "muốn mua áo sơ mi dành cho nữ",
-                "Tôi cần thông tin áo polo nữ",
-                "muốn mua sản phẩm áo sơ mi nữ"
-            ],
-            "responses": [
-                "Shop xin gửi link áo sơ mi dành cho nữ để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:@@@@http://localhost:3000/products/women/Somi"
-            ]
-        },
-        {
-            "tag": "Shirtforhim",
-            "patterns": [
-                "Áo sơ mi nam",
-                "cần xem sản phẩm áo sơ mi nam",
-                "tôi muốn xem áo sơ mi của nam",
-                "tôi cần tìm áo sơ mi nam",
-                "cần mua áo sơ mi nam",
-                "cần mua sản phẩm áo sơ mi nam",
-                "muốn mua áo sơ mi dành cho nam",
-                "Tôi cần thông tin áo sơ mi nam",
-                "muốn mua sản phẩm áo sơ mi nam"
-            ],
-            "responses": [
-                "Shop xin gửi link áo sơ mi dành cho nam để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:@@@@http://localhost:3000/products/men/Somi"
-            ]
-        },
+        
         {
             "tag": "options",
             "patterns": [
@@ -214,6 +166,128 @@
                 "Shop xin gửi link áo polo dành cho nam để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:@@@@http://localhost:3000/products/men/Polo"
             ]
         },
+        {
+            "tag": "sssBlank8",
+            "patterns": [
+                "Tôi muốn xem áo polo sssBlank8",
+                "Áo polo sssBlank8 được bán như thế nào",
+                "thông tin chi tiết sản phẩm áo polo sssBlank8 ",
+                "giá áo polo sssBlank8"
+            ],
+            "responses": [
+                "Shop gửi bạn link để xem chi tiết thông tin sản phẩm ạ:@@@@http://localhost:3000/product/63a0748f2619f4474a2686d6"
+            ]
+        },
+        {
+            "tag": "Pique29",
+            "patterns": [
+                "Tôi muốn xem áo polo Pique29",
+                "Áo polo Pique29 được bán như thế nào",
+                "thông tin chi tiết sản phẩm áo polo Pique29 ",
+                "giá áo polo Pique29"
+            ],
+            "responses": [
+                "Shop gửi bạn link để xem chi tiết thông tin sản phẩm ạ:@@@@http://localhost:3000/product/63a5ce22b3fc49440ba632f8"
+            ]
+        },
+        {
+            "tag": "SSSLogo7",
+            "patterns": [
+                "Tôi muốn xem áo polo SSSLogo7",
+                "Áo polo SSSLogo7 được bán như thế nào",
+                "thông tin chi tiết sản phẩm áo polo SSSLogo7 ",
+                "giá áo polo SSSLogo7"
+            ],
+            "responses": [
+                "Shop gửi bạn link để xem chi tiết thông tin sản phẩm ạ:@@@@http://localhost:3000/product/63a5d26ab3fc49440ba632ff"
+            ]
+        },
+        {
+            "tag": "buy-Shirt",
+            "patterns": [
+                "cần mua áo sơ mi",
+                "muốn mua sản phẩm áo sơ mi",
+                "tôi cần xem sản phẩm áo sơ mi",
+                "em cần xem sản phẩm áo sơ mi",
+                "tôi cần xem các mẫu áo sơ mi",
+                "tôi muốn xem qua các sản phẩm áo sơ mi",
+                "cần xem mẫu áo sơ mi"
+            ],
+            "responses": [
+                "Bạn cần mua mã sản phẩm nào ạ?: Áo sơ mi nam hay Áo sơ mi nữ"
+            ]
+        },
+        {
+            "tag": "Shirtforher",
+            "patterns": [
+                "Áo sơ mi nữ",
+                "cần xem sản phẩm áo sơ mi nữ",
+                "tôi muốn xem áo sơ mi của nữ",
+                "tôi cần tìm áo sơ mi nữ",
+                "cần mua áo sơ mi nữ",
+                "cần mua sản phẩm áo sơ mi nữ",
+                "muốn mua áo sơ mi dành cho nữ",
+                "Tôi cần thông tin áo polo nữ",
+                "muốn mua sản phẩm áo sơ mi nữ"
+            ],
+            "responses": [
+                "Shop xin gửi link áo sơ mi dành cho nữ để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:@@@@http://localhost:3000/products/women/Somi"
+            ]
+        },
+        {
+            "tag": "Shirtforhim",
+            "patterns": [
+                "Áo sơ mi nam",
+                "cần xem sản phẩm áo sơ mi nam",
+                "tôi muốn xem áo sơ mi của nam",
+                "tôi cần tìm áo sơ mi nam",
+                "cần mua áo sơ mi nam",
+                "cần mua sản phẩm áo sơ mi nam",
+                "muốn mua áo sơ mi dành cho nam",
+                "Tôi cần thông tin áo sơ mi nam",
+                "muốn mua sản phẩm áo sơ mi nam"
+            ],
+            "responses": [
+                "Shop xin gửi link áo sơ mi dành cho nam để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:@@@@http://localhost:3000/products/men/Somi"
+            ]
+        },
+
+        {
+            "tag": "RelaxShirt125",
+            "patterns": [
+                "Tôi muốn xem áo sơ mi RelaxShirt125",
+                "Áo sơ mi RelaxShirt125 được bán như thế nào",
+                "thông tin chi tiết sản phẩm áo sơ mi RelaxShirt125 ",
+                "giá áo sơ mi RelaxShirt125"
+            ],
+            "responses": [
+                "Shop gửi bạn link để xem chi tiết thông tin sản phẩm ạ:@@@@http://localhost:3000/product/63a072fec23ddef64575c1e4"
+            ]
+        },
+        {
+            "tag": "Green79",
+            "patterns": [
+                "Tôi muốn xem áo sơ mi Green79",
+                "Áo sơ mi Green79 được bán như thế nào",
+                "thông tin chi tiết sản phẩm áo sơ mi Green79 ",
+                "giá áo sơ mi Green79"
+            ],
+            "responses": [
+                "Shop gửi bạn link để xem chi tiết thông tin sản phẩm ạ:@@@@http://localhost:3000/product/63a5cd29b3fc49440ba632f4"
+            ]
+        },
+        {
+            "tag": "TankTop7",
+            "patterns": [
+                "Tôi muốn xem áo sơ mi TankTop7",
+                "Áo sơ mi TankTop7 được bán như thế nào",
+                "thông tin chi tiết sản phẩm áo sơ mi TankTop7 ",
+                "giá áo sơ mi TankTop7"
+            ],
+            "responses": [
+                "Shop gửi bạn link để xem chi tiết thông tin sản phẩm ạ:@@@@http://localhost:3000/product/63a5d429b3fc49440ba63306"
+            ]
+        },
 
         {
             "tag": "buy-Tshirt",
@@ -266,6 +340,18 @@
             ]
         },
         {
+            "tag": "Áo Phông 123SP",
+            "patterns": [
+                "Tôi muốn xem áo phông 123SP",
+                "Áo phông 123SP được bán như thế nào",
+                "thông tin chi tiết sản phẩm áo phông 123SP ",
+                "giá áo phông 123SP"
+            ],
+            "responses": [
+                "Shop gửi bạn link để xem chi tiết thông tin sản phẩm ạ:@@@@http://localhost:3000/product/63a7f7979ecc65b84417bd3f"
+            ]
+        },
+        {
             "tag": "S-size",
             "patterns": [
                 "có mấy loại size áo",
@@ -298,6 +384,83 @@
             ]
         },
         {
+            "tag": "no-shorther",
+            "patterns": [
+                "muốn mua quần short nữ",
+                "tôi cần mua quần short nữ",
+                "có bán quần short cho nữ không",
+                "mình hỏi về quần short nữ"
+            ],
+            "responses": [
+                "Hiện tại, sản phẩm quần short nữ bạn đang cần shop không có bán ạ."
+            ]
+        },
+        {
+            "tag": "no-trousersher",
+            "patterns": [
+                "muốn mua quần âu nữ",
+                "tôi cần mua quần âu nữ",
+                "có bán quần âu cho nữ không",
+                "mình hỏi về quần âu nữ"
+            ],
+            "responses": [
+                "Hiện tại, sản phẩm quần âu nữ bạn đang cần shop không có bán ạ."
+            ]
+        },
+        {
+            "tag": "jeanforher",
+            "patterns": [
+                "muốn mua sản phẩm quần jean",
+                "tôi cần xem sản phẩm quần jean",
+                "em cần xem sản phẩm quần jean",
+                "tôi cần xem các mẫu quần jean",
+                "cần xem sản phẩm quần jean nữ",
+                "tôi muốn xem quần jean của nữ",
+                "tôi cần tìm quần jean nữ",
+                "cần mua sản phẩm quần jean nữ",
+                "muốn mua quần jean dành cho nữ",
+                "muốn mua sản phẩm quần jean nữ",
+                "cần xem mẫu quần jean"
+            ],
+            "responses": [
+                "Shop xin gửi link quần jean dành cho nữ để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:@@@@http://localhost:3000/products/women/FemaleJeans"
+            ]
+        },
+        {
+            "tag": "dress",
+            "patterns": [
+                "muốn mua sản phẩm váy nữ",
+                "tôi cần xem sản phẩm váy",
+                "em cần xem sản phẩm váy",
+                "tôi cần xem các mẫu váy",
+                "cần xem sản phẩm váy ",
+                "tôi muốn xem váy nữ",
+                "tôi cần tìm váy",
+                "cần mua sản phẩm váy",
+                "muốn mua váy",
+                "muốn mua sản phẩm váy",
+                "cần xem mẫu váy nữ"
+            ],
+            "responses": [
+                "Shop xin gửi link váy nữ để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:@@@@http://localhost:3000/products/women/Dress"
+            ]
+        },
+        {
+            "tag": "dress-size",
+            "patterns": [
+                "có mấy loại size váy",
+                "Có những size váy",
+                "size váy",
+                "Xin bảng size váy",
+                "ngực",
+                "mông",
+                "eo"
+            ],
+            "responses": [
+                "Dạ shop xin gửi size váy để quý khách tham khảo. \n\n\t\tSize váy\n Size\tNgực\tEo\tMông \n S\t84cm\t66cm\t86cm \n M\t88cm\t70cm\t90cm \n L\t92cm\t74cm\t94cm \n "
+            ]
+        },
+        {
             "tag": "trousersForMen",
             "patterns": [
                 "Tư vấn cho tôi về mẫu quần cho nam",
@@ -326,190 +489,7 @@
             "responses": [
                 "Hiện tại, sản phẩm quần jean nam bạn đang cần shop không có sản phẩm. Bạn vui lòng tham khảo thêm các sản phẩm khác ạ"
             ]
-        },
-        {
-            "tag": "advisory-jean",
-            "patterns": [
-                "tư vấn quần jean",
-                "em cần tư vấn quần jean",
-                "Còn quần jean chứ",
-                "Tư vấn cho tôi về mẫu quần cho nữ",
-                "Muốn hỏi về mẫu quần dành cho nữ",
-                "Muốn hỏi về mẫu quần cho nữ cao 1m",
-                "muốn hỏi về mẫu quần jean ..",
-                "cần biết thêm về quần nữ",
-                "tôi cần tư vấn sản phẩm quần jean nữ",
-                "shop còn quần jean nữ không",
-                "còn quần jean nữ không",
-                "Shop mình còn quần jean không?",
-                "mình hỏi về quần jean"
-            ],
-            "responses": [
-                "Hiện tại, sản phẩm quần jean nữ tại 77Shop vẫn còn đủ hàng cho bạn lựa chọn ạ. Bạn cần tư vấn thêm thông tin gì về sản phẩm quần jean "
-            ]
-        },
-        {
-            "tag": "jeanforher",
-            "patterns": [
-                "muốn mua sản phẩm quần jean",
-                "tôi cần xem sản phẩm quần jean",
-                "em cần xem sản phẩm quần jean",
-                "tôi cần xem các mẫu quần jean",
-                "cần xem sản phẩm quần jean nữ",
-                "tôi muốn xem quần jean của nữ",
-                "tôi cần tìm quần jean nữ",
-                "cần mua sản phẩm quần jean nữ",
-                "muốn mua quần jean dành cho nữ",
-                "muốn mua sản phẩm quần jean nữ",
-                "cần xem mẫu quần jean"
-            ],
-            "responses": [
-                "Shop xin gửi link quần jean dành cho nữ để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:<LINK>"
-            ]
-        },
-        {
-            "tag": "pricejean",
-            "patterns": [
-                "quần jean nữ giá bao nhiêu ạ",
-                "quần jean bán như thế nào",
-                "quần jean bán giá ntn",
-                "quần jean bán thế nào",
-                "Xin giá quần jean",
-                "giá của quần jean nữ",
-                "giá quần jean nữ",
-                "quần jean bao nhiêu tiền",
-                "quần jean bán giá ntn"
-            ],
-            "responses": [
-                "Dạ hiện tại quần jean nữ 77Shop đang được bán với giá 130.000đ/ 1 quần. Bạn có muốn mua sản phẩm không ạ?"
-            ]
-        },
-        {
-            "tag": "jeanmaterialandcolor",
-            "patterns": [
-                "màu quần jean",
-                "quần jean chất vải gì, có mấy màu",
-                "sản phẩm quần jean nữ có những màu nào v",
-                "Có mấy màu quần jean, chất liệu gì v",
-                "chất liệu của quần jean nữ",
-                "quần jean có mấy màu, chất vải gì"
-            ],
-            "responses": [
-                "Dạ quần jean bên shop có 3 màu: \n - Trắng \n - Đen  \n - Xám  \nVới chất liệu Jean Skinny dày dặn mềm đẹp, co giãn, ôm chân tôn dáng, thoải mái vận động"
-            ]
-        },
-        {
-            "tag": "advisory-dress",
-            "patterns": [
-                "váy nữ",
-                "em cần tư vấn váy",
-                "Còn váy chứ",
-                "tôi cần tư vấn để mua váy thích hợp",
-                "Tư vấn cho tôi về mẫu váy",
-                "Muốn hỏi về mẫu quần cho nữ cao 1m",
-                "cần biết thêm về váy",
-                "tôi cần tư vấn sản phẩm váy nữ",
-                "shop còn váy nữ không",
-                "còn váy nữ không",
-                "Shop mình còn váy không?",
-                "mình hỏi về váy"
-            ],
-            "responses": [
-                "Hiện tại, sản phẩm váy nữ tại 77Shop vẫn còn đủ hàng cho bạn lựa chọn ạ. Bạn cần tư vấn thêm thông tin gì về sản phẩm váy nữ ạ "
-            ]
-        },
-        {
-            "tag": "dress",
-            "patterns": [
-                "muốn mua sản phẩm váy nữ",
-                "tôi cần xem sản phẩm váy",
-                "em cần xem sản phẩm váy",
-                "tôi cần xem các mẫu váy",
-                "cần xem sản phẩm váy ",
-                "tôi muốn xem váy nữ",
-                "tôi cần tìm váy",
-                "cần mua sản phẩm váy",
-                "muốn mua váy",
-                "muốn mua sản phẩm váy",
-                "cần xem mẫu váy nữ"
-            ],
-            "responses": [
-                "Shop xin gửi link váy nữ để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:<LINK>"
-            ]
-        },
-        {
-            "tag": "pricedress",
-            "patterns": [
-                "váy nữ giá bao nhiêu ạ",
-                "váy bán như thế nào",
-                "váy bán giá ntn",
-                "váy bán thế nào",
-                "Xin giá váy",
-                "giá của váy nữ",
-                "giá váy nữ",
-                "váy bao nhiêu tiền",
-                "váy bán giá ntn"
-            ],
-            "responses": [
-                "Dạ hiện tại sản phẩm váy nữ tại 77Shop đang bán với giá 100.000đ/ 1 váy. Bạn có muốn mua sản phẩm không ạ?"
-            ]
-        },
-        {
-            "tag": "dressmaterialandcolor",
-            "patterns": [
-                "màu váy",
-                "váy chất vải gì, có mấy màu",
-                "Có mấy màu váy thế, chất liệu gì v",
-                "chất liệu của váy nữ",
-                "váy có mấy màu, chất vải gì"
-            ],
-            "responses": [
-                "Dạ quần jean bên shop có 5 màu: \n - Trắng \n - Đen  \n - Nâu \n - BE nhạt \n - BE đậm  \n Với Chất vải Linen dày mềm Hàng thiết kế của xưởng, may kỹ chất lượng."
-            ]
-        },
-        {
-            "tag": "dress-size",
-            "patterns": [
-                "có mấy loại size váy",
-                "Có những size váy",
-                "size váy",
-                "Xin bảng size váy",
-                "ngực",
-                "mông",
-                "eo"
-            ],
-            "responses": [
-                "Dạ shop xin gửi size váy để quý khách tham khảo. \n\n\t\tSize váy\n Size\tNgực\tEo\tMông \n S\t84cm\t66cm\t86cm \n M\t88cm\t70cm\t90cm \n L\t92cm\t74cm\t94cm \n "
-            ]
-        },
-        {
-            "tag": "short",
-            "patterns": [
-                "muốn mua quần short",
-                "quần short",
-                "Tư vấn về quần short",
-                "Shop mình còn quần short không",
-                "Còn quần short k",
-                "Còn quần short chứ",
-                "Mình hỏi về quần short",
-                "quần short còn không"
-            ],
-            "responses": [
-                "Dạ, Hiện tại sản phẩm quần short shop mình vẫn còn hàng nhé. Quý khách muốn tôi tư vấn thông tin gì về sản phẩm ạ?"
-            ]
-        },
-        {
-            "tag": "no-shorther",
-            "patterns": [
-                "muốn mua quần short nữ",
-                "tôi cần mua quần short nữ",
-                "có bán quần short cho nữ không",
-                "mình hỏi về quần short nữ"
-            ],
-            "responses": [
-                "Hiện tại, sản phẩm quần short nữ bạn đang cần shop không có bán ạ."
-            ]
-        },
+        },    
         {
             "tag": "shortforhim",
             "patterns": [
@@ -526,66 +506,7 @@
                 "cần xem mẫu quần short"
             ],
             "responses": [
-                "Shop xin gửi link quần short dành cho nam để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:<LINK>"
-            ]
-        },
-        {
-            "tag": "shortprice",
-            "patterns": [
-                "quần short bán giá ntn",
-                "quần short giá bao nhiêu ạ?",
-                "quần short bán thế nào?",
-                "quần short bao nhiêu tiền?",
-                "quần short bao nhiêu?",
-                "quần short bán sao?",
-                "giá quần short nam",
-                "Xin giá quần short?"
-            ],
-            "responses": [
-                "Quần short tại shop được bán với giá 145.000đ/ 1 quần. Qúy khách cần tư vấn thêm thông tin gì về sản phẩm quần short này không ạ?"
-            ]
-        },
-        {
-            "tag": "shortcolorandmaterial",
-            "patterns": [
-                "màu quần short",
-                "Có mấy màu",
-                "bao nhiêu màu",
-                "chất liệu của quần short",
-                "quần short chất vải gì thế, có mấy màu v",
-                "Cho xin thông tin chất liệu, màu sắc quần short đi shop",
-                "quần có mấy màu, chất vải gì"
-            ],
-            "responses": [
-                "Dạ, quần short bên shop hiện có 5 màu đó ạ: \n - Đen  \n - Xanh đen  \n - Be  \n - Nâu \n - Trắng  \n Cùng với chất liệu  kaki cao cấp - dày dặn - co giãn, tạo sự thoải mái khi mặc đó ạ"
-            ]
-        },
-        {
-            "tag": "no-trousersher",
-            "patterns": [
-                "muốn mua quần âu nữ",
-                "tôi cần mua quần âu nữ",
-                "có bán quần âu cho nữ không",
-                "mình hỏi về quần âu nữ"
-            ],
-            "responses": [
-                "Hiện tại, sản phẩm quần âu nữ bạn đang cần shop không có bán ạ."
-            ]
-        },
-        {
-            "tag": "trousershim",
-            "patterns": [
-                "muốn mua quần âu nam",
-                "quần âu",
-                "Tư vấn về quần âu",
-                "Shop mình còn quần âu không",
-                "Còn quần âu k",
-                "Còn quần âu chứ",
-                "Mình hỏi về quần âu",
-                "quần âu còn không"
-            ],
-            "responses": [
-                "Dạ, Hiện tại sản phẩm quần âu dành cho nam-nữ shop vẫn còn hàng nhé. Quý khách muốn tôi tư vấn thông tin gì về sản phẩm ạ?"
+                "Shop xin gửi link quần short dành cho nam để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:@@@@http://localhost:3000/products/men/Shorts"
             ]
         },
         {
@@ -604,38 +525,7 @@
                 "cần xem mẫu quần âu"
             ],
             "responses": [
-                "Shop xin gửi link quần âu dành cho nam để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:<LINK>"
-            ]
-        },
-        {
-            "tag": "trousersprice",
-            "patterns": [
-                "quần âu bán giá ntn",
-                "quần âu giá bao nhiêu ạ?",
-                "quần âu bán thế nào?",
-                "quần âu bao nhiêu tiền?",
-                "quần âu bao nhiêu?",
-                "quần âu bán sao?",
-                "giá quần âu",
-                "Xin giá quần âu?"
-            ],
-            "responses": [
-                "Quần âu tại shop đang dược bán với giá 200.000đ/ 1 quần. Qúy khách cần tư vấn thêm thông tin gì về sản phẩm quần âu này không ạ?"
-            ]
-        },
-        {
-            "tag": "trouserscolorandmaterial",
-            "patterns": [
-                "màu quần âu",
-                "Có mấy màu",
-                "bao nhiêu màu",
-                "chất liệu của quần âu",
-                "quần âu chất vải gì thế, có mấy màu v",
-                "Cho xin thông tin chất liệu, màu sắc quần âu đi shop",
-                "Áo có mấy màu, chất vải gì"
-            ],
-            "responses": [
-                "Dạ, quần âu bên shop hiện có 4 màu đó ạ: \n - Đen  \n - Xanh than  \n - Be  \n - Ghi sáng \n - Kem sữa  \n Cùng với chất vải lụa co giãn nhẹ, mềm mịn. Chất vải đảm bảo không nhăn, lên form đứng dáng, dễ mặc và cực tiện dụng."
+                "Shop xin gửi link quần âu dành cho nam để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:@@@@http://localhost:3000/products/men/WesternPants"
             ]
         },
         {
