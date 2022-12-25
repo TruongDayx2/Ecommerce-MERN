@@ -30,22 +30,6 @@ const ProductList = () => {
     });
   };
 
-  useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const res = await axios.get(
-          cate === "men"
-            ? `http://localhost:5000/api/products/find/63a072fec23ddef64575c1e4`
-            : `http://localhost:5000/api/products/find/63a6a688e798c7ce969e7c71`
-        );
-        setCatePathMen(res.data.cateMen);
-        setCatePathWomen(res.data.cateWomen);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getProducts();
-  }, [cate]);
 
   return (
     <div className="proL_container">

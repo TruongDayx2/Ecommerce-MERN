@@ -636,7 +636,7 @@
                 "tôi muon xem san pham Pique29"
             ],
             "responses": [
-                "http://localhost:3000/products/find/"
+                ""
             ]
         }
     ]

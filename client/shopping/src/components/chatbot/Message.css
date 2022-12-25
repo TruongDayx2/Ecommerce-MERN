@@ -42,7 +42,7 @@
   width: fit-content;
   padding: 10px;
   border-radius: 7.5px;
-  /* max-width: 360px; */
+  max-width: 300px;
   word-wrap:break-word;
 }
 
