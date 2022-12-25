@@ -19,8 +19,9 @@ data = torch.load(FILE)
 
 
 import requests
-api_url = "http://localhost:5000/api/products"
-domain = "Đây là sản link sản phẩm ạ@@@@http://localhost:3000/products/find/"
+api_url = "http://localhost:5001/api/products"
+price = "Đây là sản link sản phẩm ạ và giá sản phẩm là ";
+domain="@@@@http://localhost:3000/product/"
 response = requests.get(api_url)
 response.json()
 name_product = []
@@ -69,28 +70,31 @@ async def get_response(messenge: Message):
 
         probs = torch.softmax(output, dim=1)
         prob = probs[0][predicted.item()]
-
+        flg = 0    
         result = ""
         if prob.item() > 0.75:
             if tag == 'name-product':
-    #check if sentence contain product name
                 for i in range(len(name_product)):
                     for j in range(len(sentence)):
                         if name_product[i] == sentence[j]:
+                            print(name_product[i])
                             if response.json()[i].get('title').split(' ')[-1] == name_product[i]:
-                                result=str(domain)+str(response.json()[i].get('_id'))+"@@@@"+str(response.json()[i].get('img')  )           
+                                result=str(price)+str(response.json()[i].get('price'))+"$"+str(domain)+str(response.json()[i].get('_id'))+"@@@@"+str(response.json()[i].get('img')  )           
                                 print(result)
-                            break
+                                flg = 1
+                                break
+                if flg == 0:
+                    result = "Xin lỗi, chúng tôi không có sản phẩm này"
             else:
                 for intent in intents['intents']:
                     if tag == intent["tag"]:
                         result = random.choice(intent['responses'])
                         print(result)
         else:
-            result = "I do not understand..."
+            result = "Xin lỗi, chúng tôi không hiểu ý bạn"
             print(result)
     except:
-        return {"response": "Oops! Something went wrong!", "status": "failed"}
+        return {"response": "Ối! Đã xảy ra sự cố!", "status": "failed"}
     
     return {"response": result, "status": "success"}
 

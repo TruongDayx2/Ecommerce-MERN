@@ -352,7 +352,7 @@
             ]
         },
         {
-            "tag": "S-size",
+            "tag": "sizeTshirt",
             "patterns": [
                 "có mấy loại size áo",
                 "Có những size áo",
@@ -364,7 +364,22 @@
                 "cân nặng"
             ],
             "responses": [
-                "hinh anh size"
+                "Shop gửi bạn bảng size áo để khách hàng dễ tham khảo ạ:@@@@https://logan.vn/img/2014/Bang-size-ao-thun.png@@@@https://logan.vn/img/2014/Bang-size-ao-thun.png"
+            ]
+        },
+        {
+            "tag":"sizeTrouser",
+            "patterns": [
+                "có mấy loại size quần",
+                "Có những size quần",
+                "size quần jean",
+                "size quần tây âu",
+                "Xin bảng size quần",
+                "cao",
+                "cân nặng"
+            ],
+            "responses": [
+                "Shop gửi bạn bảng size quần để khách hàng dễ tham khảo ạ:@@@@https://baohoduchoa.vn/wp-content/uploads/2019/06/quan-ao-bao-ho-lao-dong-bia.jpg@@@@https://baohoduchoa.vn/wp-content/uploads/2019/06/quan-ao-bao-ho-lao-dong-bia.jpg"
             ]
         },
         {
@@ -555,7 +570,7 @@
                 "Chi nhánh của shop mình ở những đâu v"
             ],
             "responses": [
-                "Bạn có thể ghé qua 3 chi nhánh tại TPHCM của Nguyên để mua hàng bạn nha.(Thêm 3 cái địa chỉ chi nhánh dô nha em Nguyên"
+                "Shop có 1 chi nhánh ở TPHCM. Địa chỉ: 97 Man Thiện, Hiệp Phú, Thủ Đức"
             ]
         },
         {
@@ -663,12 +678,20 @@
         {
             "tag": "name-product",
             "patterns": [
+                "tôi muốn xem giá sản phẩm RelaxShirt125",
+                "giá của sản phẩm RelaxShirt125 là bao nhiêu",
+                "giá của sản phẩm sssBlank8",
+                "giá của sản phẩm",
+                "giá bao nhiêu",    
+                "tôi muốn xem thông tin sản phẩm",
+                "tôi muốn xem thông tin sản phẩm RelaxShirt125",
+                "tôi muốn xem sản phẩm",
                 "tôi muôn xem sản phẩm RelaxShirt125",
                 "tôi muốn xem sản phẩm sssBlank8",
-                "to muon xem san pham Pique29"
+                "tôi muon xem san pham Pique29"
             ],
             "responses": [
-                ""
+                "http://localhost:3000/products/find/"
             ]
         }
     ]
