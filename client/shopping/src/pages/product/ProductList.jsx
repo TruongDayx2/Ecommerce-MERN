@@ -48,10 +48,14 @@ const ProductList = () => {
   return (
     <div className="proL_container">
       <Navbar />
-      <h1 className="proL_title">{cate}</h1>
+      {cate === 'men'
+        ? <h1 className="proL_title">FOR HIM</h1>
+        : <h1 className="proL_title">FOR HER</h1>
+      }
+      {/* <h1 className="proL_title">{cate}</h1> */}
       <div className="proL_cate">
         <span onClick={() => setHideCate(!hideCate)} className="proL_cateTitle">
-          Danh Mục
+          <div className="proL_filterText">Danh Mục</div >
           <Add className="proL_cateIcon" />
         </span>
         {/* { hideCate && 
@@ -67,37 +71,37 @@ const ProductList = () => {
           <ul className="proL_cateMenu">
             {cate === "men" ? (
               <>
-                <Link to={`/products/${cate}/Polo`}>
+                <Link to={`/products/${cate}/Polo`} className="proL_catePathLink">
                   <li className="proL_catePathItem">Polo</li>
                 </Link>
-                <Link to={`/products/${cate}/T-shirts`}>
+                <Link to={`/products/${cate}/T-shirts`} className="proL_catePathLink">
                   <li className="proL_catePathItem">Phông</li>
                 </Link>
-                <Link to={`/products/${cate}/Somi`}>
+                <Link to={`/products/${cate}/Somi`} className="proL_catePathLink">
                   <li className="proL_catePathItem">somi</li>
                 </Link>
-                <Link to={`/products/${cate}/WesternPants`}>
+                <Link to={`/products/${cate}/WesternPants`} className="proL_catePathLink">
                   <li className="proL_catePathItem">Quần Tây Âu</li>
                 </Link>
-                <Link to={`/products/${cate}/Shorts`}>
+                <Link to={`/products/${cate}/Shorts`} className="proL_catePathLink">
                   <li className="proL_catePathItem">Quần Ngắn</li>
                 </Link>
               </>
             ) : (
               <>
-                <Link to={`/products/${cate}/Polo`}>
+                <Link to={`/products/${cate}/Polo`} className="proL_catePathLink">
                   <li className="proL_catePathItem">Polo</li>
                 </Link>
-                <Link to={`/products/${cate}/T-shirts`}>
+                <Link to={`/products/${cate}/T-shirts`} className="proL_catePathLink">
                   <li className="proL_catePathItem">Phông</li>
                 </Link>
-                <Link to={`/products/${cate}/Somi`}>
+                <Link to={`/products/${cate}/Somi`} className="proL_catePathLink">
                   <li className="proL_catePathItem">somi</li>
                 </Link>
-                <Link to={`/products/${cate}/Dress`}>
+                <Link to={`/products/${cate}/Dress`} className="proL_catePathLink">
                   <li className="proL_catePathItem">Váy</li>
                 </Link>
-                <Link to={`/products/${cate}/FemaleJeans`}>
+                <Link to={`/products/${cate}/FemaleJeans`} className="proL_catePathLink">
                   <li className="proL_catePathItem">Quần Jean Nữ</li>
                 </Link>
               </>
