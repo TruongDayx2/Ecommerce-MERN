@@ -67,16 +67,51 @@
         },
         
         {
-            "tag": "shirtmen",
+            "tag": "buy-Shirt",
             "patterns": [
-                "Tôi cần thông tin áo sơ mi nam",
-                "Tôi cân tìm áo sơ mi nam"
+                "cần mua áo sơ mi",
+                "muốn mua sản phẩm áo sơ mi",
+                "tôi cần xem sản phẩm áo sơ mi",
+                "em cần xem sản phẩm áo sơ mi",
+                "tôi cần xem các mẫu áo sơ mi",
+                "tôi muốn xem qua các sản phẩm áo sơ mi",
+                "cần xem mẫu áo sơ mi"
             ],
             "responses": [
-                "Dạ shop gửi bạn link sản phẩm:@@@@http://localhost:3000/products/men/Somi"
+                "Bạn cần mua mã sản phẩm nào ạ?: Áo sơ mi nam hay Áo sơ mi nữ"
+            ]
+        },
+        {
+            "tag": "Shirtforher",
+            "patterns": [
+                "Áo sơ mi nữ",
+                "cần xem sản phẩm áo sơ mi nữ",
+                "tôi muốn xem áo sơ mi của nữ",
+                "tôi cần tìm áo sơ mi nữ",
+                "cần mua áo sơ mi nữ",
+                "cần mua sản phẩm áo sơ mi nữ",
+                "muốn mua áo sơ mi dành cho nữ",
+                "muốn mua sản phẩm áo sơ mi nữ"
             ],
-            "context": [
-                ""
+            "responses": [
+                "Shop xin gửi link áo sơ mi dành cho nữ để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:@@@@http://localhost:3000/products/women/Somi"
+            ]
+        },
+        {
+            "tag": "Shirtforhim",
+            "patterns": [
+                "Áo sơ mi nam",
+                "cần xem sản phẩm áo sơ mi nam",
+                "tôi muốn xem áo sơ mi của nam",
+                "tôi cần tìm áo sơ mi nam",
+                "cần mua áo sơ mi nam",
+                "cần mua sản phẩm áo sơ mi nam",
+                "muốn mua áo sơ mi dành cho nam",
+                "Tôi cần thông tin áo sơ mi nam",
+                "muốn mua sản phẩm áo sơ mi nam"
+            ],
+            "responses": [
+                "Shop xin gửi link áo sơ mi dành cho nam để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:@@@@http://localhost:3000/products/men/Somi"
             ]
         },
         {
