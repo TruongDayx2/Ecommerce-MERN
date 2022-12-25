@@ -19,7 +19,7 @@ data = torch.load(FILE)
 
 
 import requests
-api_url = "http://localhost:5001/api/products"
+api_url = "http://localhost:5000/api/products"
 price = "Đây là sản link sản phẩm ạ và giá sản phẩm là ";
 domain="@@@@http://localhost:3000/product/"
 response = requests.get(api_url)
@@ -79,7 +79,7 @@ async def get_response(messenge: Message):
                         if name_product[i] == sentence[j]:
                             print(name_product[i])
                             if response.json()[i].get('title').split(' ')[-1] == name_product[i]:
-                                result=str(price)+str(response.json()[i].get('price'))+"$"+str(domain)+str(response.json()[i].get('_id'))+"@@@@"+str(response.json()[i].get('img')  )           
+                                result=str(price)+str(response.json()[i].get('price'))+".000 VND"+str(domain)+str(response.json()[i].get('_id'))+"@@@@"+str(response.json()[i].get('img')  )           
                                 print(result)
                                 flg = 1
                                 break
