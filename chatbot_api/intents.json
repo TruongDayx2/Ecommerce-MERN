@@ -27,6 +27,9 @@
         {
             "tag": "goodbye",
             "patterns": [
+                "Goodbye",
+                "See you later",
+                "cảm ơn shop",
                 "Bye",
                 "Bai",
                 "bb",
@@ -48,6 +51,7 @@
         {
             "tag": "thanks",
             "patterns": [
+                "Cảm ơn",
                 "Thanks",
                 "Thank you",
                 "Cảm ơn bạn rất nhiều",
@@ -77,7 +81,7 @@
                 "Tôi cần người hỗ trợ"
             ],
             "responses": [
-                "Chào mừng bạn đã đến với thế giới thời trang nam-nữ 77Shop. \n Rất vui được trò chuyện cùng bạn,bạn đang cần: \n - Tư vấn sản phẩm \n - Khiếu nại \n - Hướng dẫn thanh toán \n - Thông tin đơn hàng"
+                "Chào mừng bạn đã đến với thế giới thời trang nam-nữ 77Shop. Rất vui được trò chuyện cùng bạn,bạn đang cần: - Tư vấn sản phẩm, Khiếu nại, Hướng dẫn thanh toán, - Thông tin đơn hàng"
             ],
             "context": [
                 ""
@@ -164,41 +168,6 @@
             ],
             "responses": [
                 "Shop xin gửi link áo polo dành cho nam để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:@@@@http://localhost:3000/products/men/Polo"
-            ]
-        },
-        {
-            "tag": "sssBlank8",
-            "patterns": [
-                "Tôi muốn xem áo polo sssBlank8",
-                "Áo polo sssBlank8 được bán như thế nào",
-                "thông tin chi tiết sản phẩm áo polo sssBlank8 ",
-                "giá áo polo sssBlank8"
-            ],
-            "responses": [
-                "Shop gửi bạn link để xem chi tiết thông tin sản phẩm ạ:@@@@http://localhost:3000/product/63a0748f2619f4474a2686d6"
-            ]
-        },
-        {
-            "tag": "Pique29",
-            "patterns": [
-                "Tôi muốn xem áo polo Pique29",
-                "Áo polo Pique29 được bán như thế nào",
-                "thông tin chi tiết sản phẩm áo polo Pique29 ",
-                "giá áo polo Pique29"
-            ],
-            "responses": [
-                "Shop gửi bạn link để xem chi tiết thông tin sản phẩm ạ:@@@@http://localhost:3000/product/63a5ce22b3fc49440ba632f8"
-            ]
-        },
-        {
-            "tag": "SSSLogo7",
-            "patterns": [
-                "Áo polo SSSLogo7 được bán như thế nào",
-                "thông tin chi tiết sản phẩm áo polo SSSLogo7 ",
-                "giá áo polo SSSLogo7"
-            ],
-            "responses": [
-                "Shop gửi bạn link để xem chi tiết thông tin sản phẩm ạ:@@@@http://localhost:3000/product/63a5d26ab3fc49440ba632ff"
             ]
         },
         {
@@ -298,18 +267,6 @@
             ],
             "responses": [
                 "Shop xin gửi link áo phông dành cho nam để khánh hàng dễ tham khảo và lựa chọn sản phẩm phù hợp ạ:@@@@http://localhost:3000/products/men/T-shirts"
-            ]
-        },
-        {
-            "tag": "Áo Phông 123SP",
-            "patterns": [
-                "Tôi muốn xem áo phông 123SP",
-                "Áo phông 123SP được bán như thế nào",
-                "thông tin chi tiết sản phẩm áo phông 123SP ",
-                "giá áo phông 123SP"
-            ],
-            "responses": [
-                "Shop gửi bạn link để xem chi tiết thông tin sản phẩm ạ:@@@@http://localhost:3000/product/63a7f7979ecc65b84417bd3f"
             ]
         },
         {
@@ -422,21 +379,6 @@
             ]
         },
         {
-            "tag": "dress-size",
-            "patterns": [
-                "có mấy loại size váy",
-                "Có những size váy",
-                "size váy",
-                "Xin bảng size váy",
-                "ngực",
-                "mông",
-                "eo"
-            ],
-            "responses": [
-                "Dạ shop xin gửi size váy để quý khách tham khảo. \n\n\t\tSize váy\n Size\tNgực\tEo\tMông \n S\t84cm\t66cm\t86cm \n M\t88cm\t70cm\t90cm \n L\t92cm\t74cm\t94cm \n "
-            ]
-        },
-        {
             "tag": "trousersForMen",
             "patterns": [
                 "Tư vấn cho tôi về mẫu quần cho nam",
@@ -544,7 +486,7 @@
                 "tôi muốn khiếu nại"
             ],
             "responses": [
-                "Bạn muốn kiếu nại về vấn đề gì vậy ạ, có phải là 1 trong những vấn đề này không nhỉ: \n - Giao sai hàng hoặc bị lỗi \n - Hàng đắt và muốn được giảm giá \n - Phí ship đắt"
+                "Thành thật xin lỗi bạn về vấn đề gặp phải, bạn gửi thông tin về email 77shop@gmail.com để được nhân viên hỗ trợ bạn nhé"
             ]
         },
         {
@@ -560,7 +502,7 @@
                 "Tôi muốn hủy đơn vừa đặt nhé"
             ],
             "responses": [
-                "Chào bạn, trường hợp bạn đặt hàng khi đã có tài khoản, bạn vui lòng truy cập vào link sau để hủy đơn hàng. \n Còn với trường bạn đặt hàng khi chưa có tài khoản, bạn cung cấp số điện thoại và mã đơn hàng qua email 77Shop để được nhân viên hỗ trợ."
+                "Chào bạn, trường hợp bạn đặt hàng khi đã có tài khoản, bạn vui lòng truy cập vào link sau để hủy đơn hàng.  Còn với trường bạn đặt hàng khi chưa có tài khoản, bạn cung cấp số điện thoại và mã đơn hàng qua email 77Shop để được nhân viên hỗ trợ."
             ]
         },
         {
@@ -590,7 +532,7 @@
                 "có thể giảm giá không đắt quá"
             ],
             "responses": [
-                "Hông bé ơi, hông giảm được đâu. Nhưng hiện tại có 1 số mặt hàng đang sale mạnh đó ạ, quý khách có thể tham khảo qua giá cả sản phẩm ạ"
+                "Dạ trước hết thay mặt shop xin lỗi quý khách vì sự nhầm lẫn này ạ. Mình cho shop xin sdt để shop check đơn và phiền bạn chụp ảnh hàng bạn đã nhận để được shop hỗ trợ đổi cho bạn nha! Cảm ơn bạn!"
             ]
         },
         {
@@ -603,7 +545,7 @@
                 "Giảm tiền ship được k"
             ],
             "responses": [
-                "Tiền vận chuyển là như thế rồi bạn ơi, hông giảm được bạn ơi. Không thể giảm tiền vận chuyển được ạ và không có tiền ship thì không có ai chuyển cho bạn hết"
+                "Dạ trước hết thay mặt shop xin lỗi quý khách vì sự nhầm lẫn này ạ. Mình cho shop xin sdt để shop check đơn và phiền bạn chụp ảnh hàng bạn đã nhận để được shop hỗ trợ đổi cho bạn nha! Cảm ơn bạn!"
             ]
         },
         {
@@ -623,6 +565,8 @@
         {
             "tag": "name-product",
             "patterns": [
+                "tôi muốn mua sản phẩm",
+                "tôi muốn mua sản phẩm RelaxShirt125",
                 "tôi muốn xem giá sản phẩm RelaxShirt125",
                 "giá của sản phẩm RelaxShirt125 là bao nhiêu",
                 "giá của sản phẩm sssBlank8",
