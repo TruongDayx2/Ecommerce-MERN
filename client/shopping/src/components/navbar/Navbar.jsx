@@ -8,6 +8,7 @@ import "./navbar.css";
 
 const Navbar = () => {
   const quantity = useSelector((state) => state.cart.quantity);
+  const user = useSelector((state) => state.user.currentUser);
 
   return (
     <>
@@ -22,13 +23,21 @@ const Navbar = () => {
             </div>
           </div>
           <div className="nb_center">
-            <Link to={'/'} style={{textDecoration: "none",color:"black"}}>
+            <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
               <h1 className="nb_logo">77Shop</h1>
-            </Link >
+            </Link>
           </div>
           <div className="nb_right">
-            <div className="nb_menuItem">REGISTER</div>
-            <div className="nb_menuItem">SIGN IN</div>
+            {!user && (
+              <>
+                <Link to="/register" className="nb_link">
+                  <div className="nb_menuItem">REGISTER</div>
+                </Link>
+                <Link to="/login" className="nb_link">
+                  <div className="nb_menuItem">SIGN IN</div>
+                </Link>
+              </>
+            )}
             <Link to="/cart">
               <div className="nb_menuItem">
                 <Badge badgeContent={quantity} color="primary" overlap="rectangular">
