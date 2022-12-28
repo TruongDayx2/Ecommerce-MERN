@@ -1,13 +1,20 @@
 import { Badge } from "@material-ui/core";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { logOut } from "../../redux/userRedux";
 import Announcement from "./Announcement";
 import "./navbar.css";
 
 const Navbar = () => {
   const quantity = useSelector((state) => state.cart.quantity);
+  const user = useSelector((state) => state.user.currentUser);
+
+
+  const handleClick = (e) => {
+    localStorage.removeItem("persist:root");
+  };
 
   return (
     <>
@@ -22,13 +29,25 @@ const Navbar = () => {
             </div>
           </div>
           <div className="nb_center">
-            <Link to={'/'} style={{textDecoration: "none",color:"black"}}>
+            <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
               <h1 className="nb_logo">77Shop</h1>
-            </Link >
+            </Link>
           </div>
           <div className="nb_right">
-            <div className="nb_menuItem">REGISTER</div>
-            <div className="nb_menuItem">SIGN IN</div>
+            {!user && (
+              <>
+                <Link to="/register" className="nb_link">
+                  <div className="nb_menuItem">REGISTER</div>
+                </Link>
+                <Link to="/login" className="nb_link">
+                  <div className="nb_menuItem">SIGN IN</div>
+                </Link>
+              </>
+            )}
+            {user && (
+              <div className="nb_menuItem" onClick={handleClick}>SIGN OUT</div>
+
+            )}
             <Link to="/cart">
               <div className="nb_menuItem">
                 <Badge badgeContent={quantity} color="primary" overlap="rectangular">
