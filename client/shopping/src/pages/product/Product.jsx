@@ -27,10 +27,15 @@ const Product = () => {
       try {
         const res = await publicRequest.get("/products/find/" + id);
         setProduct(res.data);
+        setSize(res.data.size[0])
+        setColor(res.data.color[0])
       } catch {}
     };
     getProduct();
   }, [id]);
+
+  // const sizeDefault = product.size[0]
+
 
   const updateQuantity = (type) => {
     if (type === "plus") {
