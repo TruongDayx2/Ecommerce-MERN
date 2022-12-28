@@ -1,19 +1,24 @@
 import { Badge } from "@material-ui/core";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { logOut } from "../../redux/userRedux";
+import { logout } from "../../redux/apiCall";
 import Announcement from "./Announcement";
 import "./navbar.css";
 
 const Navbar = () => {
   const quantity = useSelector((state) => state.cart.quantity);
   const user = useSelector((state) => state.user.currentUser);
-
+  const dispatch = useDispatch();
+  console.log(user);
 
   const handleClick = (e) => {
     localStorage.removeItem("persist:root");
+    logout(dispatch)
+    
+    
   };
 
   return (
