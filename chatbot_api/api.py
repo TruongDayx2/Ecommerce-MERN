@@ -76,7 +76,7 @@ async def get_response(messenge: Message):
             if tag == 'name-product':
                 for i in range(len(name_product)):
                     for j in range(len(sentence)):
-                        if name_product[i] == sentence[j]:
+                        if name_product[i].lower() == sentence[j].lower():
                             print(name_product[i])
                             if response.json()[i].get('title').split(' ')[-1] == name_product[i]:
                                 result=str(price)+str(response.json()[i].get('price'))+".000 VND"+str(domain)+str(response.json()[i].get('_id'))+"@@@@"+str(response.json()[i].get('img')  )           
