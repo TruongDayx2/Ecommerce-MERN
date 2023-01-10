@@ -19,7 +19,7 @@ def bag_of_words(tokenized_sentence, all_words):
 
     return bag
 
-# text = "Tôi muốn đặt một vé máy bay đi Hà Nội"
-# tokenized_text = tokenize(text)
-# stem_words = [stem(w) for w in tokenized_text]
-# print(stem_words)
+text = "Hôm nay tôi đi thi tốt nghiệp"
+tokenized_text = tokenize(text)
+stem_words = [stem(w) for w in tokenized_text]
+print(stem_words)
