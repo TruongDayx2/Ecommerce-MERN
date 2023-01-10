@@ -8,7 +8,9 @@ const UserSchema = new mongoose.Schema(
         isAdmin: {
             type: Boolean, default: false
         },
-        img:{type:String}
+        img:{type:String},
+        name:{type:String,require:true},
+        lastname:{type:String,require:true}
     },
     {timestamps:true}
 )
