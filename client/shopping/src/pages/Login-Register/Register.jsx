@@ -25,37 +25,24 @@ const Register = () => {
   const [submitted, setSubmitted] = useState(false);
   const [valid, setValid] = useState(false);
 
-  //const validationForm = (e) => {
-  //   let returnData = {
-  //     error: false,
-  //     msg: "",
-  //   };
-  //   //Kiểm tra email
-  //   const re = /\S+@\S+\.\S+/;
-  //   if (!re.test(email)) {
-  //     returnData = {
-  //       error: true,
-  //       msg: "Không đúng định dạng email",
-  //     };
-  //   }
-  //   //Kiểm tra password
-  //   if (password.length < 6) {
-  //     returnData = {
-  //       error: true,
-  //       msg: "Mật khẩu phải lớn hơn 6 ký tự",
-  //     };
-  //   }
-  //   return returnData;
-  // };
+  const validationForm = (e) => {
+    let returnData = {
+      error: false,
+      msg: "",
+    };
+    //Kiểm tra password
+    if (values.password !== values.passwordConfirm) {
+      returnData = {
+        error: true,
+        msg: "Mật khẩu không khớp! Vui lòng nhập lại",
+      };
+    }
+    return returnData;
+  };
 
   const handleClick = (e) => {
     e.preventDefault();
-    // const validation = validationForm(e);
-    // if (validation.error) {
-    //   alert(validation.msg);
-    // } else {
-    //   alert("Submit form success");
-    // }
+    
     if (
       values.name &&
       values.lastname &&
@@ -66,10 +53,19 @@ const Register = () => {
     ) {
       setValid(true);
     }
-    setSubmitted(true);
+    const validation = validationForm(e);
+    if (validation.error) {
+      alert(validation.msg);
+      const name = 'passwordConfirm'
+      setValues((values) => ({
+        ...values,
+        [name]: "",
+      }));
+    }else {
+      setSubmitted(true);
+    }
   };
-  console.log(values)
-  console.log('valid: ',valid);
+  
   return (
     <div className="rg_container">
       <div className="rg_wrapper">
@@ -79,7 +75,7 @@ const Register = () => {
           <div className="success-message">
             <h3>
               {" "}
-              Welcome {values.firstName} {values.lastName}{" "}
+              Welcome {values.name} {values.lastname}{" "}
             </h3>
             <div> Your registration was successful! </div>
           </div>
@@ -93,7 +89,7 @@ const Register = () => {
               onChange={handleInputChange}
             />
           )}
-          {submitted && !values.name && <span id="rg_error">Please enter a first name</span>}
+          {submitted && !values.name && <span className="rg_error">Please enter a first name</span>}
 
           {!valid && (
             <input
@@ -104,7 +100,7 @@ const Register = () => {
               onChange={handleInputChange}
             />
           )}
-          {submitted && !values.lastname && <span id="rg_error">Please enter a lastname</span>}
+          {submitted && !values.lastname && <span className="rg_error">Please enter a lastname</span>}
 
           {!valid && (
             <input
@@ -115,7 +111,7 @@ const Register = () => {
               onChange={handleInputChange}
             />
           )}
-          {submitted && !values.username && <span id="rg_error">Please enter an username</span>}
+          {submitted && !values.username && <span className="rg_error">Please enter an username</span>}
 
           {!valid && (
             <input
@@ -126,7 +122,7 @@ const Register = () => {
               onChange={handleInputChange}
             />
           )}
-          {submitted && !values.email && <span id="rg_error">Please enter an email</span>}
+          {submitted && !values.email && <span className="rg_error">Please enter an email</span>}
 
           {!valid && (
             <input
@@ -137,7 +133,7 @@ const Register = () => {
               onChange={handleInputChange}
             />
           )}
-          {submitted && !values.password && <span id="rg_error">Please enter a password</span>}
+          {submitted && !values.password && <span className="rg_error">Please enter a password</span>}
 
           {!valid && (
             <input
@@ -145,10 +141,11 @@ const Register = () => {
               name="passwordConfirm"
               placeholder="Confirm password"
               className="rg_input"
+              value={values.passwordConfirm}
               onChange={handleInputChange}
             />
           )}
-          {submitted && !values.passwordConfirm && <span id="rg_error">Please enter password confirm</span>}
+          {submitted && !values.passwordConfirm && <span className="rg_error">Please enter password confirm</span>}
 
           <span className="rg_agreement">
             By creating an account, I consent to processing of my personal data in accordance with

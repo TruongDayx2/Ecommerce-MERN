@@ -24,7 +24,9 @@
 
 .rg_form{
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    justify-content: start;
+    flex-direction: column;
 }
 
 .rg_input{
@@ -37,7 +39,7 @@
 .rg_error{
     font-size: 14px;
     color: red;
-    margin-bottom: 15px;
+    margin-top: 5px 0;
 }
 
 .rg_agreement{
