@@ -34,6 +34,12 @@
     padding: 10px;
 }
 
+.rg_error{
+    font-size: 14px;
+    color: red;
+    margin-bottom: 15px;
+}
+
 .rg_agreement{
     font-size: 12px;
     margin: 15px 0;
