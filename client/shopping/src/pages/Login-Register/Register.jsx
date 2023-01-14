@@ -1,14 +1,20 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { register } from "../../redux/apiCall";
 
 import "./register.css";
 
 const Register = () => {
+
+  const dispatch = useDispatch()
+  const {error,errorDetail} = useSelector((state)=>state.user)
+
   const [values, setValues] = useState({
+    username: "",
+    email: "",
+    password: "",
     name: "",
     lastname: "",
-    email: "",
-    username: "",
-    password: "",
     passwordConfirm: "",
   });
 
@@ -63,15 +69,20 @@ const Register = () => {
       }));
     }else {
       setSubmitted(true);
+      register(dispatch, {...values})
     }
   };
+
+  console.log('er',error)
+  console.log('erD',errorDetail);
+
   
   return (
     <div className="rg_container">
       <div className="rg_wrapper">
         <h1 className="rg_title">CREATE AN ACCOUNT</h1>
         <form action="" className="rg_form" onSubmit={handleClick}>
-        {submitted && valid && (
+        {submitted && valid && !error && (
           <div className="success-message">
             <h3>
               {" "}
