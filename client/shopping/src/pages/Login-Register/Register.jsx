@@ -5,9 +5,25 @@ import { register } from "../../redux/apiCall";
 import "./register.css";
 
 const Register = () => {
+  const dispatch = useDispatch();
+  const { errRegister, errorDetail } = useSelector((state) => state.user);
 
-  const dispatch = useDispatch()
-  const {error,errorDetail} = useSelector((state)=>state.user)
+  const [err, setErr] = useState(false);
+  const [errDetail, setErrDetail] = useState("");
+  const [errShow, setErrShow] = useState("");
+
+  const checkGetState = () => {
+    setErr(errRegister);
+    setErrDetail(errorDetail);
+  };
+
+  console.log(errDetail);
+  // if (errDetail.includes("username")) {
+  //   setErrShow("Username đã tồn tại");
+  // }
+  // if (errDetail.includes("email")) {
+  //   setErrShow("Email đã được đăng ký");
+  // }
 
   const [values, setValues] = useState({
     username: "",
@@ -48,49 +64,45 @@ const Register = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    
-    if (
-      values.name &&
-      values.lastname &&
-      values.email &&
-      values.username &&
-      values.password &&
-      values.passwordConfirm
-    ) {
-      setValid(true);
-    }
     const validation = validationForm(e);
     if (validation.error) {
       alert(validation.msg);
-      const name = 'passwordConfirm'
+      const name = "passwordConfirm";
       setValues((values) => ({
         ...values,
         [name]: "",
       }));
-    }else {
+    } else {
+      if (
+        values.name &&
+        values.lastname &&
+        values.email &&
+        values.username &&
+        values.password &&
+        values.passwordConfirm
+      ) {
+        setValid(true);
+      }
       setSubmitted(true);
-      register(dispatch, {...values})
+      register(dispatch, { ...values });
+      checkGetState();
     }
   };
 
-  console.log('er',error)
-  console.log('erD',errorDetail);
-
-  
   return (
     <div className="rg_container">
       <div className="rg_wrapper">
-        <h1 className="rg_title">CREATE AN ACCOUNT</h1>
+        {!err && <h1 className="rg_title">CREATE AN ACCOUNT</h1>}
         <form action="" className="rg_form" onSubmit={handleClick}>
-        {submitted && valid && !error && (
-          <div className="success-message">
-            <h3>
-              {" "}
-              Welcome {values.name} {values.lastname}{" "}
-            </h3>
-            <div> Your registration was successful! </div>
-          </div>
-        )}
+          {submitted && valid && !err && (
+            <div className="success-message">
+              <h3>
+                {" "}
+                Welcome {values.name} {values.lastname}{" "}
+              </h3>
+              <div> Your registration was successful! </div>
+            </div>
+          )}
           {!valid && (
             <input
               type="text"
@@ -111,7 +123,9 @@ const Register = () => {
               onChange={handleInputChange}
             />
           )}
-          {submitted && !values.lastname && <span className="rg_error">Please enter a lastname</span>}
+          {submitted && !values.lastname && (
+            <span className="rg_error">Please enter a lastname</span>
+          )}
 
           {!valid && (
             <input
@@ -122,7 +136,9 @@ const Register = () => {
               onChange={handleInputChange}
             />
           )}
-          {submitted && !values.username && <span className="rg_error">Please enter an username</span>}
+          {submitted && !values.username && (
+            <span className="rg_error">Please enter an username</span>
+          )}
 
           {!valid && (
             <input
@@ -144,7 +160,9 @@ const Register = () => {
               onChange={handleInputChange}
             />
           )}
-          {submitted && !values.password && <span className="rg_error">Please enter a password</span>}
+          {submitted && !values.password && (
+            <span className="rg_error">Please enter a password</span>
+          )}
 
           {!valid && (
             <input
@@ -156,15 +174,27 @@ const Register = () => {
               onChange={handleInputChange}
             />
           )}
-          {submitted && !values.passwordConfirm && <span className="rg_error">Please enter password confirm</span>}
+          {submitted && !values.passwordConfirm && (
+            <span className="rg_error">Please enter password confirm</span>
+          )}
 
-          <span className="rg_agreement">
-            By creating an account, I consent to processing of my personal data in accordance with
-            the <b>PRIVACY POLICY</b>
-          </span>
-          <button className="rg_btn" type="submit">
-            CREATE
-          </button>
+          {!err && (
+            <>
+              <span className="rg_agreement">
+                By creating an account, I consent to processing of my personal data in accordance
+                with the <b>PRIVACY POLICY</b>
+              </span>
+              <button className="rg_btn" type="submit">
+                CREATE
+              </button>
+            </>
+          )}
+          {/* {err && (
+            <>
+              <h1 className="rg_title">Xin lỗi</h1>
+              <span className="rg_agreement">{errShow}</span>
+            </>
+          )} */}
         </form>
       </div>
     </div>
