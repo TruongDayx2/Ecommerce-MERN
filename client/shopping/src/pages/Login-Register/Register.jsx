@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../redux/apiCall";
+import { Link } from "react-router-dom";
+
 
 import "./register.css";
 
@@ -189,12 +191,16 @@ const Register = () => {
               </button>
             </>
           )}
-          {/* {err && (
+          {err && (
             <>
               <h1 className="rg_title">Xin lỗi</h1>
-              <span className="rg_agreement">{errShow}</span>
+              {errDetail.includes("username") && <span className="">Username đã tồn tại</span>}
+              {errDetail.includes("email") && <span className="">Email đã được đăng ký</span>}
+              <Link to="/">
+                  <button className="rg_btn">Home</button>
+                </Link>
             </>
-          )} */}
+          )}
         </form>
       </div>
     </div>
