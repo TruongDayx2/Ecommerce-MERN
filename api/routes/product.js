@@ -69,21 +69,17 @@ router.get("/", async (req, res) => {
                 },
             });
         }else if(qCategory){
+            let proTemp
             const qCatePath = qCategory.split("/")[0];
             const qCatePathPro = qCategory.split("/")[1];
-            if(qCatePath === "men"){             
-                products = await Product.find({
-                    cateMen: {
-                        $in: [qCatePathPro],
-                    },
-                });
-            }else {
-                products = await Product.find({
-                    cateWomen: {
-                        $in: [qCatePathPro],
-                    },
-                });
-            }
+            proTemp = await Product.find({
+                category: {
+                    $in: [qCatePathPro],
+                },
+            });
+            products = proTemp.filter(function(e){
+                return e.sex === qCatePath
+            })
         }else {
             products = await Product.find();
         }
