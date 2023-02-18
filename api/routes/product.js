@@ -56,20 +56,21 @@ router.get("/find/:id", async (req, res) => {
 router.get("/", async (req, res) => {
     const qNew = req.query.new;
     const qCategory = req.query.category;
-    const qCatePathWomen = req.query.catePathWomen;
     try {
         let products;
-
+        let proTemp
         if (qNew) {
             products = await Product.find().sort({ createdAt: -1 }).limit(1);
         } else if (qCategory === 'men' || qCategory ==='women') {
-            products = await Product.find({
+            proTemp = await Product.find({
                 sex: {
                     $in: [qCategory],
                 },
             });
+            products = proTemp.filter(function(e){
+                return e.inStock === true
+            })
         }else if(qCategory){
-            let proTemp
             const qCatePath = qCategory.split("/")[0];
             const qCatePathPro = qCategory.split("/")[1];
             proTemp = await Product.find({
@@ -78,10 +79,13 @@ router.get("/", async (req, res) => {
                 },
             });
             products = proTemp.filter(function(e){
-                return e.sex === qCatePath
+                return (e.sex === qCatePath && e.inStock === true)
             })
         }else {
-            products = await Product.find();
+            proTemp = await Product.find();
+            products = proTemp.filter(function(e){
+                return e.inStock === true
+            })
         }
 
         res.status(200).json(products);
