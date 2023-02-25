@@ -39,14 +39,18 @@ const Product = () => {
 
   const updateQuantity = (type) => {
     if (type === "plus") {
-      setQuantity(quantity + 1);
+      console.log(product.quantity - quantity)
+      product.quantity - quantity >0 ? setQuantity(quantity + 1) : console.log('San pham da het')
     } else {
       quantity > 1 && setQuantity(quantity - 1);
     }
   };
-
+  console.log(product)
   const handleClick = () => {
-    dispatch(addProduct({...product, quantity, color, size}));
+    product.quantity !== 0 
+      ? dispatch(addProduct({...product, quantity, color, size}))
+      : console.log('Không thể add vì sản phẩm đã hết')
+    
   };
 
   return (
@@ -99,7 +103,7 @@ const Product = () => {
                 <Add />
               </div>
             </div>
-            <button className="p_addBtn" onClick={handleClick}>ADD TO CART</button>
+            <button className={`p_addBtn ${product.quantity === 0 ? 'soldOut' : ''}`} onClick={handleClick}>ADD TO CART</button>
           </div>
         </div>
       </div>

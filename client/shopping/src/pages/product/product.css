@@ -119,6 +119,13 @@
     font-weight: 500;
 }
 
+.p_addBtn.soldOut{
+    cursor: not-allowed;
+    background-color: rgb(229, 229, 229) !important;
+}
+
+
+
 .p_addBtn:hover{
     background-color: rgb(207, 231, 223);
 }
