@@ -39,13 +39,11 @@ const Product = () => {
 
   const updateQuantity = (type) => {
     if (type === "plus") {
-      console.log(product.quantity - quantity)
       product.quantity - quantity >0 ? setQuantity(quantity + 1) : console.log('San pham da het')
     } else {
       quantity > 1 && setQuantity(quantity - 1);
     }
   };
-  console.log(product)
   const handleClick = () => {
     product.quantity !== 0 
       ? dispatch(addProduct({...product, quantity, color, size}))

@@ -3,12 +3,22 @@ import React from "react";
 import { useSelector } from "react-redux";
 import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
-import Chat from '../../components/chatbot/Chat'
+import Chat from "../../components/chatbot/Chat";
 
 import "./cart.css";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+  const updateQuantity = (type) => {
+    // if (type === "plus") {
+    //   console.log(product.quantity - quantity)
+    //   product.quantity - quantity >0 ? setQuantity(quantity + 1) : console.log('San pham da het')
+    // } else {
+    //   quantity > 1 && setQuantity(quantity - 1);
+    // }
+    console.log(type)
+  };
+
   return (
     <div className="cart_container">
       <Navbar />
@@ -24,14 +34,10 @@ const Cart = () => {
         </div>
         <div className="cart_bottom">
           <div className="cart_info">
-            {cart.products?.map((product,index) => (
+            {cart.products?.map((product, index) => (
               <div className="cart_product" key={index}>
                 <div className="cart_productDetail">
-                  <img
-                    src={product.img}
-                    alt=""
-                    className="cart_proImg"
-                  />
+                  <img src={product.img} alt="" className="cart_proImg" />
                   <div className="cart_proDetail">
                     <span className="cart_proName">
                       <b>Product:</b> {product.title}
@@ -39,7 +45,10 @@ const Cart = () => {
                     <span className="cart_proId">
                       <b>Id:</b> {product._id}
                     </span>
-                    <div className="cart_proColor" style={{ backgroundColor: `${product.color}` }}></div>
+                    <div
+                      className="cart_proColor"
+                      style={{ backgroundColor: `${product.color}` }}
+                    ></div>
                     <span className="cart_proSize">
                       <b>Size:</b> {product.size}
                     </span>
@@ -47,9 +56,13 @@ const Cart = () => {
                 </div>
                 <div className="cart_priceDetail">
                   <div className="cart_proAmountContainer">
-                    <Remove />
-                    <div className="cart_proAmount">{product.quantity}</div>
-                    <Add />
+                    <div className="p_minus" onClick={() => updateQuantity(["minus",product])}>
+                      <Remove />
+                    </div>
+                    <span className="cart_proAmount">{product.quantity}</span>
+                    <div className="p_plus" onClick={() => updateQuantity(["plus",product])}>
+                      <Add />
+                    </div>
                   </div>
                   <div className="cart_proPrice">VND {product.price * product.quantity}.000</div>
                 </div>
@@ -79,7 +92,7 @@ const Cart = () => {
         </div>
       </div>
       <Footer />
-      <Chat/>
+      <Chat />
     </div>
   );
 };
