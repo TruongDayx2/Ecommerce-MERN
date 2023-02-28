@@ -1,5 +1,5 @@
 import { Add, Remove } from "@material-ui/icons";
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
@@ -9,6 +9,13 @@ import "./cart.css";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+
+  const [quantity, setQuantity] = useState(cart.products.quantity);
+
+
+  console.log(cart)
+  
+
   const updateQuantity = (type) => {
     // if (type === "plus") {
     //   console.log(product.quantity - quantity)
