@@ -1,0 +1,64 @@
+[
+    {
+        "_id": "63a072fec23ddef64575c1e4",
+        "title": "polo RelaxShirt125",
+        "desc": "Mát mẻ phù hợp xu hướng gioi tre",
+        "img": "https://cdn.ssstutter.com/products/po0EUQXd52Ks47dT/092022/1662011317101.jpeg",
+        "size": [
+            "L",
+            "M"
+        ],
+        "color": [
+            "black",
+            "red"
+        ],
+        "price": 30,
+        "createdAt": "2022-12-19T14:19:42.387Z",
+        "updatedAt": "2022-12-19T14:19:42.387Z",
+        "__v": 0,
+        "inStock": true,
+        "sex": "men",
+        "category": "Somi",
+        "quantity": 10,
+        "Size_Color": {
+            "L": {
+                "Red": "5",
+                "Blue": "2"
+            },
+            "M": {
+                "Red": "3"
+            }
+        }
+    },
+    {
+        "_id": "63a072fec23dsddef64575c1e4",
+        "title": "polo RelaxShirt125",
+        "desc": "Mát mẻ phù hợp xu hướng gioi tre",
+        "img": "https://cdn.ssstutter.com/products/po0EUQXd52Ks47dT/092022/1662011317101.jpeg",
+        "size": [
+            "L",
+            "M"
+        ],
+        "color": [
+            "black",
+            "red"
+        ],
+        "price": 30,
+        "createdAt": "2022-12-19T14:19:42.387Z",
+        "updatedAt": "2022-12-19T14:19:42.387Z",
+        "__v": 0,
+        "inStock": true,
+        "sex": "men",
+        "category": "Somi",
+        "quantity": 10,
+        "Size_Color": {
+            "L": {
+                "Red": "5",
+                "Blue": "2"
+            },
+            "M": {
+                "Red": "3"
+            }
+        }
+    }
+]
