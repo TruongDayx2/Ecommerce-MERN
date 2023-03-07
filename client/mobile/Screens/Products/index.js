@@ -3,6 +3,7 @@ import { View, Text, FlatList } from 'react-native'
 
 import ProductList from '../../Components/ProductList/index'
 
+
 const data = require('../../assets/data/products.json')
 
 

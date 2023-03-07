@@ -1,11 +1,17 @@
 import { View, Text,TouchableOpacity, Dimensions } from 'react-native'
 import React from 'react'
 
+import styles from './styles'
+
+// var {width} = Dimensions.get("window")
+
 const ProductList = () => {
   return (
-    <View>
-      <Text>ProductLifdfdst</Text>
-    </View>
+    <TouchableOpacity style={styles.touch}>
+      <View style={styles.view}>
+
+      </View>
+    </TouchableOpacity>
   )
 }
 

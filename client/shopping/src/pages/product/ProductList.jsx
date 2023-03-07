@@ -120,12 +120,7 @@ const ProductList = () => {
             <option value="blue" className="proL_option">
               Blue
             </option>
-            <option value="yellow" className="proL_option">
-              Yellow
-            </option>
-            <option value="green" className="proL_option">
-              Green
-            </option>
+ 
           </select>
           <select
             name="size"
@@ -136,9 +131,6 @@ const ProductList = () => {
           >
             <option value="1" disabled className="proL_option">
               Size
-            </option>
-            <option value="XS" className="proL_option">
-              XS
             </option>
             <option value="S" className="proL_option">
               S
