@@ -3,10 +3,10 @@ import { StyleSheet, Dimensions } from 'react-native'
 var {width} = Dimensions.get("window")
 const styles = StyleSheet.create({
     touch: {
-        width:'50%',
+        width:width/2 ,
     },
     view: {
-        width:width/2,
+        width:width/2 ,
         backgroundColor:'gainsboro',
     }
 

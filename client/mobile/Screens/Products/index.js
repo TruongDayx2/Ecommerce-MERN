@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList, StyleSheet } from 'react-native'
 
 import ProductList from '../../Components/ProductList/index'
-
 
 const data = require('../../assets/data/products.json')
 
@@ -22,17 +21,19 @@ const Products = () => {
     return (
         <View>
             <Text> Product Container</Text>
-            <View style={{ marginTop: 100 }}>
-                <FlatList
-                    horizontal
+            <View style={{ marginTop: 100}}>
+                <FlatList 
+                    // horizontal
                     data={products}
                     renderItem={({ item }) => <ProductList key={item._id} item={item} />}
                     keyExtractor={item => item._id}
+                    numColumns={2}
                 />
             </View>
         </View>
     )
 }
+
 
 
 export default Products
