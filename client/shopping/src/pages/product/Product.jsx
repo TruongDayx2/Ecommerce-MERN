@@ -14,6 +14,8 @@ import "./product.css";
 const Product = () => {
   const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);
+  const [quantityStock,setQuantityStock] = useState(0)
+  const [sizeColor,setSizeColor]=useState({})
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
   const [allSize, setAllSize] = useState([]);
@@ -28,10 +30,12 @@ const Product = () => {
       try {
         const res = await publicRequest.get("/products/find/" + id);
         setProduct(res.data);
+        setSizeColor((Object.values(res.data.size_color)[0]))
         setAllSize(Object.keys(res.data.size_color));
         setSize(Object.keys(res.data.size_color)[0]);
         setAllColor(Object.keys(Object.values(res.data.size_color)[0]));
         setColor(Object.keys(Object.values(res.data.size_color)[0])[0]);
+        setQuantityStock(Object.values(Object.values(res.data.size_color)[0])[0])
       } catch {}
     };
     getProduct();
@@ -47,21 +51,33 @@ const Product = () => {
       }
       setAllColor(Object.keys(Object.values(product.size_color)[k]));
       setColor(Object.keys(Object.values(product.size_color)[k])[0]);
+      setSizeColor((Object.values(product.size_color)[k]))
+      setQuantityStock(Object.values(Object.values(product.size_color)[k])[0])
+      setQuantity(1)
     }
   }, [size, product]);
 
   const updateQuantity = (type) => {
     if (type === "plus") {
-      product.quantity - quantity > 0 ? setQuantity(quantity + 1) : console.log("San pham da het");
+      quantityStock - quantity > 0 ? setQuantity(quantity + 1) : console.log("San pham da het");
     } else {
       quantity > 1 && setQuantity(quantity - 1);
     }
   };
   const handleClick = () => {
-    product.quantity !== 0
-      ? dispatch(addProduct({ ...product, quantity, color, size }))
+    quantityStock !== 0
+      ? dispatch(addProduct({ ...product, quantity, color, size, quantityStock }))
       : console.log("Không thể add vì sản phẩm đã hết");
   };
+  const handleClickColor =(e)=>{
+    setColor(e)
+    setQuantity(1)
+    setQuantityStock(sizeColor[e])
+  }
+
+  
+
+  console.log(quantityStock)
 
   return (
     <div className="p_container">
@@ -81,7 +97,7 @@ const Product = () => {
                 <div
                   key={c}
                   className={`p_filterColor ${color === c ? "active" : ""}`}
-                  onClick={() => setColor(c)}
+                  onClick={() => handleClickColor(c)}
                 >
                   <div className="p_circle" style={{ backgroundColor: `${c}` }}></div>
                 </div>

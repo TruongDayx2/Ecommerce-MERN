@@ -9,15 +9,16 @@ const cartSlice = createSlice({
   },
   reducers: {
     addProduct: (state, action) => {
-      const itemInCart = state.products.find((item) => item.id === action.payload.id)
+      console.log(action.payload)
+      const itemInCart = state.products.find((item) => 
+        item.id === action.payload.id 
+        && item.size === action.payload.size 
+        && item.color === action.payload.color)
       if (itemInCart) {
-        if ((itemInCart.size === action.payload.size && itemInCart.color === action.payload.color)){
-          itemInCart.quantity += action.payload.quantity
-        }else {
-          state.products.push(action.payload);
-          state.quantity += 1;
-        }
-      }else{
+        itemInCart.quantity = itemInCart.quantity + action.payload.quantity > action.payload.quantityStock 
+                            ? action.payload.quantityStock 
+                            : itemInCart.quantity + action.payload.quantity
+      } else {
         state.products.push(action.payload);
         state.quantity += 1;
       }
