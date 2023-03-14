@@ -20,8 +20,7 @@ const Products = () => {
     // console.log(products[0].Size_Color.L, 'fdfdsdd')
     return (
         <View>
-            <Text> Product Container</Text>
-            <View style={{ marginTop: 100}}>
+            <View style={{ marginTop: 50, backgroundColor:'gainsboro'}}>
                 <FlatList 
                     // horizontal
                     data={products}

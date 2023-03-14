@@ -5,10 +5,10 @@ console.log(width)
 const styles = StyleSheet.create({
     container: {
         width:width/2-20,
-        height:width/1.7,
+        height:width/1.5,
         padding:10,
         borderRadius:10,
-        marginTop:55,
+        marginTop:25,
         marginBottom:5,
         marginLeft:10,
         alignItems:'center',
@@ -20,10 +20,10 @@ const styles = StyleSheet.create({
         height:width/2 - 20 -30,
         backgroundColor:'transparent',
         position:'absolute',
-        top:-45
+        top:10
     },
     card:{
-        marginBottom:10,
+        marginBottom:70,
         height:width/2 -20-90,
         backgroundColor:'transparent',
         width:width/2 - 20 -10
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     price:{
         fontSize:20,
         color:'orange',
-        marginTop:10
+        marginTop:5
     }
 
     
