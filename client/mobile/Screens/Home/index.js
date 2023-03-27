@@ -1,7 +1,8 @@
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList, SafeAreaView, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 
 import CateHomeList from '../../Components/CateHomeList/index'
+import styles from './styles'
 
 const data = require('../../assets/data/products.json')
 const cateHomeData = require('../../assets/data/cateHome.json')
@@ -19,18 +20,14 @@ const Home = () => {
             setCateHome([])
         }
     }, [])
+    console.log('cate',cateHome)
   return (
-    <View>
-        <View style={{ marginTop: 50, backgroundColor:'gainsboro'}}>
-                <FlatList 
-                    // horizontal
-                    data={cateHome}
-                    renderItem={({ item }) => <CateHomeList key={item.id} item={item} />}
-                    keyExtractor={item => item.id}
-                    numColumns={1}
-                />
-        </View>
-    </View>
+    <SafeAreaView style={styles.container}>
+        <ScrollView style={styles.scrollView}>
+
+            <CateHomeList {...cateHome}/>
+        </ScrollView>
+    </SafeAreaView>
   )
 }
 

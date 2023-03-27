@@ -5,6 +5,7 @@ import styles from './styles'
 
 const CateHomeCard = (props) => {
   const { cate, img, title } = props
+  console.log('card',props)
   return (
     <View style={styles.container}>
       {<ImageBackground style={styles.imageBg} 
