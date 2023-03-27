@@ -20,15 +20,14 @@ const Home = () => {
             setCateHome([])
         }
     }, [])
-    console.log('cate',cateHome)
-  return (
-    <SafeAreaView style={styles.container}>
-        <ScrollView style={styles.scrollView}>
+    return (
+        <SafeAreaView style={styles.container}>
+            <ScrollView style={styles.scrollView}>
 
-            <CateHomeList {...cateHome}/>
-        </ScrollView>
-    </SafeAreaView>
-  )
+                <CateHomeList {...cateHome}/>
+            </ScrollView>
+        </SafeAreaView>
+    )
 }
 
 export default Home
