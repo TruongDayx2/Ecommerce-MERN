@@ -1,7 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native'
 
 var {width} = Dimensions.get("window")
-console.log(width)
 const styles = StyleSheet.create({
     container: {
         width:width/2-20,
