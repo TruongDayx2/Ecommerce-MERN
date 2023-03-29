@@ -6,11 +6,11 @@ import CateHomeCard from '../CateHomeCard/index'
 
 
 
-const ProductList = (props) => {
+const CateHomeList = (props) => {
 
   const result = Object.values(props);
   const listItems = result.map((item) =>
-  (<TouchableOpacity  key={item.id} style={styles.touch}>
+  (<TouchableOpacity delayPressIn={20} key={item.id} style={styles.touch}>
     <View style={styles.view}>
       <CateHomeCard
         // key={item.id}
@@ -28,4 +28,4 @@ const ProductList = (props) => {
   )
 }
 
-export default ProductList
+export default CateHomeList
