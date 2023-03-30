@@ -1,9 +1,13 @@
 import { View, Text, ScrollView, TouchableOpacity, Dimensions, ImageBackground, Button } from 'react-native'
 import React, { useState, useRef, useEffect } from 'react'
+import { useNavigation,useRoute } from '@react-navigation/native';
 import styles from './styles'
 
 const { width: screenWidth } = Dimensions.get("window")
 const index = (props) => {
+
+    const navigation = useNavigation();
+
     const [data, setData] = useState([])
     const [img, setImg] = useState(0)
     const stepCarousel = useRef(null)
@@ -43,7 +47,7 @@ const index = (props) => {
         }
     }, [data])
 
-    const onPress = () => {};
+    const onPress = () => { };
     return (
         <ScrollView
             onScroll={handleScroll}
@@ -68,7 +72,9 @@ const index = (props) => {
                             <View style={styles.info}>
                                 <Text style={styles.text}>FALL</Text>
                                 <Text style={styles.text}>into {e.title}</Text>
-                                <TouchableOpacity onPress={onPress} style={styles.btnShopNow}>
+                                <TouchableOpacity onPress={() => {
+                                    navigation.navigate('Products')
+                                }} style={styles.btnShopNow}>
                                     <Text style={styles.btnText}>Shop Now</Text>
                                 </TouchableOpacity>
                             </View>

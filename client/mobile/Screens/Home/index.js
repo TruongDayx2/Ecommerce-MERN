@@ -1,5 +1,6 @@
-import { View, Text, FlatList, SafeAreaView, ScrollView, Image } from 'react-native'
+import { View, Text, FlatList, ScrollView, Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
+import SafeAreaView, { SafeAreaProvider } from 'react-native-safe-area-view';
 
 import CateHomeList from '../../Components/CateHomeList/index'
 import SwipeSlide from '../../Components/SwipeSlide/index'
@@ -22,6 +23,8 @@ const Home = () => {
     }, [dataPro])
 
     return (
+        <SafeAreaProvider>
+
         <SafeAreaView style={styles.container}>
             <ScrollView style={styles.scrollView} >
                 <SwipeSlide {...swipeSlide} />
@@ -29,6 +32,7 @@ const Home = () => {
                 <ProductList {...products} />
             </ScrollView>
         </SafeAreaView>
+        </SafeAreaProvider>
     )
 }
 
