@@ -73,7 +73,7 @@ const index = (props) => {
                                 <Text style={styles.text}>FALL</Text>
                                 <Text style={styles.text}>into {e.title}</Text>
                                 <TouchableOpacity onPress={() => {
-                                    navigation.navigate('Products')
+                                    navigation.navigate('Shop')
                                 }} style={styles.btnShopNow}>
                                     <Text style={styles.btnText}>Shop Now</Text>
                                 </TouchableOpacity>

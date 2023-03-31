@@ -15,13 +15,35 @@ function MyTabs() {
   return (
     <Tab.Navigator screenOptions={{headerShown:false}}>
       <Tab.Screen name="Home" component={Home} options={{
+        tabBarInactiveTintColor: '#697473',
+        tabBarActiveTintColor: '#289B94',
         tabBarIcon:({focused})=>(
           <Image source={focused ? require('../assets/img/home2.png') : require('../assets/img/home1.png')} style={{width:30,height:30}} resizeMode="stretch" />
         )
       }}/>
-      <Tab.Screen name="Products" component={Products} />
-      <Tab.Screen name="Cart" component={Cart} />
-      <Tab.Screen name="User" component={User} />
+      <Tab.Screen name="Shop" component={Products} options={{
+        tabBarInactiveTintColor: '#697473',
+        tabBarActiveTintColor: '#289B94',
+        tabBarIcon:({focused})=>(
+          <Image source={focused ? require('../assets/img/shop2.png') : require('../assets/img/shop1.png')} style={{width:30,height:30}} resizeMode="stretch" />
+        )
+      }}
+      />
+      <Tab.Screen name="Cart" component={Cart} options={{
+        tabBarInactiveTintColor: '#697473',
+        tabBarActiveTintColor: '#289B94',
+        tabBarIcon:({focused})=>(
+          <Image source={focused ? require('../assets/img/bag2.png') : require('../assets/img/bag1.png')} style={{width:30,height:30}} resizeMode="stretch" />
+        )
+      }}
+      />
+      <Tab.Screen name="User" component={User} options={{
+        tabBarInactiveTintColor: '#697473',
+        tabBarActiveTintColor: '#289B94',
+        tabBarIcon:({focused})=>(
+          <Image source={focused ? require('../assets/img/user2.png') : require('../assets/img/user1.png')} style={{width:30,height:30}} resizeMode="stretch" />
+        )
+      }}/>
     </Tab.Navigator>
   );
 }
