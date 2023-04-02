@@ -2,6 +2,7 @@ import { View, Text,Image } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import {Provider} from 'react-redux'
 import React from 'react'
 import Home from './Home'
 import Cart from './Cart';

@@ -6,21 +6,30 @@ import CateHomeList from '../../Components/CateHomeList/index'
 import SwipeSlide from '../../Components/SwipeSlide/index'
 import styles from './styles'
 import ProductList from '../../Components/ProductList/index'
+// import { useDispatch } from 'react-redux';
+import { getProducts } from '../../API/products';
+import axios from 'axios';
 
-const dataPro = require('../../assets/data/products.json')
 const cateHomeData = require('../../assets/data/cateHome.json')
 const dataSwipeSlide = require('../../assets/data/swipeSlide.json')
 
+
+
 const Home = () => {
-    const [products, setProducts] = useState(dataPro)
+    const [products, setProducts] = useState([])
     const [cateHome, setCateHome] = useState(cateHomeData)
     const [swipeSlide, setSwipeSlide] = useState(dataSwipeSlide)
-    useEffect(() => {
-        setProducts(dataPro)
-        return () => {
-            setProducts([])
+
+    useEffect(()=>{
+        const fetchData = async ()=>{
+            const res = await getProducts({catePath:undefined,cate:undefined})
+            if (res.status === 200) {
+                setProducts(res.data.slice(0,8))
+              }
         }
-    }, [dataPro])
+        fetchData()
+    },[])
+
 
     return (
         <SafeAreaProvider>
