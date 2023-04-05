@@ -93,4 +93,62 @@ router.get("/", async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+// ADMIN
+// Get PRODUCT
+router.get("/admin/",async(req,res)=>{
+    try{
+		const itemPerPage = parseInt(req.query.limit || "10"); //Products per page
+        const pageNum = parseInt(req.query.page || "0"); //Products page number
+        const sortByVal = (req.query.sortBy || "_id"); //Products sort by
+        const searchText = (req.query.searchText || ""); //Products search text
+        const priceFilter = (req.query.price || ""); //Products search text
+
+        let sortObject = {};
+  		let filterObj = {};
+  		let searchTextObj = {};
+  		let priceObject = {};
+        sortByField = sortByVal;
+  		if(sortByVal == 'name'){
+  			sortByField = 'title'; 
+  		}
+
+        if(searchText !== ''){
+            searchTextObj = {
+                             $or : [
+                                { title: { $regex: searchText, $options:'i' } },
+                                { desc: { $regex: searchText, $options:'i' } }
+                             ]
+                          };
+
+        }
+
+        if(priceFilter !== ''){
+            priceObject = 	{price: {$lte: priceFilter}};
+        }
+
+        filterObj = {
+            $and : [							    
+               searchTextObj,
+               priceObject
+            ]
+        };
+
+        sortObject[sortByField] = 1;  	
+
+        const totalProducts = await Product.countDocuments(filterObj);
+		const productData = await Product.find(filterObj).sort(sortObject).limit(itemPerPage).skip(itemPerPage * pageNum);
+		
+        let numOfPages = parseInt(totalProducts/itemPerPage);
+
+        if(productData){
+			res.status(200).json({success:1,message:"", numOfPages ,data:productData});
+		}else{
+			res.status(201).json({success:0,message:"No Data Found!"})
+		}
+
+    }catch(err){
+		res.status(500).json({status:0,message:err.message})
+	}
+})
 module.exports = router
