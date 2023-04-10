@@ -10,9 +10,10 @@ router.post("/", verifyTokenAndAdmin, async (req, res) => {
 
     try {
         const savedProduct = await newProduct.save();
-        res.status(200).json(savedProduct);
+		res.status(200).json({status:1,message:"Product added successfully",data:[savedProduct]})
     } catch (err) {
-        res.status(500).json(err);
+		res.status(500).json({status:0,message:err.message})
+
     }
 });
 
@@ -45,12 +46,17 @@ router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
 //GET PRODUCT
 router.get("/find/:id", async (req, res) => {
     try {
-        const product = await Product.findById(req.params.id);
-        res.status(200).json(product);
+        const productData = await Product.findById(req.params.id);
+        if(productData){
+			res.status(200).json({success:1,message:"",data:productData});
+		}else{
+			res.status(200).json({success:0,message:"No Data Found!"})
+		}
     } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json({status:0,message:err.message})
     }
 });
+
 
 //GET ALL PRODUCTS
 router.get("/", async (req, res) => {
@@ -139,7 +145,8 @@ router.get("/admin/",async(req,res)=>{
         const totalProducts = await Product.countDocuments(filterObj);
 		const productData = await Product.find(filterObj).sort(sortObject).limit(itemPerPage).skip(itemPerPage * pageNum);
 		
-        let numOfPages = parseInt(totalProducts/itemPerPage);
+        let pageNumber = totalProducts/itemPerPage;
+        let numOfPages = Number.isInteger(pageNumber) ? (pageNumber) : parseInt(pageNumber) +1
 
         if(productData){
 			res.status(200).json({success:1,message:"", numOfPages ,data:productData});
