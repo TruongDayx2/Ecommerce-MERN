@@ -1,19 +1,17 @@
-import { StyleSheet, Dimensions } from 'react-native'
+import { StyleSheet, Dimensions } from "react-native";
 
-var {width} = Dimensions.get("window")
+var { width } = Dimensions.get("window");
 const styles = StyleSheet.create({
-    touch: {
-        width:width/3 ,
-    },
-    view: {
-        width:width,
-        backgroundColor:'gainsboro',
-        flex:1,
-        justifyContent:'center',
-        alignItems:'center'
-    }
+  touch: {
+    width: width / 2,
+  },
+  view: {
+    width: width / 2,
+    backgroundColor: "gainsboro",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
 
-    
-})
-
-export default styles
+export default styles;
