@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, TouchableOpacity, TextInput, Image } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 
 import styles from "./styles";
 
 const DisplayStart = () => {
-  // const [products, setProducts] = useState([])
-
   return (
     <View style={styles.container}>
       <View style={styles.connext}>
