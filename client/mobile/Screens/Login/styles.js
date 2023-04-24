@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
   },
   cont1: {
     backgroundColor: "#F5F5F5",
-    margin: 20,
-    paddingTop: 100,
+    margin: 10,
+    paddingTop: 50,
     flex: 1,
   },
   textLogin: {

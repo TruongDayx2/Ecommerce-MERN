@@ -9,11 +9,13 @@ import ProductList from "../../Components/ProductList/index";
 // import { useDispatch } from 'react-redux';
 import { getProducts } from "../../API/products";
 import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
 
 const cateHomeData = require("../../assets/data/cateHome.json");
 const dataSwipeSlide = require("../../assets/data/swipeSlide.json");
 
 const Home = () => {
+  const navigation = useNavigation();
   const [products, setProducts] = useState([]);
   const [cateHome, setCateHome] = useState(cateHomeData);
   const [swipeSlide, setSwipeSlide] = useState(dataSwipeSlide);

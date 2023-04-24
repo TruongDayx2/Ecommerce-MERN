@@ -10,6 +10,7 @@ import Products from "./Products";
 import User from "./User";
 import Login from "./Login";
 import SignUp from "./SignUp";
+import DisplayStart from "./DisplayStart";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -97,14 +98,16 @@ function MyTabs() {
   );
 }
 
+
 const Body = () => {
   return (
     // <Home/>
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="HomeTabs"
+        initialRouteName="DisplayStart"
         screenOptions={{ headerShown: false }}
       >
+        <Stack.Screen name="DisplayStart" component={DisplayStart} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="HomeTabs" component={MyTabs} />
