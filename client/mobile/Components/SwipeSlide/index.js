@@ -31,21 +31,21 @@ const index = (props) => {
         }
     }
 
-    useEffect(() => {
-        if (data.length > 0) {
-            let index = 0
-            setInterval(() => {
-                if (stepCarousel !== null) {
+    // useEffect(() => {
+    //     if (data.length > 0) {
+    //         let index = 0
+    //         setInterval(() => {
+    //             if (stepCarousel !== null) {
 
-                    stepCarousel.current.scrollTo({ x: index * screenWidth, y: 0, animated: true })
-                    index += 1
-                    if (index === data.length) {
-                        index = 0
-                    }
-                }
-            }, 5000)
-        }
-    }, [data])
+    //                 stepCarousel.current.scrollTo({ x: index * screenWidth, y: 0, animated: true })
+    //                 index += 1
+    //                 if (index === data.length) {
+    //                     index = 0
+    //                 }
+    //             }
+    //         }, 5000)
+    //     }
+    // }, [data])
 
     const onPress = () => { };
     return (

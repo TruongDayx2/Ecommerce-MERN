@@ -29,7 +29,6 @@ const Home = () => {
     };
     fetchData();
   }, []);
-  console.log(products);
 
   return (
     <SafeAreaProvider>
