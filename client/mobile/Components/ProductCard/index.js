@@ -13,7 +13,6 @@ const ProductCard = (props) => {
       return total + current;
     });
   });
-  console.log(price);
   return (
     <View style={styles.container}>
       <Image
