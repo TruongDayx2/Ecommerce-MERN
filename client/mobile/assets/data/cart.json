@@ -1,0 +1,18 @@
+
+    {
+        "userID":"63a0179b9e96a47c9f39a436",
+        "products":[
+            {
+                "productId":"63a072fec23ddef64575c1e4",
+                "quantity":2,
+                "size":"XL",
+                "color":"white"
+            },
+            {
+                "productId":"63a072fec23ddef64575c1e4",
+                "quantity":5,
+                "size":"M",
+                "color":"red"
+            }
+        ]
+    }

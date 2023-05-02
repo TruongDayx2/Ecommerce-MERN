@@ -10,7 +10,7 @@ const User = () => {
 
   const [user, setUser] = useState(...userData);
   const myOrders = ['My Orders', 'Already have 12 orders']
-  const address = ['Shipping addresses', '3 addresses']
+  const address = ['Shipping addresses', user.address]
   const visa = ['Payment methods', 'Visa **34']
   const code = ['Promocodes', 'You have special promocodes']
   const review = ['My reviews', 'Reviews for 4 items']

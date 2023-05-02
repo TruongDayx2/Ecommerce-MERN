@@ -7,6 +7,7 @@
         "password":"123",
         "isAdmin":"true",
         "name":"Truong",
-        "lastname":"Nguyen"
+        "lastname":"Nguyen",
+        "address":"130/8 Linh Xuan, Thu Duc, Tp.Ho Chi Minh"
     }
 ]
