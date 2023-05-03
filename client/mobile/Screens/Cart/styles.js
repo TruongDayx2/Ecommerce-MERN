@@ -10,22 +10,48 @@ const styles = StyleSheet.create({
     width:width
   },
   topSide:{
-    backgroundColor:'red',
-    height:height/5,
-    flexDirection:'row'
+    height:height/6,
+    flexDirection:'row',
+    alignItems:'flex-end'
   },
   title:{
+    // backgroundColor:'red',
     fontSize:40,
-    alignItems:'center',
-    width:'70%'
+    marginLeft:15,
+    // alignItems:'center',
+    width:'65%',
+    // height:'100%'/
   },
   topRightSide:{
-    flexDirection:'column'
+    width:'30%',
+    height:'100%',
+    flexDirection:'column',
+    // backgroundColor:'grey',
+    alignItems:'flex-end',
+    justifyContent:'space-around',
+    paddingRight:20
+  },
+  iconSearch:{
+    height:30,
+    width:30,
+    marginTop:20
+  },
+
+  checkAll:{
+    // backgroundColor:'pink',
+    flexDirection:'row',
+    padding:10,
+    width:'100%',
+    marginTop:40
+  },
+  textAll:{
+    paddingRight:30
   },
   list:{
     padding:8,
     marginTop:20,
     width:width,
+    height:'60%'
   },
   item:{
     height:width/3,
@@ -33,12 +59,14 @@ const styles = StyleSheet.create({
     marginBottom:10,
     borderRadius:10,
     marginHorizontal:'2%',
-    flexDirection:'row'
+    flexDirection:'row',
+    flex:1
   },
   itemLeft:{
     marginTop:15,
     marginLeft:10,
-    width:'35%'
+    width:'35%',
+    // backgroundColor:'red',
   },
   nameItem:{
     fontWeight:'bold',
@@ -72,6 +100,26 @@ const styles = StyleSheet.create({
   },
   quantity:{
     marginHorizontal:10
+  },
+  itemRight:{
+    // backgroundColor:'grey',
+    flex:1,
+    flexDirection:'column',
+    alignItems:'flex-end',
+    justifyContent:'space-around'
+  },
+  touch:{
+    // alignItems:'flex-start'
+    // flex:1,
+    // alignItems:"center"
+    marginRight:5
+  },
+  price:{
+    // width:'100%',
+    // height:'100%',
+    // flex:1,
+    // backgroundColor:'pink',
+    marginRight:5
   },
   img:{
     width:'33%',

@@ -1,5 +1,5 @@
-import { View, Text, FlatList,Image, TouchableOpacity } from 'react-native'
-import React,{useState} from 'react'
+import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native'
+import React, { useState,useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 // import CheckBox from '@react-native-community/checkbox';
 import Checkbox from 'expo-checkbox'
@@ -9,10 +9,12 @@ import styles from "./styles";
 const cartData = require("../../assets/data/cart.json");
 const Cart = () => {
   const [checkedItems, setCheckedItems] = useState([]);
-  const [data,setData] = useState(cartData.products)
+  const [data, setData] = useState(cartData.products)
+  const [checkAll,setCheckAll] = useState(false)
   const toggleItem = (item) => {
-    if (isChecked(item.productId)) {
-      setCheckedItems(checkedItems.filter(item => item !== id));
+    const id = item.productId + item.color + item.size
+    if (isChecked(id)) {
+      setCheckedItems(checkedItems.filter(filterItem => filterItem !== id));
     } else {
       setCheckedItems([...checkedItems, id]);
     }
@@ -20,19 +22,37 @@ const Cart = () => {
   const isChecked = (id) => {
     return checkedItems.includes(id);
   };
+  const handleTickAll =()=>{
+    setCheckAll(!checkAll)
+  }
+  useEffect(() => {
+    if (checkAll){
+      let listTemp =[]
+      for (i in data){
+        let item=data[i]
+        let id = item.productId + item.color + item.size
+        listTemp.push(id)
+      }
+      setCheckedItems(listTemp)
+    }else{
+      setCheckedItems([])
+    }
+    
+  }, [checkAll])
+  
 
   const renderItem = ({ item, index }) => {
     return (
-      <View style={styles.item}>
+      <View style={styles.item} key={index}>
         <Image
-            style={styles.img}
-            resizeMode="contain"
-            source={{
-              uri: item.img
-                ? item.img
-                : "https://res.cloudinary.com/cloudinary-marketing/images/c_fill,w_895/f_auto,q_auto/v1649725549/Web_Assets/blog/loading-645268_1280/loading-645268_1280-jpg?_i=AA",
-            }}
-          />
+          style={styles.img}
+          resizeMode="contain"
+          source={{
+            uri: item.img
+              ? item.img
+              : "https://res.cloudinary.com/cloudinary-marketing/images/c_fill,w_895/f_auto,q_auto/v1649725549/Web_Assets/blog/loading-645268_1280/loading-645268_1280-jpg?_i=AA",
+          }}
+        />
         <View style={styles.itemLeft}>
           <Text style={styles.nameItem}>{item.namePro}</Text>
           <View style={styles.filter}>
@@ -63,12 +83,20 @@ const Cart = () => {
             </TouchableOpacity>
           </View>
         </View>
-        <TouchableOpacity onPress={() => toggleItem(item)}>
-          <View style={styles.itemRight}>
+        <TouchableOpacity onPress={() => toggleItem(item)} style={styles.itemRight}>
+          {/* <View style={styles.itemRight}> */}
+            {/* <View > */}
               <Checkbox
-                status={isChecked(item.id) ? "checked" : "unchecked"} 
+                style={styles.touch}
+                onValueChange={()=>toggleItem(item)}
+                value={isChecked(item.productId + item.color + item.size) ? true : false}
               />
-          </View>
+            {/* </View> */}
+            <View style={styles.price}>
+              <Text>{item.price * item.quantity} $</Text>
+
+            </View>
+          {/* </View> */}
         </TouchableOpacity>
       </View>
     )
@@ -84,13 +112,22 @@ const Cart = () => {
             resizeMode="contain"
             source={require("../../assets/img/search.png")}
           />
+          <TouchableOpacity onPress={()=>handleTickAll()} >
+            <View style={styles.checkAll} >
+              <Text style={styles.textAll}>All</Text>
+              <Checkbox
+                value={checkAll}
+                onValueChange={()=>handleTickAll()}
+              />
+            </View>
+          </TouchableOpacity>
         </View>
       </View>
       <FlatList
         style={styles.list}
         data={data}
         renderItem={renderItem}
-        keyExtractor={(index) => index}
+        keyExtractor={(item) => item.productId + item.color + item.size}
         numColumns={1}
       />
 

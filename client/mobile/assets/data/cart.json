@@ -4,6 +4,7 @@
         "products":[
             {
                 "productId":"63a072fec23ddef64575c1e4",
+                "price":50,
                 "quantity":2,
                 "size":"XL",
                 "color":"white",
@@ -12,9 +13,37 @@
             },
             {
                 "productId":"63a072fec23ddef64575c1e4",
-                "quantity":5,
+                "price":20,
+                "quantity":3,
                 "size":"M",
                 "color":"red",
+                "namePro":"Áo Phông Itachi48",
+                "img":"https://cdn.ssstutter.com/products/po0EUQXd52Ks47dT/062022/1655787526771.jpeg"
+            },
+            {
+                "productId":"63a072fec23ddef64575c1e4",
+                "price":50,
+                "quantity":2,
+                "size":"XLk",
+                "color":"white",
+                "namePro":"Áo Phông Itachi48",
+                "img":"https://cdn.ssstutter.com/products/po0EUQXd52Ks47dT/062022/1655787526771.jpeg"
+            },
+            {
+                "productId":"63a072fec23ddef64575c1e4",
+                "price":50,
+                "quantity":2,
+                "size":"XLf",
+                "color":"white",
+                "namePro":"Áo Phông Itachi48",
+                "img":"https://cdn.ssstutter.com/products/po0EUQXd52Ks47dT/062022/1655787526771.jpeg"
+            },
+            {
+                "productId":"63a072fec23ddef64575c1e4",
+                "price":50,
+                "quantity":3,
+                "size":"XLv",
+                "color":"white",
                 "namePro":"Áo Phông Itachi48",
                 "img":"https://cdn.ssstutter.com/products/po0EUQXd52Ks47dT/062022/1655787526771.jpeg"
             }
