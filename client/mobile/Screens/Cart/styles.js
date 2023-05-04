@@ -127,6 +127,34 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     borderTopLeftRadius:10,
     borderBottomLeftRadius:10
+  },
+  botSide:{
+    marginTop:20
+  },
+  priceArea:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    marginHorizontal:20,
+    marginBottom:10
+  },
+  titlePrice:{
+    fontSize:20
+  },
+  checkOut:{
+    width:width
+  },
+  btnCheckOut:{
+    backgroundColor: "#289B94",
+    padding: 15,
+    borderRadius: 30,
+    width:'95%',
+    marginHorizontal:'2.5%',
+    justifyContent:'center',
+    flexDirection:'row'
+  },
+  btnText:{
+      color: "white",
+      fontSize:20,
   }
   
 });

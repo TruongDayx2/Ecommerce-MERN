@@ -11,6 +11,8 @@ const Cart = () => {
   const [checkedItems, setCheckedItems] = useState([]);
   const [data, setData] = useState(cartData.products)
   const [checkAll,setCheckAll] = useState(false)
+  const [totalPrice,setTotalPrice] = useState(0)
+
   const toggleItem = (item) => {
     const id = item.productId + item.color + item.size
     if (isChecked(id)) {
@@ -39,7 +41,32 @@ const Cart = () => {
     }
     
   }, [checkAll])
+  useEffect(() => {
+    let total=0
+    for (i in data){
+      let item=data[i]
+      let id = item.productId + item.color + item.size
+      if (checkedItems.includes(id)){
+        total += (item.price * item.quantity)
+      }
+    }
+    setTotalPrice(total)
+
+  }, [checkedItems])
   
+  const handleAmount =(item,key)=>{
+    let idItem = item.productId + item.color + item.size
+    for (i in data){
+      let item=data[i]
+      let id = item.productId + item.color + item.size
+      if (id === idItem){
+        // Tạm thời 
+        // Phải gọi API cập nhật lại database
+        console.log(item)
+      }
+    }
+  }
+  // console.log(totalPrice)
 
   const renderItem = ({ item, index }) => {
     return (
@@ -60,7 +87,7 @@ const Cart = () => {
             <Text style={styles.size}>Size: {item.size}</Text>
           </View>
           <View style={styles.amount}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>handleAmount(item,'minus')}>
               <View style={[styles.btn, styles.minus]}>
                 <Image
                   style={styles.img}
@@ -130,7 +157,17 @@ const Cart = () => {
         keyExtractor={(item) => item.productId + item.color + item.size}
         numColumns={1}
       />
-
+      <View style={styles.botSide}>
+        <View style={styles.priceArea}>
+          <Text style={styles.titlePrice}>Total amount</Text>
+          <Text style={styles.titlePrice}>{totalPrice}$</Text>
+        </View>
+        <View style={styles.checkOut}>
+          <TouchableOpacity style={styles.btnCheckOut}>
+              <Text style={styles.btnText}>Check Out</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     </SafeAreaView>
   )
 }
