@@ -11,6 +11,7 @@ import User from "./User";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import DisplayStart from "./DisplayStart";
+import Shop from "./Shop";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -39,7 +40,7 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Shop"
-        component={Products}
+        component={Shop}
         options={{
           tabBarInactiveTintColor: "#697473",
           tabBarActiveTintColor: "#289B94",
