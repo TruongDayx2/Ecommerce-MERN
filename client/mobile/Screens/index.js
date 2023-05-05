@@ -112,6 +112,8 @@ const Body = () => {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="HomeTabs" component={MyTabs} />
+        <Stack.Screen name="Products" component={Products} />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );

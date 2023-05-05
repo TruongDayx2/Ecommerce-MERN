@@ -11,7 +11,7 @@ const ShopMen = () => {
 
   const renderItem = ({ item, index }) => {
     return (
-    <View style={styles.container}>
+    <View style={styles.container} key={index}>
       <View style={styles.leftSide}>
         <Text style={styles.title}>{item.title}</Text>
       </View>
