@@ -1,12 +1,15 @@
 import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { useNavigation,useRoute } from '@react-navigation/native';
 
 import styles from "./styles";
 import ProfileComponent from "../../Components/ProfileComponent/index";
 
 const userData = require("../../assets/data/user.json");
 const User = () => {
+  const navigation = useNavigation();
+
 
   const [user, setUser] = useState(...userData);
   const myOrders = ['My Orders', 'Already have 12 orders']
@@ -61,7 +64,11 @@ const User = () => {
             <TouchableOpacity delayPressIn={80}>
               <ProfileComponent {...setting} />
             </TouchableOpacity>
-            <TouchableOpacity delayPressIn={80}>
+            <TouchableOpacity delayPressIn={80}
+              onPress={() => {
+                navigation.navigate('DisplayStart')
+            }}
+            >
               <ProfileComponent {...logOut} />
             </TouchableOpacity>
           </ScrollView>

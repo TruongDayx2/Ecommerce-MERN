@@ -18,8 +18,18 @@ import ShopMen from '../../Components/ShopMen';
 import Products from '../Products';
 import Login from '../Login';
 
+
 const Shop = () => {
   const navigation = useNavigation();
+
+  const navigateToHome = (payload)=>{
+    navigation.navigate('Products',payload)
+  }
+  const UpdateShopWomen = () => {
+    return(
+      <ShopWomen navigateToHome={navigateToHome}/>
+    )
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -47,7 +57,7 @@ const Shop = () => {
       <View style={styles.cateSide}>
         <NavigationContainer independent={true}>
           <Tab.Navigator>
-            <Tab.Screen name="Women" component={ShopWomen} />
+            <Tab.Screen name="Women" component={UpdateShopWomen} />
             <Tab.Screen name="Men" component={ShopMen} />
             {/* <Tab.Screen name="Product" component={Login} /> */}
           </Tab.Navigator>

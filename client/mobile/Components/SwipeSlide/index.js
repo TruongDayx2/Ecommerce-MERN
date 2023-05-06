@@ -60,6 +60,7 @@ const index = (props) => {
         >
             {
                 data.map((e, index) => (
+                   
                     <View
                         key={index}
                     >
@@ -73,7 +74,7 @@ const index = (props) => {
                                 <Text style={styles.text}>FALL</Text>
                                 <Text style={styles.text}>into {e.title}</Text>
                                 <TouchableOpacity onPress={() => {
-                                    navigation.navigate('Shop')
+                                    navigation.navigate('Products',{cate:e.title,sex:e.cate})
                                 }} style={styles.btnShopNow}>
                                     <Text style={styles.btnText}>Shop Now</Text>
                                 </TouchableOpacity>

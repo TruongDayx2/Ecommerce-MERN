@@ -11,6 +11,7 @@ import { useNavigation,useRoute } from '@react-navigation/native';
 
 import ShopMen from '../../Components/ShopMen';
 import ProductsWomen from "../../Components/ProductsWomen";
+import ProductsMen from "../../Components/ProductsMen";
 
 
 const Tab = createMaterialTopTabNavigator()
@@ -18,15 +19,24 @@ const Tab = createMaterialTopTabNavigator()
 const Products = ({ route }) => {
 
   const navigation = useNavigation();
-
-  const { cate, sex } = route.params;
-  const [cateName,setCateName] = useState(cate)
-  console.log('cate', sex)
+  // console.log("payload",payload)
+  const payload = route.params;
+  const [init,setInit] = useState('Women')
+  
+  const [cateName,setCateName] = useState(payload.cate)
+  const {cate,sex} = payload
+  console.log('cate', payload)
   useEffect(() => {
     if (cate === undefined){
       setCateName('All')
+    }else
+    if (cate === 'Women'){
+      setInit('Women')
+    }else
+    if (cate === 'Men'){
+      setInit('Men')
     }
-  }, [cate])
+  }, [payload.cate])
   
 
   return (
@@ -52,14 +62,18 @@ const Products = ({ route }) => {
       </View>
       <View style={styles.cateSide}>
         <NavigationContainer independent={true}>
-          <Tab.Navigator>
+          <Tab.Navigator
+            initialRouteName={init}
+            screenOptions={{ headerShown: false }}
+          >  
             <Tab.Screen name="Women" component={()=> <ProductsWomen myParam={{cate,sex}}/>} />
-            <Tab.Screen name="Men" component={ShopMen} />
+            <Tab.Screen name="Men" component={()=> <ProductsMen myParam={{cate,sex}}/>} />
           </Tab.Navigator>
         </NavigationContainer>
       </View>
     </SafeAreaView>
-  );
+    );
+
 };
 
 export default Products;

@@ -8,13 +8,17 @@ const dataCate = require("../../assets/data/cateWomen.json");
 
 
 
-const ShopWomen = () => {
+const ShopWomen = ({navigateToHome}) => {
   const navigation = useNavigation();
 
   const Item = ({ item }) => {
+
+    console.log(item)
     return (
     <TouchableOpacity onPress={() => {
-      navigation.navigate('Products')
+      // navigation.navigate('Products',{cate:undefined,sex:'women'})'
+      // console.log('item',item)
+      navigateToHome({cate:item._id,sex:'women'})
     }}>
       <View style={styles.container} >
         <View style={styles.leftSide}>
