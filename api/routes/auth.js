@@ -2,6 +2,7 @@ const router = require("express").Router()
 const User = require('../models/User')
 const CryptoJS = require("crypto-js")
 const jwt = require('jsonwebtoken')
+const nodemailer = require('nodemailer')
 var refreshTokens = [] 
 //REGISTER
 router.post('/register', async (req, res) => {
@@ -20,6 +21,38 @@ router.post('/register', async (req, res) => {
         res.status(500).json(e)
     }
 })
+
+//OTP MAIL 
+router.post('/otp', async (req, res) => {
+	const { email } = req.body;
+	let transporter = nodemailer.createTransport({
+		host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+		auth: {
+			user: 'tuphancqc1995@gmail.com',
+			pass: 'zykeixrdhhxkivka'
+		},
+	});
+
+	let otp = Math.floor(100000 + Math.random() * 900000);
+
+	await transporter.sendMail({
+		from: 'tuphancqc1995@gmail.com',
+		to: email,
+		subject: 'OTP for registration',
+		text: 'Your OTP for registration is ' + otp
+	}, (err, data) => {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log('Email sent: ' + data.response);
+			res.status(200).json({ success: 1, message: "OTP sent successfully", data: [{ otp: otp, email: email }] });
+		}
+	});
+})
+
+
 
 //LOGIN
 // router.post('/login', async (req, res) => {
@@ -50,13 +83,13 @@ router.post('/login', async (req, res) =>{
     try{
         const user = await User.findOne({email:email});
         if(!user){
-			res.status(401).json({success:0,message:"Invalid Email or Password"});
+			res.status(401).json({success:0,message:"Invalid Email"});
 		}else{
 			const hashedPassword = CryptoJS.AES.decrypt(user.password, process.env.PASS_SECRET);
 			const originalPassword = hashedPassword.toString(CryptoJS.enc.Utf8);
 
-            if(req.body.password!=originalPassword){
-				res.status(401).json({success:0,message:"Invalid Email or Password"});
+            if(password!=originalPassword){
+				res.status(401).json({success:0,message:"Invalid Password"});
 			}else{
 				const accessToken = jwt.sign(
 					{
