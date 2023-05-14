@@ -11,7 +11,7 @@ const orderRoute = require('./routes/order')
 const stripeRoute = require('./routes/stripe')
 
 var cors = require('cors')
-
+app.use(express.json({limit: "30mb",extended:true}));
 app.use(cors())
 
 app.use(function(req, res, next) {
