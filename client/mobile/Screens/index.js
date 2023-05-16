@@ -12,11 +12,14 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 import DisplayStart from "./DisplayStart";
 import Shop from "./Shop";
+import { useSelector } from "react-redux";
+
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 function MyTabs() {
+
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }}>
       <Tab.Screen
@@ -101,6 +104,8 @@ function MyTabs() {
 
 
 const Body = () => {
+  const user = useSelector((state)=>state.user.currentUser)
+  console.log(user)
   return (
     // <Home/>
     <NavigationContainer>
@@ -109,7 +114,7 @@ const Body = () => {
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="DisplayStart" component={DisplayStart} />
-        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Login" component={user ? MyTabs : Login} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="HomeTabs" component={MyTabs} />
         <Stack.Screen name="Products" component={Products} />

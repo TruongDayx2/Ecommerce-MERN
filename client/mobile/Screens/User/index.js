@@ -5,6 +5,9 @@ import { useNavigation,useRoute } from '@react-navigation/native';
 
 import styles from "./styles";
 import ProfileComponent from "../../Components/ProfileComponent/index";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {logout} from '../../API/auth'
+import { useDispatch } from 'react-redux';
 
 const userData = require("../../assets/data/user.json");
 const User = () => {
@@ -19,7 +22,14 @@ const User = () => {
   const review = ['My reviews', 'Reviews for 4 items']
   const setting = ['Settings', 'Notifications, password']
   const logOut = ['Log out', '']
+  const dispatch = useDispatch();
 
+  const handleLogout =(e)=>{
+    AsyncStorage.removeItem("persist:root")
+    logout(dispatch)
+    navigation.navigate('DisplayStart')
+  }
+  console.log('AsyncStorage',AsyncStorage)
   return (
     <SafeAreaView>
       <View style={styles.container}>
@@ -65,9 +75,11 @@ const User = () => {
               <ProfileComponent {...setting} />
             </TouchableOpacity>
             <TouchableOpacity delayPressIn={80}
-              onPress={() => {
-                navigation.navigate('DisplayStart')
-            }}
+              onPress={handleLogout
+                // () => {
+                // navigation.navigate('DisplayStart')
+                // }
+              }
             >
               <ProfileComponent {...logOut} />
             </TouchableOpacity>

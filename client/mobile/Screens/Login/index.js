@@ -1,8 +1,6 @@
 import {
   View,
   Text,
-  FlatList,
-  ScrollView,
   Image,
   TextInput,
   TouchableOpacity,
@@ -10,22 +8,23 @@ import {
 import React, { useEffect, useState } from "react";
 import SafeAreaView, { SafeAreaProvider } from "react-native-safe-area-view";
 
-import CateHomeList from "../../Components/CateHomeList/index";
-import SwipeSlide from "../../Components/SwipeSlide/index";
 import styles from "./styles";
-import ProductList from "../../Components/ProductList/index";
-// import { useDispatch } from 'react-redux';
-import { getProducts } from "../../API/products";
 import { useNavigation } from "@react-navigation/native";
-// import axios from 'axios';
+import {login} from "../../API/auth"
+import { useDispatch, useSelector } from "react-redux";
 
-const cateHomeData = require("../../assets/data/cateHome.json");
-const dataSwipeSlide = require("../../assets/data/swipeSlide.json");
 
 const Login = () => {
-  // const [products, setProducts] = useState([])
-  const navigation = useNavigation();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const { isFetching, error } = useSelector((state) => state.user);
 
+  const navigation = useNavigation();
+  const handleLogin = (e)=>{
+    e.preventDefault();
+    login(dispatch, { email, password });
+  }
   return (
     <SafeAreaProvider>
       <View style={styles.container}>
@@ -51,7 +50,7 @@ const Login = () => {
               <View style={styles.viewCenterEmail}>
                 <View style={styles.ctEmail}>{/* icon */}</View>
                 <View style={styles.textInputEmail}>
-                  <TextInput placeholder={"Username or Email"} />
+                  <TextInput placeholder={"Email"}  onChangeText={e=>setEmail(e)}/>
                 </View>
               </View>
             </View>
@@ -65,7 +64,7 @@ const Login = () => {
               <View style={styles.viewCenterPassword}>
                 <View style={styles.ctPassword}>{/* icon */}</View>
                 <View style={styles.textInputPassword}>
-                  <TextInput secureTextEntry={true} placeholder={"Password "} />
+                  <TextInput secureTextEntry={true} placeholder={"Password "} onChangeText={e=>setPassword(e)}/>
                 </View>
               </View>
             </View>
@@ -76,7 +75,7 @@ const Login = () => {
           </View>
           {/* Button */}
           <View style={styles.buttonLogin}>
-            <TouchableOpacity style={styles.btnLogin}>
+            <TouchableOpacity style={styles.btnLogin}disabled={isFetching} onPress={handleLogin}>
               <Text style={styles.titleStyle}>LOGIN</Text>
             </TouchableOpacity>
           </View>

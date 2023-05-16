@@ -9,6 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.18.1",
     "@react-native-community/checkbox": "^0.5.15",
     "@react-navigation/bottom-tabs": "^6.5.7",
     "@react-navigation/material-top-tabs": "^6.6.2",
@@ -31,6 +32,8 @@
     "react-navigation": "^4.4.4",
     "react-redux": "^8.0.5",
     "redux": "^4.2.1",
+    "redux-persist": "^6.0.0",
+    "redux-persist-react-native-async-storage": "^1.0.1",
     "redux-thunk": "^2.4.2"
   },
   "devDependencies": {
