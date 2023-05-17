@@ -29,7 +29,6 @@ const User = () => {
     logout(dispatch)
     navigation.navigate('DisplayStart')
   }
-  console.log('AsyncStorage',AsyncStorage)
   return (
     <SafeAreaView>
       <View style={styles.container}>
