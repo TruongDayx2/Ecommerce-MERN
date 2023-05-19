@@ -3,6 +3,7 @@ const User = require('../models/User')
 const CryptoJS = require("crypto-js")
 const jwt = require('jsonwebtoken')
 const nodemailer = require('nodemailer')
+
 var refreshTokens = [] 
 //REGISTER
 router.post('/register', async (req, res) => {
@@ -52,6 +53,90 @@ router.post('/otp', async (req, res) => {
 	});
 })
 
+
+
+//Forgot Password OTP MAIL
+router.post('/forgotpassword', async (req, res) => {
+	const { email } = req.body;
+	try {
+		const user = await User.findOne({ email: email });
+		if (!user) {
+			res.status(401).json({ success: 0, message: "Invalid Email" });
+		} else {
+			const secret = process.env.JWT_SECRET + user.password
+			const payload = {
+				email: user.email,
+				id: user._id
+			}
+			const token = jwt.sign(payload, secret, { expiresIn: '15m' })
+			const link = `http://localhost:5001/api/auth/resetpassword/${user._id}/${token}`
+			let transporter = nodemailer.createTransport({
+				host: "smtp.gmail.com",
+				port: 465,
+				secure: true,
+				auth: {
+					user: 'tuphancqc1995@gmail.com',
+					pass: 'zykeixrdhhxkivka'
+				},
+			});
+			await transporter.sendMail({
+				from: 'tuphancqc1995@gmail.com',
+				to: email,
+				subject: 'Reset Password',
+				html: `<h2>Please click on given link to reset your password</h2>
+				<a href="${link}">${link}</a>`
+			}, (err, data) => {
+				if (err) {
+					console.log(err);
+				} else {
+					console.log('Email sent: ' + data.response);
+					res.status(200).json({ success: 1, message: "OTP sent successfully", data: [{ otp: otp, email: email }] });
+				}
+			}
+			);
+		}
+	} catch (e) {
+		res.status(500).json(e)
+	}
+})
+
+//RESET PASSWORD
+router.get('/resetpassword/:id/:token', async (req, res) => {
+	const { id, token } = req.params;
+	const user = await User.findById(id);
+	if (!user) {
+		res.status(401).json({ success: 0, message: "Invalid User" });
+	}
+	else {
+		try {
+			const secret = process.env.JWT_SECRET + user.password
+			const payload = jwt.verify(token, secret)
+			res.status(200).json({ success: 1, message: "Valid Token", data: [{ email: user.email }] });
+		} catch (error) {
+			res.status(401).json({ success: 0, message: "Invalid Token" });
+		}
+	}
+});
+
+router.post('/resetpassword/:id/:token', async (req, res) => {
+	const { id, token } = req.params;
+	const { password } = req.body;
+	const user = await User.findById(id);
+	if (!user) {
+		res.status(401).json({ success: 0, message: "Invalid User" });
+	}
+	else {
+		try {
+			const secret = process.env.JWT_SECRET + user.password
+			const payload = jwt.verify(token, secret)
+			user.password = CryptoJS.AES.encrypt(password, process.env.PASS_SECRET).toString();
+			await user.save();
+			res.status(200).json({ success: 1, message: "Password Updated Successfully" });
+		} catch (error) {
+			res.status(401).json({ success: 0, message: "Invalid Token" });
+		}
+	}
+});	
 
 
 //LOGIN
