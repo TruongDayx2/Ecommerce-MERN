@@ -12,12 +12,22 @@ export const login = async (dispatch, user) => {
   }
 };
 
-export const register = async (dispatch,user)=>{
+export const register = async (user)=>{
   try {
-    await publicRequest.post("/auth/register", user);
-    dispatch(registerSuccess());
+    const res = await publicRequest.post("/auth/register", user);
+    return res
   } catch (err) {
-    dispatch(registerFailure(err.request.response));
+    return err
+  }
+}
+
+export const otp = async(user)=>{
+  console.log(user)
+  try {
+    const res = await publicRequest.post("/auth/otp",user)
+    return res
+  } catch (e) {
+    return e
   }
 }
 

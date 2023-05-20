@@ -12,7 +12,9 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 import DisplayStart from "./DisplayStart";
 import Shop from "./Shop";
+import ForgotPassword from "./ForgotPW";
 import { useSelector } from "react-redux";
+import Otp from "./Otp";
 
 
 const Tab = createBottomTabNavigator();
@@ -116,6 +118,8 @@ const Body = () => {
         <Stack.Screen name="DisplayStart" component={DisplayStart} />
         <Stack.Screen name="Login" component={user ? MyTabs : Login} />
         <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="Otp" component={Otp} />
+        <Stack.Screen name="forgetPass" component={ForgotPassword} />
         <Stack.Screen name="HomeTabs" component={MyTabs} />
         <Stack.Screen name="Products" component={Products} />
         
