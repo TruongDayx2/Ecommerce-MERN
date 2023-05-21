@@ -5,25 +5,16 @@ import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import SelectDropdown from 'react-native-select-dropdown'
-import { SelectList } from 'react-native-dropdown-select-list'
-const countries = ["Egypt", "Canada", "Australia", "Ireland"]
-const data = [
-  { key: '1', value: 'Mobiles', disabled: true },
-  { key: '2', value: 'Appliances' },
-  { key: '3', value: 'Cameras' },
-  { key: '4', value: 'Computers', disabled: true },
-  { key: '5', value: 'Vegetables' },
-  { key: '6', value: 'Diary Products' },
-  { key: '7', value: 'Drinks' },
-]
+import { useSelector } from "react-redux";
+import { addCart } from "../../API/carts";
+
 const DetailProduct = ({ route }) => {
   const payload = route.params;
   const item = payload.item
   const size = Object.keys(item.size_color)
 
-
-
-
+  const user = useSelector((state)=>state.user.currentUser)
+  
   const navigation = useNavigation();
   const [sizeSelect, setSizeSelect] = useState(size[0])
   const [col, setCol] = useState(item.size_color[sizeSelect])
@@ -57,7 +48,7 @@ const DetailProduct = ({ route }) => {
   // console.log('color',color)
   // console.log('colorSelect',colorSelect)
   // console.log(quantity)
-  console.log(item._id,' ',quantitySelect,' ',sizeSelect,' ',colorSelect)
+  // console.log(item._id,' ',quantitySelect,' ',sizeSelect,' ',colorSelect)
   const handleAmount=(e)=>{
     if(e==='plus'){
       let k = quantitySelect
@@ -73,6 +64,30 @@ const DetailProduct = ({ route }) => {
       setQuantitySelect(k)
     }
   }
+
+  const handleAddCart =()=>{
+    if (user){
+      console.log('==================================')
+      const id=user.data[0]._id
+      const token=user.token
+      const data = {
+        "userId":id,
+        "products":[
+          {
+          "productId":item._id,
+          "quantity":quantitySelect,
+          "size":sizeSelect,
+          "color":colorSelect
+          }
+        ]
+      }
+      const res = addCart({token,data})
+      alert('Successfull');
+    }else{
+      navigation.navigate('Login')
+    }
+  }
+
   return (
     <SafeAreaProvider>
       <View style={styles.container}>
@@ -178,7 +193,7 @@ const DetailProduct = ({ route }) => {
           </View>
         </ScrollView>
         <View style={styles.botSide}>
-          <TouchableOpacity style={styles.btnAdd}>
+          <TouchableOpacity style={styles.btnAdd} onPress={handleAddCart}>
                 <Text style={styles.btnText}>Add To Cart</Text>
           </TouchableOpacity>
         </View>
