@@ -1,8 +1,8 @@
 import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
+import { useNavigation } from '@react-navigation/native';
 
 import styles from "./styles";
-import { useNavigation } from '@react-navigation/native';
 
 const dataCate = require("../../assets/data/cateWomen.json");
 
@@ -13,11 +13,9 @@ const ShopWomen = ({navigateToHome}) => {
 
   const Item = ({ item }) => {
 
-    console.log(item)
     return (
     <TouchableOpacity onPress={() => {
-      // navigation.navigate('Products',{cate:undefined,sex:'women'})'
-      // console.log('item',item)
+
       navigateToHome({cate:item._id,sex:'women'})
     }}>
       <View style={styles.container} >

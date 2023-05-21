@@ -6,6 +6,10 @@ const styles = StyleSheet.create({
   list:{
     height:'85%'
   },
+  // container1:{
+  //   flex:1,
+  //   height:height
+  // },
   container: {
     flex:1,
     backgroundColor: "#BFF0FF",

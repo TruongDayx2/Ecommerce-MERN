@@ -1,38 +1,44 @@
-import { View, Text, FlatList, Image } from 'react-native'
+import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native'
 import React, { useState, useEffect } from 'react'
 
 import styles from "./styles";
 import { getProducts } from "../../API/products";
+import { useNavigation } from "@react-navigation/native";
 
 
 const dataCateWomen = require("../../assets/data/cateWomen.json");
-const dataCateMen = require("../../assets/data/cateMen.json");
 
 
-const ProductsWomen = ({ myParam }) => {
+const ProductsWomen = ({ myParam,navigateToDetail }) => {
+  const navigation = useNavigation();
+  
   // console.log(myParam)
-  const { cate, sex } = myParam
-
+  const { cate, sex1 } = myParam
+  // const handleItem=(item)=>{
+  //   navigateToDetail(item)
+  // }
   const renderItem = ({ item, index }) => {
     return (
-      <View style={styles.container} key={index}>
-
-        <View style={styles.rightSide}>
-          <Image
-            style={styles.img}
-            resizeMode="contain"
-            source={{
-              uri: item.img
-                ? item.img
-                : "https://res.cloudinary.com/cloudinary-marketing/images/c_fill,w_895/f_auto,q_auto/v1649725549/Web_Assets/blog/loading-645268_1280/loading-645268_1280-jpg?_i=AA",
-            }}
-          />
-        </View>
-        <View style={styles.info}>
-          <Text style={styles.title}>{item.title}</Text>
-          <Text style={styles.priceItem}>{item.price}$</Text>
-        </View>
-      </View>
+      <TouchableOpacity key={index} onPress={()=>navigateToDetail({item:item})} style={styles.container}>
+        {/* <View style={styles.container} key={index}> */}
+  
+          <View style={styles.rightSide}>
+            <Image
+              style={styles.img}
+              resizeMode="contain"
+              source={{
+                uri: item.img
+                  ? item.img
+                  : "https://res.cloudinary.com/cloudinary-marketing/images/c_fill,w_895/f_auto,q_auto/v1649725549/Web_Assets/blog/loading-645268_1280/loading-645268_1280-jpg?_i=AA",
+              }}
+            />
+          </View>
+          <View style={styles.info}>
+            <Text style={styles.title}>{item.title}</Text>
+            <Text style={styles.priceItem}>{item.price}$</Text>
+          </View>
+        {/* </View> */}
+       </TouchableOpacity>
     )
   }
   const renderCate = ({ item, index }) => {
@@ -60,7 +66,7 @@ const ProductsWomen = ({ myParam }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await getProducts({ catePath: cate, cate: sex });
+      const res = await getProducts({ catePath: cate, cate: sex1 });
       if (res.status === 200) {
         setProducts(res.data);
       }

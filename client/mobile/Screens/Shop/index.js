@@ -15,8 +15,7 @@ const Stack = createNativeStackNavigator();
 import styles from "./styles";
 import ShopWomen from '../../Components/ShopWomen';
 import ShopMen from '../../Components/ShopMen';
-import Products from '../Products';
-import Login from '../Login';
+
 
 
 const Shop = () => {
@@ -28,6 +27,11 @@ const Shop = () => {
   const UpdateShopWomen = () => {
     return(
       <ShopWomen navigateToHome={navigateToHome}/>
+    )
+  }
+  const UpdateMen = () => {
+    return(
+      <ShopMen navigateToHome={navigateToHome}/>
     )
   }
 
@@ -58,7 +62,7 @@ const Shop = () => {
         <NavigationContainer independent={true}>
           <Tab.Navigator>
             <Tab.Screen name="Women" component={UpdateShopWomen} />
-            <Tab.Screen name="Men" component={ShopMen} />
+            <Tab.Screen name="Men" component={UpdateMen} />
             {/* <Tab.Screen name="Product" component={Login} /> */}
           </Tab.Navigator>
         </NavigationContainer>

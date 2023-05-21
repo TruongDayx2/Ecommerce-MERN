@@ -1,21 +1,25 @@
-import { View, Text, FlatList, Image } from 'react-native'
+import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native'
 import React, { useState, useEffect } from 'react'
 
 import styles from "./styles";
 import { getProducts } from "../../API/products";
+import { useNavigation } from "@react-navigation/native";
 
 
-const dataCateWomen = require("../../assets/data/cateWomen.json");
 const dataCateMen = require("../../assets/data/cateMen.json");
 
 
 const ProductsMen = ({ myParam }) => {
-  // console.log(myParam)
-  const { cate, sex } = myParam
+  const navigation = useNavigation();
 
+  const { cate, sex1 } = myParam
+  const handleItem=(item)=>{
+    navigation.navigate('Detail',item)
+
+  }
   const renderItem = ({ item, index }) => {
     return (
-      <View style={styles.container} key={index}>
+      <TouchableOpacity style={styles.container} key={index} onPress={()=>handleItem(item)}>
 
         <View style={styles.rightSide}>
           <Image
@@ -32,7 +36,7 @@ const ProductsMen = ({ myParam }) => {
           <Text style={styles.title}>{item.title}</Text>
           <Text style={styles.priceItem}>{item.price}$</Text>
         </View>
-      </View>
+      </TouchableOpacity>
     )
   }
   const renderCate = ({ item, index }) => {
@@ -60,7 +64,7 @@ const ProductsMen = ({ myParam }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await getProducts({ catePath: cate, cate: 'men' });
+      const res = await getProducts({ catePath: cate, cate: sex1 });
       if (res.status === 200) {
         setProducts(res.data);
       }
