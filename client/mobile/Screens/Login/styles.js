@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
   },
   cont1: {
     backgroundColor: "#F5F5F5",
-    margin: 20,
-    paddingTop: 100,
+    margin: 10,
+    paddingTop: 50,
     flex: 1,
   },
   textLogin: {
@@ -33,18 +33,16 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     borderBottomColor: "grey",
   },
-  ctEmail: {
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 10,
-  },
+
   textInputEmail: {
-    padding: 5,
+    padding: 10,
+    marginLeft:15,
     flex: 1,
+
   },
   viewPassword1: {
     backgroundColor: "white",
-    marginTop: 40,
+    marginTop: 20,
   },
   password1: {
     backgroundColor: "white",
@@ -58,13 +56,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     borderBottomColor: "grey",
   },
-  ctPassword: {
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 10,
-  },
+  
   textInputPassword: {
-    padding: 5,
+    padding: 10,
+    marginLeft:15,
     flex: 1,
   },
   forgotPassword: {
@@ -91,6 +86,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
   },
+  inputError:{
+    padding:10,
+    fontSize:15,
+    color:'red'
+  }
 });
 
 export default styles;

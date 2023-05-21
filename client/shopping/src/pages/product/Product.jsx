@@ -29,18 +29,20 @@ const Product = () => {
     const getProduct = async () => {
       try {
         const res = await publicRequest.get("/products/find/" + id);
-        setProduct(res.data);
-        setSizeColor((Object.values(res.data.size_color)[0]))
-        setAllSize(Object.keys(res.data.size_color));
-        setSize(Object.keys(res.data.size_color)[0]);
-        setAllColor(Object.keys(Object.values(res.data.size_color)[0]));
-        setColor(Object.keys(Object.values(res.data.size_color)[0])[0]);
-        setQuantityStock(Object.values(Object.values(res.data.size_color)[0])[0])
+        const resData = res.data.data
+        setProduct(resData);
+        console.log('res',resData.data)
+        setSizeColor((Object.values(resData.size_color)[0]))
+        setAllSize(Object.keys(resData.size_color));
+        setSize(Object.keys(resData.size_color)[0]);
+        setAllColor(Object.keys(Object.values(resData.size_color)[0]));
+        setColor(Object.keys(Object.values(resData.size_color)[0])[0]);
+        setQuantityStock(Object.values(Object.values(resData.size_color)[0])[0])
       } catch {}
     };
     getProduct();
   }, [id]);
-
+  console.log('pro',product)
   useEffect(() => {
     if (product.size_color) {
       let k = -1;

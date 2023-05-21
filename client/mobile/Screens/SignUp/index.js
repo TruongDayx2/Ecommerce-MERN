@@ -6,23 +6,26 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
+  Modal,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import SafeAreaView, { SafeAreaProvider } from "react-native-safe-area-view";
-
-import CateHomeList from "../../Components/CateHomeList/index";
-import SwipeSlide from "../../Components/SwipeSlide/index";
+import { Alert} from 'react-native'
 import styles from "./styles";
-import ProductList from "../../Components/ProductList/index";
-// import { useDispatch } from 'react-redux';
-import { getProducts } from "../../API/products";
+import { useNavigation } from "@react-navigation/native";
+import { otp, register } from "../../API/auth";
+import { useDispatch } from "react-redux";
 // import axios from 'axios';
+
+import { ModalOtp } from "../../Components/ModalOtp"
+
 
 const cateHomeData = require("../../assets/data/cateHome.json");
 const dataSwipeSlide = require("../../assets/data/swipeSlide.json");
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState("")
+
   const [validFirstName, setValidFirstName] = useState(true)
   const [lastName, setLastName] = useState("")
   const [validLastName, setValidLastName] = useState(true)
@@ -39,7 +42,7 @@ const SignUp = () => {
   const [otpCheck, setOtpCheck] = useState("")
   const [isModal, setModal] = useState(false)
   const [optInput, setOtpInput] = useState("")
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(https://github.com/TruongDayx2/Ecommerce-MERN/pull/18/conflict?name=client%252Fmobile%252FScreens%252FSignUp%252Findex.js&ancestor_oid=c4234bf9daced7b4336839d37a793ed57535d7bd&base_oid=c956cd23d16bcca0659fd0bafb4cd4c633fad19d&head_oid=aaf1cb6574141da81e7603b4635323d37e711b94);
 
   const navigation = useNavigation();
 

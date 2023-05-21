@@ -1,98 +1,84 @@
 import React, { useEffect, useState } from "react";
-import {
-  View,
-  Text,
-  FlatList,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-  SafeAreaView,
+import {View, Text,FlatList, StyleSheet,ScrollView,TouchableOpacity,Image
 } from "react-native";
-
+import styles from "./styles";
+import { SafeAreaView } from 'react-native-safe-area-context'
 import ProductList from "../../Components/ProductList/index";
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+import { useNavigation,useRoute } from '@react-navigation/native';
 
-const data = require("../../assets/data/products.json");
+import ProductsWomen from "../../Components/ProductsWomen";
+import ProductsMen from "../../Components/ProductsMen";
 
-const Products = () => {
-  const [products, setProducts] = useState([]);
 
+const Tab = createMaterialTopTabNavigator()
+
+const Products = ({ route }) => {
+
+  const navigation = useNavigation();
+  const payload = route.params;
+  
+  const [cateName,setCateName] = useState(payload.cate)
+  const {cate,sex} = payload
+  console.log('payload', payload)
   useEffect(() => {
-    setProducts(data);
-    return () => {
-      setProducts([]);
-    };
-  }, []);
-
-  // console.log(products[0].Size_Color.L, 'fdfdsdd')
+    if (cate === undefined){
+      setCateName('All')
+    }else{
+      setCateName(cate)
+    }
+  }, [payload.cate])
+  const navigateToDetail = (payload)=>{
+    navigation.navigate('Detail',payload)
+  }
+  const NavigateDetail = () => {
+    return(
+      <ProductsWomen navigateToDetail={navigateToDetail} myParam={{cate,sex1:'women'}}/>
+    )
+  }
+  const NavigateDetailMen = () => {
+    return(
+      <ProductsMen navigateToDetail={navigateToDetail} myParam={{cate,sex1:'men'}}/>
+    )
+  }
   return (
-    <View>
-      <SafeAreaView>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          <TouchableOpacity
-            style={{
-              marginTop: 50,
-            }}
-            //  onPress={() => getAll()}
-          >
-            <Text
-              style={[
-                {
-                  paddingVertical: 3,
-                  paddingHorizontal: 40,
-                  marginStart: 20,
-                  borderRadius: 29,
-                  borderWidth: 2,
-                  borderColor: "#000",
-                  fontSize: 14,
-                  backgroundColor: "#222222",
-                },
-                { color: "#fff", fontWeight: "700", fontSize: 20 },
-              ]}
-            >
-              All
-            </Text>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.topSide}>
+        <View style={styles.titleSearch}>
+          <TouchableOpacity onPress={() => {
+              navigation.navigate('HomeTabs')
+            }}>
+            <Image
+              style={styles.iconSearch}
+              resizeMode="contain"
+              source={require("../../assets/img/back.png")}
+            />
           </TouchableOpacity>
-          {/* {categoryData.map((category, index) => (
-              <TouchableOpacity
-                style={{ marginRight: 20 }}
-                key={index}
-                onPress={() => getStoryByCategory(category.name)}
-              >
-                <Text
-                  style={[
-                    {
-                      paddingVertical: 10,
-                      paddingHorizontal: 20,
-                      borderRadius: 25,
-                      borderWidth: 2,
-                      borderColor: "#D9D9D9",
-                      fontSize: 14,
-                    },
-                    {
-                      color: "#000",
-                      fontWeight: "700",
-                      fontSize: SPACING * 1.8,
-                    },
-                  ]}
-                >
-                  {category.name}
-                </Text>
-              </TouchableOpacity>
-            ))} */}
-        </ScrollView>
-      </SafeAreaView>
-
-      <View style={{ marginTop: 40, backgroundColor: "gainsboro" }}>
-        <FlatList
-          // horizontal
-          data={products}
-          renderItem={({ item }) => <ProductList key={item._id} item={item} />}
-          keyExtractor={(item) => item._id}
-          numColumns={2}
-        />
+          <View style={styles.title}><Text style={styles.titleText}>{cateName}</Text></View>
+          <Image
+            style={styles.iconSearch}
+            resizeMode="contain"
+            source={require("../../assets/img/search.png")}
+          />
+        </View>
       </View>
-    </View>
-  );
+      <View style={styles.cateSide}>
+        <NavigationContainer independent={true}>
+          <Tab.Navigator
+            initialRouteName={sex}
+            screenOptions={{ headerShown: false }}
+          >  
+          
+            <Tab.Screen name="women" component={ NavigateDetail} />
+            <Tab.Screen name="men" component={NavigateDetailMen} />
+          </Tab.Navigator>
+        </NavigationContainer>
+      </View>
+    </SafeAreaView>
+    );
+
 };
 
 export default Products;

@@ -1,0 +1,13 @@
+[
+    {
+        "_id":"6301799e964739436",
+        "img":"https://scontent.fsgn8-3.fna.fbcdn.net/v/t39.30808-6/337259863_5923201071139547_4862099858837486711_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Qqcq_H3PDggAX_mQwUW&_nc_ht=scontent.fsgn8-3.fna&oh=00_AfBAPc6PZeVKAT4X6oZbOREFInFJUq6fKthxHXx9KM2eLg&oe=644FA880",
+        "username":"truong1",
+        "email":"truong@gmail.com",
+        "password":"123",
+        "isAdmin":"true",
+        "name":"Truong",
+        "lastname":"Nguyen",
+        "address":"130/8 Linh Xuan, Thu Duc, Tp.Ho Chi Minh"
+    }
+]

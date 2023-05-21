@@ -3,24 +3,32 @@ import React from "react";
 
 import styles from "./styles";
 import ProductCard from "../ProductCard/index";
+import { useNavigation } from "@react-navigation/native";
 
 const ProductList = (props) => {
-  const handlePress = () => {};
+  const navigation = useNavigation();
+
+  const handlePress = (item) => {
+    navigation.navigate('Detail',item)
+    // console.log(item)
+  };
 
   const result = Object.values(props);
   const listItems = result.map((item) => (
     <TouchableOpacity
       delayPressIn={10}
-      onPress={handlePress}
+      // onPress={handlePress}
       key={item._id}
       style={styles.touch}
     >
-      <View style={styles.view}>
-        <ProductCard
-          // key={item.id}
-          {...item}
-        />
+      <TouchableOpacity onPress={()=>handlePress(item)}>
+        <View style={styles.view}>
+          <ProductCard
+            // key={item.id}
+            {...item}
+          />
       </View>
+      </TouchableOpacity>
     </TouchableOpacity>
   ));
   return <View>{listItems}</View>;

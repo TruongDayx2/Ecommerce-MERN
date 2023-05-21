@@ -1,10 +1,4 @@
+Link Api:
+https://drive.google.com/drive/folders/1AkgfjEWDJDxDeuCTSqeNtmNiB6UtNCju?usp=sharing
 
-Client: commit 096167f
 
-FE:
-    npm i @material-ui/core @material-ui/icons
-	react-router-dom
-
-BE:
-	npm init -y
-	npm i express mongoose dotenv nodemon crypto-js jsonwebtoken stripe

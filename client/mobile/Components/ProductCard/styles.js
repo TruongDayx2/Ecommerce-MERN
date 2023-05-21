@@ -3,8 +3,8 @@ import { StyleSheet, Dimensions } from "react-native";
 var { width } = Dimensions.get("window");
 const styles = StyleSheet.create({
   container: {
-    width: width / 2 - 25,
-    height: 230,
+    width: width -150,
+    height: width-100,
     padding: 10,
     borderRadius: 20,
     marginTop: 15,
@@ -14,8 +14,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#E3F6FC",
   },
   image: {
-    width: 140,
-    height: 150,
+    width: '100%',
+    height: '100%',
     backgroundColor: "transparent",
     borderRadius: 20,
     position: "absolute",

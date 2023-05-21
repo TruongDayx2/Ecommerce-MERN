@@ -3,15 +3,26 @@ import {
     Text,
     TextInput,
     TouchableOpacity,
+    Image,
   } from "react-native";
   import React, { useEffect, useState } from "react";
   import SafeAreaView, { SafeAreaProvider } from "react-native-safe-area-view";
   import styles from "./styles";
+import { useNavigation } from "@react-navigation/native";
   
   const ForgotPassword = () => {
-
+    const navigation = useNavigation();
     return (
       <SafeAreaProvider>
+        <View style={{marginTop:40}}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.goBack()
+            }}
+          >
+            <Image source={require('../../assets/img/back.png')} style={{ width: 30, height: 30, marginLeft:5 }} resizeMode="stretch"/>
+          </TouchableOpacity>
+      </View>
         <View style={styles.container}>
           <View style={styles.stepContainer}>
             {/* ForgotPassword */}

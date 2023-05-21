@@ -1,27 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import { registerRootComponent } from 'expo';
+import { Provider } from "react-redux";
 // Screen
-import Home from './Screens/Home';
-import Products from './Screens/Products';
+import {store,persistor} from "./redux/store"
+import { PersistGate } from 'redux-persist/integration/react'
+
 import Body from './Screens/index';
 
 export default function App() {
   return (
-    // <View style={styles.container}>
-    //   <Home/>
-    //   {/* <Body/> */}
-    //   <StatusBar style="auto" />
-    // </View>
-    <Body/>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <Body/>
+      </PersistGate>
+    </Provider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+

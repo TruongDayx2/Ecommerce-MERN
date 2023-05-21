@@ -13,7 +13,6 @@ const ProductCard = (props) => {
       return total + current;
     });
   });
-  console.log(price);
   return (
     <View style={styles.container}>
       <Image
@@ -25,10 +24,10 @@ const ProductCard = (props) => {
             : "https://res.cloudinary.com/cloudinary-marketing/images/c_fill,w_895/f_auto,q_auto/v1649725549/Web_Assets/blog/loading-645268_1280/loading-645268_1280-jpg?_i=AA",
         }}
       />
-      <Text style={styles.title}>
+      {/* <Text style={styles.title}>
         {title.length > 15 ? title.substring(0, 12) + "..." : title}
-      </Text>
-      <Text style={styles.price}>{price}VND</Text>
+      </Text> */}
+      {/* <Text style={styles.price}>{price}VND</Text> */}
     </View>
   );
 };

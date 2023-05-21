@@ -31,21 +31,21 @@ const index = (props) => {
         }
     }
 
-    useEffect(() => {
-        if (data.length > 0) {
-            let index = 0
-            setInterval(() => {
-                if (stepCarousel !== null) {
+    // useEffect(() => {
+    //     if (data.length > 0) {
+    //         let index = 0
+    //         setInterval(() => {
+    //             if (stepCarousel !== null) {
 
-                    stepCarousel.current.scrollTo({ x: index * screenWidth, y: 0, animated: true })
-                    index += 1
-                    if (index === data.length) {
-                        index = 0
-                    }
-                }
-            }, 5000)
-        }
-    }, [data])
+    //                 stepCarousel.current.scrollTo({ x: index * screenWidth, y: 0, animated: true })
+    //                 index += 1
+    //                 if (index === data.length) {
+    //                     index = 0
+    //                 }
+    //             }
+    //         }, 5000)
+    //     }
+    // }, [data])
 
     const onPress = () => { };
     return (
@@ -60,6 +60,7 @@ const index = (props) => {
         >
             {
                 data.map((e, index) => (
+                   
                     <View
                         key={index}
                     >
@@ -73,7 +74,7 @@ const index = (props) => {
                                 <Text style={styles.text}>FALL</Text>
                                 <Text style={styles.text}>into {e.title}</Text>
                                 <TouchableOpacity onPress={() => {
-                                    navigation.navigate('Shop')
+                                    navigation.navigate('Products',{cate:e.title,sex:e.cate})
                                 }} style={styles.btnShopNow}>
                                     <Text style={styles.btnText}>Shop Now</Text>
                                 </TouchableOpacity>

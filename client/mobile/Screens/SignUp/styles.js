@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions, StatusBar } from "react-native";
 
-var { width } = Dimensions.get("window");
+var { width,height } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
@@ -151,13 +151,16 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
   },
+
   otpModal: {
     height: '100%',
     width: '100%',
+
     // marginHorizontal:'10%',
     // marginVertical:'50%',
     backgroundColor: 'rgba(0, 0, 0, 0.4)'
   },
+
   otpModalFill: {
     height: height / 4,
     width: '80%',
@@ -187,6 +190,7 @@ const styles = StyleSheet.create({
   },
   btnCancel: {
     marginRight: 5,
+
     padding: 10,
     backgroundColor: "#e1ecf4",
     borderRadius: 25,
@@ -194,8 +198,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+
   btnSubmit: {
     marginLeft: 5,
+
     padding: 10,
     backgroundColor: "#289B94",
     borderRadius: 25,

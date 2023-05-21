@@ -6,9 +6,8 @@ import CateHomeList from "../../Components/CateHomeList/index";
 import SwipeSlide from "../../Components/SwipeSlide/index";
 import styles from "./styles";
 import ProductList from "../../Components/ProductList/index";
-// import { useDispatch } from 'react-redux';
 import { getProducts } from "../../API/products";
-import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
 
 const cateHomeData = require("../../assets/data/cateHome.json");
 const dataSwipeSlide = require("../../assets/data/swipeSlide.json");
@@ -27,8 +26,7 @@ const Home = () => {
     };
     fetchData();
   }, []);
-  console.log(products);
-
+  // console.log(products)
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container}>

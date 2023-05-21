@@ -10,11 +10,18 @@ import Products from "./Products";
 import User from "./User";
 import Login from "./Login";
 import SignUp from "./SignUp";
+import DisplayStart from "./DisplayStart";
+import Shop from "./Shop";
+import ForgotPassword from "./ForgotPW";
+import { useSelector } from "react-redux";
+import DetailProduct from "./DetailPro";
+
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 function MyTabs() {
+
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }}>
       <Tab.Screen
@@ -38,7 +45,7 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Shop"
-        component={Products}
+        component={Shop}
         options={{
           tabBarInactiveTintColor: "#697473",
           tabBarActiveTintColor: "#289B94",
@@ -97,17 +104,25 @@ function MyTabs() {
   );
 }
 
+
 const Body = () => {
+  const user = useSelector((state)=>state.user.currentUser)
+
   return (
     // <Home/>
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="HomeTabs"
+        initialRouteName="DisplayStart"
         screenOptions={{ headerShown: false }}
       >
-        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="DisplayStart" component={DisplayStart} />
+        <Stack.Screen name="Login" component={user ? MyTabs : Login} />
         <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="forgetPass" component={ForgotPassword} />
         <Stack.Screen name="HomeTabs" component={MyTabs} />
+        <Stack.Screen name="Products" component={Products} />
+        <Stack.Screen name="Detail" component={DetailProduct} />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );

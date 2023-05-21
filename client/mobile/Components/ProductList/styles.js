@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     width: width / 2,
   },
   view: {
-    width: width / 2,
+    width: width,
     backgroundColor: "gainsboro",
     flex: 1,
     justifyContent: "center",
