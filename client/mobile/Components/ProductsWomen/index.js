@@ -3,24 +3,18 @@ import React, { useState, useEffect } from 'react'
 
 import styles from "./styles";
 import { getProducts } from "../../API/products";
-import { useNavigation } from "@react-navigation/native";
 
 
 const dataCateWomen = require("../../assets/data/cateWomen.json");
 
 
 const ProductsWomen = ({ myParam,navigateToDetail }) => {
-  const navigation = useNavigation();
-  
-  // console.log(myParam)
+
   const { cate, sex1 } = myParam
-  // const handleItem=(item)=>{
-  //   navigateToDetail(item)
-  // }
+
   const renderItem = ({ item, index }) => {
     return (
       <TouchableOpacity key={index} onPress={()=>navigateToDetail({item:item})} style={styles.container}>
-        {/* <View style={styles.container} key={index}> */}
   
           <View style={styles.rightSide}>
             <Image
@@ -37,7 +31,6 @@ const ProductsWomen = ({ myParam,navigateToDetail }) => {
             <Text style={styles.title}>{item.title}</Text>
             <Text style={styles.priceItem}>{item.price}$</Text>
           </View>
-        {/* </View> */}
        </TouchableOpacity>
     )
   }

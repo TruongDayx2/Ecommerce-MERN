@@ -3,39 +3,35 @@ import React, { useState, useEffect } from 'react'
 
 import styles from "./styles";
 import { getProducts } from "../../API/products";
-import { useNavigation } from "@react-navigation/native";
 
 
 const dataCateMen = require("../../assets/data/cateMen.json");
 
 
-const ProductsMen = ({ myParam }) => {
-  const navigation = useNavigation();
+const ProductsMen = ({ myParam,navigateToDetail }) => {
+
 
   const { cate, sex1 } = myParam
-  const handleItem=(item)=>{
-    navigation.navigate('Detail',item)
 
-  }
   const renderItem = ({ item, index }) => {
     return (
-      <TouchableOpacity style={styles.container} key={index} onPress={()=>handleItem(item)}>
-
-        <View style={styles.rightSide}>
-          <Image
-            style={styles.img}
-            resizeMode="contain"
-            source={{
-              uri: item.img
-                ? item.img
-                : "https://res.cloudinary.com/cloudinary-marketing/images/c_fill,w_895/f_auto,q_auto/v1649725549/Web_Assets/blog/loading-645268_1280/loading-645268_1280-jpg?_i=AA",
-            }}
-          />
-        </View>
-        <View style={styles.info}>
-          <Text style={styles.title}>{item.title}</Text>
-          <Text style={styles.priceItem}>{item.price}$</Text>
-        </View>
+      <TouchableOpacity style={styles.container} key={index} onPress={()=>navigateToDetail({item:item})}>
+  
+          <View style={styles.rightSide}>
+            <Image
+              style={styles.img}
+              resizeMode="contain"
+              source={{
+                uri: item.img
+                  ? item.img
+                  : "https://res.cloudinary.com/cloudinary-marketing/images/c_fill,w_895/f_auto,q_auto/v1649725549/Web_Assets/blog/loading-645268_1280/loading-645268_1280-jpg?_i=AA",
+              }}
+            />
+          </View>
+          <View style={styles.info}>
+            <Text style={styles.title}>{item.title}</Text>
+            <Text style={styles.priceItem}>{item.price}$</Text>
+          </View>
       </TouchableOpacity>
     )
   }

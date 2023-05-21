@@ -33,12 +33,16 @@ const Products = ({ route }) => {
   const navigateToDetail = (payload)=>{
     navigation.navigate('Detail',payload)
   }
-  const navigateDetail = () => {
+  const NavigateDetail = () => {
     return(
       <ProductsWomen navigateToDetail={navigateToDetail} myParam={{cate,sex1:'women'}}/>
     )
   }
-  {/* <ProductsWomen myParam={{cate,sex1:'women'}}/> */}
+  const NavigateDetailMen = () => {
+    return(
+      <ProductsMen navigateToDetail={navigateToDetail} myParam={{cate,sex1:'men'}}/>
+    )
+  }
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.topSide}>
@@ -67,8 +71,8 @@ const Products = ({ route }) => {
             screenOptions={{ headerShown: false }}
           >  
           
-            <Tab.Screen name="women" component={ navigateDetail} />
-            <Tab.Screen name="men" component={()=> <ProductsMen myParam={{cate,sex1:'men'}}/>} />
+            <Tab.Screen name="women" component={ NavigateDetail} />
+            <Tab.Screen name="men" component={NavigateDetailMen} />
           </Tab.Navigator>
         </NavigationContainer>
       </View>
