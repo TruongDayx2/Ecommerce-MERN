@@ -23,38 +23,28 @@ const router = require("express").Router();
 //UPDATE
 router.post("/", verifyToken, async (req, res) => {
   const userId = req.body.userId
-  // const body=
-  // console.log('req.body',req.body.products[0])
 
   try {
     const user = await Cart.findOne({ userId: userId })
     if (user) {
-      // console.log('jghgjh',(req.body.products[0].productId))
       const array=user.products
-      // console.log('co user',array)
-      const existItem = array.find(item=>item.productId.toString() === req.body.products[0].productId)
-      // console.log('123',existItem)
+      const existItem = array.find(
+        item=>
+          item.productId.toString() === req.body.products[0].productId
+          && item.size === req.body.products[0].size
+          && item.color === req.body.products[0].color
+        )
       if (existItem){
-        // k.products
-        // console.log('co ton tai')
-        // console.log('exist',existItem)
-        if (existItem.size === req.body.products[0].size 
-            && existItem.color === req.body.products[0].color 
-          ){
-            console.log('first')
-          }else{
-            console.log('222222')
-            user.products.push(req.body.products[0])
-          }
+        console.log('co ton tai',existItem)
+
       }else{
+        console.log('ko ton tai')
         user.products.push(req.body.products[0])
       }
 
-      // console.log('first',user)
       const update=await user.save()
 		  res.status(200).json({status:1,message:"Product added successfully",data:[update]})
 
-      // console.log('update',update)
     } else {
       console.log('ko co user')
       const newCart = new Cart(req.body);
@@ -69,18 +59,7 @@ router.post("/", verifyToken, async (req, res) => {
   } catch (error) {
 
   }
-  // try {
-  //   const updatedCart = await Cart.findByIdAndUpdate(
-  //     req.params.id,
-  //     {
-  //       $set: req.body,
-  //     },
-  //     { new: true }
-  //   );
-  //   res.status(200).json(updatedCart);
-  // } catch (err) {
-  //   res.status(500).json(err);
-  // }
+
 });
 
 //DELETE
@@ -96,7 +75,7 @@ router.delete("/:id", verifyTokenAndAuthorization, async (req, res) => {
 //GET USER CART
 router.get("/find/:id", verifyTokenAndAuthorization, async (req, res) => {
   try {
-    const cart = await Cart.findOne({ userId: req.params.id });
+    const cart = await Cart.find().populate("products.productId","title price img")
     res.status(200).json(cart);
   } catch (err) {
     res.status(500).json(err);
