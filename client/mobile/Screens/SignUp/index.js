@@ -25,24 +25,15 @@ const dataSwipeSlide = require("../../assets/data/swipeSlide.json");
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState("")
-
-  const [validFirstName, setValidFirstName] = useState(true)
   const [lastName, setLastName] = useState("")
-  const [validLastName, setValidLastName] = useState(true)
   const [email, setEmail] = useState("")
-  const [validEmail, setValidEmail] = useState(true)
   const [password, setPassword] = useState("")
-  const [validPass, setValidPass] = useState(true)
   const [passwordConfirm, setPasswordConfirm] = useState("")
-  const [validPasswordConfirm, setValidPasswordConfirm] = useState(true)
-  const [inputs, setInputs] = useState({
-    password: "",
-    cfPassword: "",
-  });
   const [otpCheck, setOtpCheck] = useState("")
   const [isModal, setModal] = useState(false)
-  const [optInput, setOtpInput] = useState("")
-  const dispatch = useDispatch()
+  const [optInput,setOtpInput]=useState("")
+  const dispatch = useDispatch();
+
   const navigation = useNavigation();
 
   const changeModalVisible = (bool) => {
@@ -64,11 +55,11 @@ const SignUp = () => {
 
   };
   const fetchRegister = async () => {
-    if (optInput == otpCheck) {
+    if (optInput==otpCheck){
       // console.log('1')
-      const res = await register({ firstName, lastName, email, password })
+      const res =await register({firstName,lastName,email,password})
       console.log(res)
-      if (res.status === 200) {
+      if(res.status===200){
         setModal(false)
         navigation.navigate('Login')
         alert('Successfull');
@@ -76,163 +67,148 @@ const SignUp = () => {
     }
 
   };
-  const handleSubmitOtp = (e) => {
+  const handleSubmitOtp = (e)=>{
 
     fetchRegister()
   }
-  const validateEmail = (email) => {
-    return email.match(
-      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    );
-  };
-  const validatePass = (pass) => {
-    if (pass) {
-      return true
-    }
-    else return false
-  };
-  const validateFirstName = (first) => {
-    if (first) {
-      return true
-    }
-    else return false
-  };
-  const validateLastName = (last) => {
-    if (last) {
-      return true
-    }
-    else return false
-  };
-  const validatePasswordConfirm = (cfPassword) => {
-    if (cfPassword !== password) {
-      return false;
-    } else return true
-  };
-
-
-
   const handleRegister = (e) => {
     e.preventDefault()
-    if (validateEmail(email)) {
-      setValidEmail(true)
-    } else {
-      setValidEmail(false)
-    }
-    if (validatePass(password)) {
-      setValidPass(true)
-    } else {
-      setValidPass(false)
-    } if (validateFirstName(firstName)) {
-      setValidFirstName(true)
-    } else {
-      setValidFirstName(false)
-    }
-    if (validateLastName(lastName)) {
-      setValidLastName(true)
-    } else {
-      setValidLastName(false)
-    }
-    if (validatePasswordConfirm(passwordConfirm)) {
-      setValidPasswordConfirm(true)
-    } else {
-      setValidPasswordConfirm(false)
-    }
     fetchData();
     // if (otpCheck!==""){
 
-    return (
-      <SafeAreaProvider>
-        <View style={styles.container}>
-          <View style={styles.connext}>
-            {/* TextSignUp */}
-            <View>
-              <Text style={styles.textSignUp}>Sign Up</Text>
-            </View>
-            {/* First Name*/}
-            <View style={styles.viewFirstName}>
-              <View style={styles.viewFirstName1}>
-                <View>
-                  <Text style={styles.textFirstName}>First name</Text>
-                </View>
-                <View style={styles.viewCenterFirstName}>
-                  <View style={styles.textInputFirstName}>
-                    <TextInput placeholder={"First name of user"} />
-                  </View>
+    // }
+  }
+  return (
+    <SafeAreaProvider>
+      <View style={{ marginTop: 40 }}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.goBack()
+          }}
+        >
+          <Image source={require('../../assets/img/back.png')} style={{ width: 30, height: 30, marginLeft: 5 }} resizeMode="stretch" />
+        </TouchableOpacity>
+      </View>
+      <View style={styles.container}>
+        <View style={styles.connext}>
+          {/* TextSignUp */}
+          <View>
+            <Text style={styles.textSignUp}>Sign Up</Text>
+          </View>
+          {/* First Name*/}
+          <View style={styles.viewFirstName}>
+            <View style={styles.viewFirstName1}>
+              <View>
+                <Text style={styles.textFirstName}>First name</Text>
+              </View>
+              <View style={styles.viewCenterFirstName}>
+                <View style={styles.textInputFirstName}>
+                  <TextInput placeholder={"First name of user"} onChangeText={e => setFirstName(e)} />
                 </View>
               </View>
             </View>
-            <Text style={styles.inputError}>{validFirstName ? '' : 'Firstname is isvalid!'}</Text>
-            {/* Last Name*/}
-            <View style={styles.viewLastName}>
-              <View style={styles.viewLastName1}>
-                <View>
-                  <Text style={styles.textLastName}>Last Name</Text>
-                </View>
-                <View style={styles.viewCenterLastName}>
-                  <View style={styles.textInputLastName}>
-                    <TextInput placeholder={"Last Name of user"} />
-                  </View>
+          </View>
+          {/* Last Name*/}
+          <View style={styles.viewLastName}>
+            <View style={styles.viewLastName1}>
+              <View>
+                <Text style={styles.textLastName}>Last Name</Text>
+              </View>
+              <View style={styles.viewCenterLastName}>
+                <View style={styles.textInputLastName}>
+                  <TextInput placeholder={"Last Name of user"} onChangeText={e => setLastName(e)} />
                 </View>
               </View>
             </View>
-            <Text style={styles.inputError}>{validLastName ? '' : 'Lastname is isvalid!'}</Text>
-            {/* Email*/}
-            <View style={styles.viewEmail}>
-              <View style={styles.viewEmail1}>
-                <View>
-                  <Text style={styles.textEmail}>Email</Text>
-                </View>
-                <View style={styles.viewCenterEmail}>
-                  <View style={styles.textInputEmail}>
-                    <TextInput placeholder={"Email of user"} />
-                  </View>
+          </View>
+          {/* Email*/}
+          <View style={styles.viewEmail}>
+            <View style={styles.viewEmail1}>
+              <View>
+                <Text style={styles.textEmail}>Email</Text>
+              </View>
+              <View style={styles.viewCenterEmail}>
+                <View style={styles.textInputEmail}>
+                  <TextInput placeholder={"Email of user"} onChangeText={e => setEmail(e)} />
                 </View>
               </View>
             </View>
-            <Text style={styles.inputError}>{validEmail ? '' : 'Email is isvalid!'}</Text>
-            {/* Password*/}
-            <View style={styles.viewPassword}>
-              <View style={styles.viewPassword1}>
-                <View>
-                  <Text style={styles.textPassword}>Password</Text>
-                </View>
-                <View style={styles.viewCenterPassword}>
-                  <View style={styles.textInputPassword}>
-                    <TextInput secureTextEntry={true} placeholder={"Password of user"} onChangeText={e => setPassword(e)} />
-                  </View>
+          </View>
+          {/* Password*/}
+          <View style={styles.viewPassword}>
+            <View style={styles.viewPassword1}>
+              <View>
+                <Text style={styles.textPassword}>Password</Text>
+              </View>
+              <View style={styles.viewCenterPassword}>
+                <View style={styles.textInputPassword}>
+                  <TextInput placeholder={"Password of user"} onChangeText={e => setPassword(e)} />
                 </View>
               </View>
             </View>
-            <Text style={styles.inputError}>{validPass ? '' : 'Password is isvalid!'}</Text>
-            {/* Confirm Password*/}
-            <View style={styles.viewConfirmPassword}>
-              <View style={styles.viewConfirmPassword1}>
-                <View>
-                  <Text style={styles.textConfirmPassword}>Confirm Password</Text>
-                </View>
-                <View style={styles.viewCenterConfirmPassword}>
-                  <View style={styles.textInputConfirmPassword}>
-                    <TextInput placeholder={"Confirm Password of user"} onChangeText={e => setPasswordConfirm(e)} />
-                  </View>
+          </View>
+          {/* Confirm Password*/}
+          <View style={styles.viewConfirmPassword}>
+            <View style={styles.viewConfirmPassword1}>
+              <View>
+                <Text style={styles.textConfirmPassword}>Confirm Password</Text>
+              </View>
+              <View style={styles.viewCenterConfirmPassword}>
+                <View style={styles.textInputConfirmPassword}>
+                  <TextInput placeholder={"Confirm Password of user"} onChangeText={e => setPasswordConfirm(e)} />
                 </View>
               </View>
             </View>
-            <Text style={styles.inputError}>{validPasswordConfirm ? '' : 'Confirm Password is isvalid!'}</Text>
-            {/* Already have an account? */}
-            <View style={styles.viewAccount}>
+          </View>
+          {/* Already have an account? */}
+          <View style={styles.viewAccount}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Login')
+              }}
+            >
               <Text style={styles.textAccount}>Already have an account?</Text>
-            </View>
+            </TouchableOpacity>
+          </View>
 
-            {/* Button */}
-            <View style={styles.buttonSignUp}>
-              <TouchableOpacity style={styles.btnSignUp}>
-                <Text style={styles.titleStyle}>SIGNUP</Text>
+          {/* Button */}
+          <View style={styles.buttonSignUp}>
+            <TouchableOpacity style={styles.btnSignUp} onPress={handleRegister}>
+              <Text style={styles.titleStyle}>SIGNUP</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+      <Modal
+        transparent={true}
+        animationType="fade"
+        visible={isModal}
+        // onRequestClose={() => changeModalVisible(false)}
+      >
+        {/* <ModalOtp/> */}
+        <View style={styles.otpModal}>
+          <View style={styles.otpModalFill}>
+            <View style={styles.otpInputView}>
+              <Text>Please Enter OTP from your email</Text>
+              <TextInput style={styles.otpInput} 
+                onChangeText={e=>setOtpInput(e)}
+                maxLength={6}
+                keyboardType="numeric"
+              />
+            </View>
+            <View style={styles.btnGroup}>
+              <TouchableOpacity style={styles.btnCancel} onPress={e=>setModal(false)}>
+                <Text>CANCEL</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.btnSubmit} onPress={handleSubmitOtp}>
+                <Text>SUBMIT</Text>
               </TouchableOpacity>
             </View>
           </View>
         </View>
-      </SafeAreaProvider>
-    );
-  }
-}
+      </Modal>
+    </SafeAreaProvider>
+  );
+};
+
 export default SignUp;

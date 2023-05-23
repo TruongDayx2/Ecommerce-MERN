@@ -69,20 +69,26 @@ const DetailProduct = ({ route }) => {
     if (user){
       console.log('==================================')
       const id=user.data[0]._id
-      const token=user.token
-      const data = {
-        "userId":id,
-        "products":[
-          {
-          "productId":item._id,
-          "quantity":quantitySelect,
-          "size":sizeSelect,
-          "color":colorSelect
-          }
-        ]
+      // console.log(item.size_color[sizeSelect][colorSelect])
+      if (item.size_color[sizeSelect][colorSelect]>0){
+        const token=user.token
+        const data = {
+          "userId":id,
+          "products":[
+            {
+            "productId":item._id,
+            "quantity":quantitySelect,
+            "size":sizeSelect,
+            "color":colorSelect
+            }
+          ]
+        }
+        const res = addCart({token,data})
+        alert('Successfull');
+      }else{
+        alert('Sorry, the product is out of stock');
       }
-      const res = addCart({token,data})
-      alert('Successfull');
+      
     }else{
       navigation.navigate('Login')
     }

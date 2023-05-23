@@ -21,12 +21,38 @@ export const getCart = async(field)=>{
         baseURL: baseURL,
         headers: { token: `Bearer ${field.token}` },
     });
-    // console.log('field',field.idUser)
     try{
         const res = await userRequest.get(`/carts/find/${field.idUser}`)
         return res 
     }catch (e){
         console.log(e)
+        return e
+    }
+}
+
+export const updateCart = async(field)=>{
+    const userRequest = axios.create({
+        baseURL: baseURL,
+        headers: { token: `Bearer ${field.token}` },
+    });
+    try {
+        const res = await userRequest.post(`/carts/update/${field.idUser}`,field.k)
+        return res
+    } catch (e) {
+        return e
+    }
+}
+
+export const deleteCart = async(field)=>{
+    const userRequest = axios.create({
+        baseURL: baseURL,
+        headers: { token: `Bearer ${field.token}` },
+    });
+
+    try {
+        const res = await userRequest.post(`/carts/delete/${field.idUser}`,field.checkedItems)
+        return res
+    } catch (e) {
         return e
     }
 }

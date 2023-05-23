@@ -36,13 +36,32 @@ const styles = StyleSheet.create({
     width:30,
     marginTop:20
   },
-
+  deleteView:{
+    flexDirection:'row',
+    justifyContent:'center',
+    alignItems:'center',
+    marginTop:30
+  },
+  btnDelete:{
+    width:60,
+    height:30,
+    borderWidth:1,
+    borderRadius:10,
+    backgroundColor:'white',
+    justifyContent:'center',
+    alignContent:'center'
+  },
+  textDelete:{
+    color:'red',
+    fontSize:15,
+    marginLeft:5
+  },
   checkAll:{
     // backgroundColor:'pink',
     flexDirection:'row',
     padding:10,
     width:'100%',
-    marginTop:40
+    // marginTop:40
   },
   textAll:{
     paddingRight:30
@@ -155,6 +174,78 @@ const styles = StyleSheet.create({
   btnText:{
       color: "white",
       fontSize:20,
+  },
+  viewLogin:{
+    flexDirection:'column',
+    justifyContent:'center',
+    alignItems:'center',
+    height:height
+  },
+  loginText:{
+    fontSize:20,
+    marginBottom:20
+  },
+  btnLogin:{
+    backgroundColor: "#289B94",
+    padding: 15,
+    borderRadius: 30,
+    width:'80%',
+    marginHorizontal:'10%',
+    justifyContent:'center',
+    flexDirection:'row'
+  },
+  otpModal:{
+    height:'100%',
+    width:'100%',
+    // marginHorizontal:'10%',
+    // marginVertical:'50%',
+    backgroundColor: 'rgba(0, 0, 0, 0.4)'
+  },
+  otpModalFill:{
+    height:'70%',
+    width:'80%',
+    marginHorizontal:'10%',
+    marginVertical:'15%',
+    backgroundColor:'#fff',
+    borderRadius:10
+  },
+  otpInputView:{
+    width:'100%',
+    marginTop:20,
+    justifyContent:"center",
+    alignItems:'center'
+  },
+  otpInput:{
+    marginTop:10,
+    width:'80%',
+    borderColor:'#e5e5e5',
+    borderWidth:1,
+    borderRadius:5,
+    padding:15
+  },
+  btnGroup:{
+    marginTop:20,
+    flexDirection:'row',
+    justifyContent:'center',
+    alignItems:'center'
+  },
+  btnCancel:{
+    marginRight:5,
+    padding: 10,
+    backgroundColor: "#e1ecf4",
+    borderRadius: 25,
+    width: "30%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  btnSubmit:{
+    marginLeft:5,
+    padding: 10,
+    backgroundColor: "#289B94",
+    borderRadius: 25,
+    width: "30%",
+    justifyContent: "center",
+    alignItems: "center",
   }
   
 });
