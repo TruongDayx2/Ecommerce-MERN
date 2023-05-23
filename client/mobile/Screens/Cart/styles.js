@@ -209,6 +209,14 @@ const styles = StyleSheet.create({
     backgroundColor:'#fff',
     borderRadius:10
   },
+  otpModalFillT:{
+    height:'20%',
+    width:'80%',
+    marginHorizontal:'10%',
+    marginVertical:'40%',
+    backgroundColor:'#fff',
+    borderRadius:10
+  },
   otpInputView:{
     width:'100%',
     marginTop:20,

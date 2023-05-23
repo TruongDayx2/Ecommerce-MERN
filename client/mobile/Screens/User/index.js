@@ -16,10 +16,7 @@ const User = () => {
 
   const [user, setUser] = useState(...userData);
   const myOrders = ['My Orders', 'Already have 12 orders']
-  const address = ['Shipping addresses', user.address]
-  const visa = ['Payment methods', 'Visa **34']
-  const code = ['Promocodes', 'You have special promocodes']
-  const review = ['My reviews', 'Reviews for 4 items']
+
   const setting = ['Settings', 'Notifications, password']
   const logOut = ['Log out', '']
   const dispatch = useDispatch();
@@ -57,18 +54,6 @@ const User = () => {
           <ScrollView>
             <TouchableOpacity delayPressIn={80}>
               <ProfileComponent {...myOrders} />
-            </TouchableOpacity>
-            <TouchableOpacity delayPressIn={80}>
-              <ProfileComponent {...address} />
-            </TouchableOpacity>
-            <TouchableOpacity delayPressIn={80}>
-              <ProfileComponent {...visa} />
-            </TouchableOpacity>
-            <TouchableOpacity delayPressIn={80}>
-              <ProfileComponent {...code} />
-            </TouchableOpacity>
-            <TouchableOpacity delayPressIn={80}>
-              <ProfileComponent {...review} />
             </TouchableOpacity>
             <TouchableOpacity delayPressIn={80}>
               <ProfileComponent {...setting} />

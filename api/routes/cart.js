@@ -22,7 +22,23 @@ router.post("/update/:id", verifyTokenAndAuthorization, async (req, res) => {
         }
         const updatedCart=await user.save()
         res.status(200).json(updatedCart);
-      }else{
+      }
+      
+      
+    }
+    
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err);
+  }
+});
+// UPDATE Cart Order
+
+router.post("/updateOrder/:id", verifyTokenAndAuthorization, async (req, res) => {
+  try {
+    const user = await Cart.findOne({ userId: req.params.id })
+    if (user){
+      
         console.log('update khi order')
         console.log('1111111111111111111',user.products)
         console.log('2222222222222222222',req.body)
@@ -33,7 +49,7 @@ router.post("/update/:id", verifyTokenAndAuthorization, async (req, res) => {
         user.products = filteredFile;
         const savedCart = await user.save();
         res.status(200).json(savedCart);
-      }
+      
       
       
     }

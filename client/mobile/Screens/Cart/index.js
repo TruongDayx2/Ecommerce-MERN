@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Checkbox from 'expo-checkbox'
 import styles from "./styles";
-import { deleteCart, getCart, updateCart } from '../../API/carts';
+import { deleteCart, getCart, updateCart, updateCartOrder } from '../../API/carts';
 import { useSelector } from 'react-redux';
 import SelectDropdown from 'react-native-select-dropdown';
 import { addOrder } from '../../API/order';
@@ -22,7 +22,7 @@ const Cart = () => {
   const [isModalInfo, setModalInfo] = useState(false)
   const [address, setAddress] = useState('')
   const [phone, setPhone] = useState()
-  const [ship, setShip] = useState(0)
+  const [ship, setShip] = useState(10)
   
 
 
@@ -161,8 +161,18 @@ const Cart = () => {
       if (res.status === 200){
         console.log('You have successfully ordered')
         setK(updateK)
+        handleUpdateCartOrder()
         alert('You have successfully ordered');
       }
+    }
+  }
+  const handleUpdateCartOrder= async()=>{
+    let token = user.token
+    const idUser = user.data[0]._id
+    updateCartOrder
+    const res = await updateCartOrder({ token, idUser, k });
+    if (res.status === 200) {
+      console.log(' updateCart')
     }
   }
  
@@ -313,7 +323,7 @@ const Cart = () => {
       >
         {/* <ModalOtp/> */}
         <View style={styles.otpModal}>
-          <View style={styles.otpModalFill}>
+          <View style={styles.otpModalFillT}>
             <View style={styles.otpInputView}>
               <Text>Are you sure to delete the product</Text>
               
