@@ -17,3 +17,19 @@ export const addOrder = async(field)=>{
         return error
     }
 }
+
+export const getOrders = async(field)=>{
+    const userRequest = axios.create({
+        baseURL: baseURL,
+        headers: { token: `Bearer ${field.token}` },
+    });
+    console.log('first',field)
+    try {
+        const res = await userRequest.get(`/orders/find/${field.idUser}`)
+        console.log(res.status)
+        return res
+    } catch (error) {
+        console.log('err',error)
+        return error
+    }
+}

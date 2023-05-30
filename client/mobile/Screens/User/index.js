@@ -7,13 +7,14 @@ import styles from "./styles";
 import ProfileComponent from "../../Components/ProfileComponent/index";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {logout} from '../../API/auth'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const userData = require("../../assets/data/user.json");
 const User = () => {
   const navigation = useNavigation();
-
-
+  const user1 = useSelector((state)=>state.user.currentUser)
+  
+  console.log('user1',user1.data[0].lastname)
   const [user, setUser] = useState(...userData);
   const myOrders = ['My Orders', 'Already have 12 orders']
 
@@ -44,15 +45,19 @@ const User = () => {
           />
           <View style={styles.info}>
             <View style={styles.fullName}>
-              <Text style={styles.fullNameTxt}>{user.name} </Text>
-              <Text style={styles.fullNameTxt}>{user.lastname}</Text>
+              <Text style={styles.fullNameTxt}>{user1.data[0].name} </Text>
+              <Text style={styles.fullNameTxt}>{user1.data[0].lastname}</Text>
             </View>
-            <Text style={styles.emailInfo}>{user.email}</Text>
+            <Text style={styles.emailInfo}>{user1.data[0].email}</Text>
           </View>
         </View>
         <View style={styles.profile}>
           <ScrollView>
-            <TouchableOpacity delayPressIn={80}>
+            <TouchableOpacity delayPressIn={80}
+              onPress={()=>{
+                navigation.navigate('MyOrder')
+              }}
+            >
               <ProfileComponent {...myOrders} />
             </TouchableOpacity>
             <TouchableOpacity delayPressIn={80}>

@@ -15,6 +15,7 @@ import Shop from "./Shop";
 import ForgotPassword from "./ForgotPW";
 import { useSelector } from "react-redux";
 import DetailProduct from "./DetailPro";
+import MyOrder from "./MyOrder";
 
 
 const Tab = createBottomTabNavigator();
@@ -122,6 +123,7 @@ const Body = () => {
         <Stack.Screen name="HomeTabs" component={MyTabs} />
         <Stack.Screen name="Products" component={Products} />
         <Stack.Screen name="Detail" component={DetailProduct} />
+        <Stack.Screen name="MyOrder" component={MyOrder} />
         
       </Stack.Navigator>
     </NavigationContainer>
