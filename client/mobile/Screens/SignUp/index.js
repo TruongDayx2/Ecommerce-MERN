@@ -32,6 +32,9 @@ const SignUp = () => {
   const [otpCheck, setOtpCheck] = useState("")
   const [isModal, setModal] = useState(false)
   const [optInput,setOtpInput]=useState("")
+
+  
+
   const dispatch = useDispatch();
 
   const navigation = useNavigation();
@@ -39,8 +42,6 @@ const SignUp = () => {
   const changeModalVisible = (bool) => {
     setModal(bool)
   }
-
-
   const fetchData = async () => {
     const res = await otp({ email: email });
     if (res.status === 200) {
@@ -68,16 +69,81 @@ const SignUp = () => {
 
   };
   const handleSubmitOtp = (e)=>{
-
     fetchRegister()
   }
+
+  const [validEmail,setValidEmail] = useState(true)
+  const [validName,setValidName] = useState(true)
+  const [validLastName,setValidLastName] = useState(true)
+  const [validPass,setValidPass] = useState(true)
+  const [validPassCofirm,setValidPassConfirm] = useState(true)
+
+
+
   const handleRegister = (e) => {
     e.preventDefault()
-    fetchData();
-    // if (otpCheck!==""){
-
-    // }
+    
+    if (validateEmail(email)){  // Validate email
+      setValidEmail(true)
+    }else{
+      setValidEmail(false)
+    }
+    if (validateName(firstName)){ // Validate first name
+      setValidName(true)
+    }else{
+      setValidName(false)
+    }
+    if (validateLastName(lastName)){ // Validate last name
+      setValidLastName(true)
+    }else{
+      setValidLastName(false)
+    }
+    if (validatePass(password)){  // Validate password
+      setValidPass(true)
+    }else{
+      setValidPass(false)
+    }
+    if (validatePassConfirm(passwordConfirm)){  // Validate passwordConfirm
+      setValidPassConfirm(true)
+    }else{
+      setValidPassConfirm(false)
+    }
+    if (validEmail(email) && validName(firstName) 
+      && validLastName(lastName) && validPass(password)
+      && validPassCofirm(passwordConfirm)
+    ){
+      fetchData();
+    }
   }
+  const validatePassConfirm = (passCF) => {
+    if (passCF && passwordConfirm === password ){
+      return true
+    }
+    else false
+  };
+  const validatePass = (pass) => {
+    if (pass){
+      return true
+    }
+    else false
+  };
+  const validateLastName = (lastname) => {
+    if (lastname){
+      return true
+    }
+    else false
+  };
+  const validateName = (name) => {
+    if (name){
+      return true
+    }
+    else false
+  };
+  const validateEmail = (email) => {
+    return email.match(
+      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+  };
   return (
     <SafeAreaProvider>
       <View style={{ marginTop: 40 }}>
@@ -108,6 +174,8 @@ const SignUp = () => {
               </View>
             </View>
           </View>
+          <Text style={styles.inputError}>{validName?'':'First name is isvalid!'}</Text>
+
           {/* Last Name*/}
           <View style={styles.viewLastName}>
             <View style={styles.viewLastName1}>
@@ -121,6 +189,8 @@ const SignUp = () => {
               </View>
             </View>
           </View>
+          <Text style={styles.inputError}>{validLastName?'':'Last name is isvalid!'}</Text>
+
           {/* Email*/}
           <View style={styles.viewEmail}>
             <View style={styles.viewEmail1}>
@@ -134,6 +204,8 @@ const SignUp = () => {
               </View>
             </View>
           </View>
+          <Text style={styles.inputError}>{validEmail?'':'Email is isvalid!'}</Text>
+
           {/* Password*/}
           <View style={styles.viewPassword}>
             <View style={styles.viewPassword1}>
@@ -147,6 +219,8 @@ const SignUp = () => {
               </View>
             </View>
           </View>
+          <Text style={styles.inputError}>{validPass?'':'Password is isvalid!'}</Text>
+
           {/* Confirm Password*/}
           <View style={styles.viewConfirmPassword}>
             <View style={styles.viewConfirmPassword1}>
@@ -160,6 +234,8 @@ const SignUp = () => {
               </View>
             </View>
           </View>
+          <Text style={styles.inputError}>{validPassCofirm?'':'Password Confirm is isvalid!'}</Text>
+
           {/* Already have an account? */}
           <View style={styles.viewAccount}>
             <TouchableOpacity

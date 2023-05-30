@@ -202,6 +202,11 @@ const styles = StyleSheet.create({
     width: "30%",
     justifyContent: "center",
     alignItems: "center",
+  },
+  inputError:{
+    padding:10,
+    fontSize:15,
+    color:'red'
   }
 });
 
