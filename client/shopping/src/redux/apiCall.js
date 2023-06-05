@@ -13,14 +13,27 @@ export const login = async (dispatch, user) => {
 };
 
 export const register = async (dispatch,user)=>{
+  console.log('user',user)
   try {
-    await publicRequest.post("/auth/register", user);
+    const res = await publicRequest.post("/auth/register", user);
     dispatch(registerSuccess());
+    return res
   } catch (err) {
     dispatch(registerFailure(err.request.response));
+    return err
   }
 }
 
 export const logout = async(dispatch)=>{
   dispatch(logOut())
+}
+
+export const otp = async(user)=>{
+  console.log(user)
+  try {
+    const res = await publicRequest.post("/auth/otp",user)
+    return res
+  } catch (e) {
+    return e
+  }
 }
