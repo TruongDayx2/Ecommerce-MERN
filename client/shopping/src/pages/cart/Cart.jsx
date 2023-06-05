@@ -12,9 +12,7 @@ const Cart = () => {
 
   const [quantity, setQuantity] = useState(cart.products.quantity);
 
-
-  console.log(cart)
-  
+  console.log(cart);
 
   const updateQuantity = (type) => {
     // if (type === "plus") {
@@ -23,7 +21,7 @@ const Cart = () => {
     // } else {
     //   quantity > 1 && setQuantity(quantity - 1);
     // }
-    console.log(type)
+    console.log(type);
   };
 
   return (
@@ -31,13 +29,16 @@ const Cart = () => {
       <Navbar />
       <div className="cart_wrapper">
         <h1 className="cart_title">YOUR BAG</h1>
-        <div className="cart_top">
+        {/* <div className="cart_top">
           <button className="cart_topBtn">CONTINUE SHOPPING</button>
           <div className="cart_topTexts">
             <span className="cart_topText">Shopping Bag(2)</span>
             <span className="cart_topText">Your Wishlist(0)</span>
           </div>
           <button className="cart_topBtn">CHECKOUT NOW</button>
+        </div> */}
+        <div className="cart_hr">
+          <hr width="80%" align="center" />
         </div>
         <div className="cart_bottom">
           <div className="cart_info">
@@ -63,11 +64,11 @@ const Cart = () => {
                 </div>
                 <div className="cart_priceDetail">
                   <div className="cart_proAmountContainer">
-                    <div className="p_minus" onClick={() => updateQuantity(["minus",product])}>
+                    <div className="p_minus" onClick={() => updateQuantity(["minus", product])}>
                       <Remove />
                     </div>
                     <span className="cart_proAmount">{product.quantity}</span>
-                    <div className="p_plus" onClick={() => updateQuantity(["plus",product])}>
+                    <div className="p_plus" onClick={() => updateQuantity(["plus", product])}>
                       <Add />
                     </div>
                   </div>

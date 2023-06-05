@@ -6,16 +6,17 @@ import Navbar from "../../components/navbar/Navbar";
 import NewLetter from "../../components/newLetter/NewLetter";
 import { addProduct } from "../../redux/cartRedux";
 import { publicRequest } from "../../requestMethods";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Chat from "../../components/chatbot/Chat";
 
 import "./product.css";
+import { addToCart } from "../../redux/apiCart";
 
 const Product = () => {
   const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);
-  const [quantityStock,setQuantityStock] = useState(0)
-  const [sizeColor,setSizeColor]=useState({})
+  const [quantityStock, setQuantityStock] = useState(0);
+  const [sizeColor, setSizeColor] = useState({});
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
   const [allSize, setAllSize] = useState([]);
@@ -24,25 +25,26 @@ const Product = () => {
 
   const location = useLocation();
   const id = location.pathname.split("/")[2];
+  const user = useSelector((state) => state.user.currentUser);
 
   useEffect(() => {
     const getProduct = async () => {
       try {
         const res = await publicRequest.get("/products/find/" + id);
-        const resData = res.data.data
+        const resData = res.data.data;
         setProduct(resData);
-        console.log('res',resData.data)
-        setSizeColor((Object.values(resData.size_color)[0]))
+        console.log("res", resData.data);
+        setSizeColor(Object.values(resData.size_color)[0]);
         setAllSize(Object.keys(resData.size_color));
         setSize(Object.keys(resData.size_color)[0]);
         setAllColor(Object.keys(Object.values(resData.size_color)[0]));
         setColor(Object.keys(Object.values(resData.size_color)[0])[0]);
-        setQuantityStock(Object.values(Object.values(resData.size_color)[0])[0])
+        setQuantityStock(Object.values(Object.values(resData.size_color)[0])[0]);
       } catch {}
     };
     getProduct();
   }, [id]);
-  console.log('pro',product)
+  console.log("pro", product);
   useEffect(() => {
     if (product.size_color) {
       let k = -1;
@@ -53,9 +55,9 @@ const Product = () => {
       }
       setAllColor(Object.keys(Object.values(product.size_color)[k]));
       setColor(Object.keys(Object.values(product.size_color)[k])[0]);
-      setSizeColor((Object.values(product.size_color)[k]))
-      setQuantityStock(Object.values(Object.values(product.size_color)[k])[0])
-      setQuantity(1)
+      setSizeColor(Object.values(product.size_color)[k]);
+      setQuantityStock(Object.values(Object.values(product.size_color)[k])[0]);
+      setQuantity(1);
     }
   }, [size, product]);
 
@@ -67,19 +69,36 @@ const Product = () => {
     }
   };
   const handleClick = () => {
-    quantityStock !== 0
-      ? dispatch(addProduct({ ...product, quantity, color, size, quantityStock }))
-      : console.log("Không thể add vì sản phẩm đã hết");
+    const idUser = user.data[0]._id;
+    if (quantityStock !== 0) {
+      const token=user.token
+      const data = {
+        userId: idUser,
+        products: [
+          {
+            productId: product._id,
+            quantity: quantity,
+            size: size,
+            color: color,
+          },
+        ],
+      };
+    
+      // dispatch(addProduct({ ...product, quantity, color, size, quantityStock }))
+      const res = addToCart( {token,data });
+      console.log('res',res)
+    } else {
+      alert("Sorry, the product is out of stock");
+      // console.log("Không thể add vì sản phẩm đã hết");
+    }
   };
-  const handleClickColor =(e)=>{
-    setColor(e)
-    setQuantity(1)
-    setQuantityStock(sizeColor[e])
-  }
+  const handleClickColor = (e) => {
+    setColor(e);
+    setQuantity(1);
+    setQuantityStock(sizeColor[e]);
+  };
 
-  
-
-  console.log(quantityStock)
+  console.log(quantityStock);
 
   return (
     <div className="p_container">

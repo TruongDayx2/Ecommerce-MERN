@@ -9,6 +9,13 @@
 .cart_title{
     font-weight: 300;
     text-align: center;
+    margin-bottom: 10px;
+}
+
+.cart_hr{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cart_top{
@@ -48,6 +55,7 @@
 .cart_bottom{
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
 }
 
 .cart_info{
