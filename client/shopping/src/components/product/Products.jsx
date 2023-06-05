@@ -9,7 +9,11 @@ import axios from "axios";
 const Products = ({ cate, filter, sort, catePath }) => {
   const [products, setProducts] = useState([]);
   const [filterProducts, setFilterProducts] = useState([]);
+  console.log('cate',cate)
+  console.log('catePath',catePath)
+  console.log('filter',filter)
   useEffect(() => {
+
     const getProducts = async () => {
       try {
         const res = await axios.get(
@@ -27,7 +31,7 @@ const Products = ({ cate, filter, sort, catePath }) => {
     getProducts();
   }, [cate, catePath]);
 
-
+  console.log('products',products)
   useEffect(() => {
     if (cate) {
       setFilterProducts([])
@@ -37,12 +41,12 @@ const Products = ({ cate, filter, sort, catePath }) => {
         const itemFilter = [];
         const itemFilter1 = [];
         for (let i = 0; i < products.length; i++) {
-          let filtered = Object.keys(products[0].size_color).filter((key) =>
+          let filtered = Object.keys(products[i].size_color).filter((key) =>
             allowedSize.includes(key)
           );
           if (filtered.length !== 0) {
-            itemFilter.push(products[0]);
-            itemFilter1.push(Object(products[0].size_color));
+            itemFilter.push(products[i]);
+            itemFilter1.push(Object(products[i].size_color));
           }
         }
         if (filter.color) {
@@ -75,12 +79,12 @@ const Products = ({ cate, filter, sort, catePath }) => {
         const itemFilter = []
         for (let i = 0; i < products.length; i++) {
           const allowedSizeAll = ['XS','S','M','L','XL','XXL']
-          let filtered = Object.keys(products[0].size_color).filter((key) =>
+          let filtered = Object.keys(products[i].size_color).filter((key) =>
             allowedSizeAll.includes(key)
           );
           if (filtered.length !== 0) {
-            itemFilter.push(products[0]);
-            itemFilter2.push(Object(products[0].size_color));
+            itemFilter.push(products[i]);
+            itemFilter2.push(Object(products[i].size_color));
           }
 
         }

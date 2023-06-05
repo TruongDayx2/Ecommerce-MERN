@@ -91,7 +91,7 @@ const Product = () => {
         <div className="p_infoContainer">
           <h1 className="p_title">{product.title}</h1>
           <p className="p_desc">{product.desc}</p>
-          <span className="p_price">VND {product.price}.000</span>
+          <span className="p_price">$ {product.price}</span>
           <div className="p_filterContainer">
             <div className="p_filter">
               <span className="p_filterTitle">Color</span>

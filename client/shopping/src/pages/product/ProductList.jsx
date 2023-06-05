@@ -41,7 +41,7 @@ const ProductList = () => {
       {/* <h1 className="proL_title">{cate}</h1> */}
       <div className="proL_cate">
         <span onClick={() => setHideCate(!hideCate)} className="proL_cateTitle">
-          <div className="proL_filterText">Danh Mục</div >
+          <div className="proL_filterText">Category</div >
           <Add className="proL_cateIcon" />
         </span>
         {/* { hideCate && 

@@ -5,6 +5,7 @@ export const sliderItems = [
         img2:"https://cdn.ssstutter.com/products/po0EUQXd52Ks47dT/112022/1667904482646.jpeg",
         title:"FALL into SWEATER",
         desc:"Immerse Yourself in The Midst Of Nature",
+        cate:"men",
     },
     {
         id:2,
@@ -12,13 +13,14 @@ export const sliderItems = [
         img2:"https://cdn.ssstutter.com/products/po0EUQXd52Ks47dT/102022/1666556378017.jpeg",
         title:"FALL into BLAZERS",
         desc:"Spruce Up Your Everyday Luxury Look",
+        cate:"women",
     }
 ]
 
 export const categories = [
     {
         id:1,
-        img:"https://cdn.ssstutter.com/products/po0EUQXd52Ks47dT/112022/1668409522619.jpeg",
+        img:"https://cdn.ssstutter.com/products/po0EUQXd52Ks47dT/032023/1680098886702.webp",
         title:"FOR HIM",
         cate:"men"
     },

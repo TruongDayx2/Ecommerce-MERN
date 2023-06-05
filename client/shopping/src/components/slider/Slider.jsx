@@ -4,6 +4,7 @@ import { useState } from "react";
 import "./slider.css";
 import { sliderItems } from "../../data";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -16,13 +17,10 @@ const Slider = () => {
     }
   };
 
-  const nextSlide = useCallback(
-    () => {
-      const index = slideIndex + 1 === sliderItems.length ? 0 : slideIndex + 1;
-      setSlideIndex(index)
-    },
-    [slideIndex],
-  )
+  const nextSlide = useCallback(() => {
+    const index = slideIndex + 1 === sliderItems.length ? 0 : slideIndex + 1;
+    setSlideIndex(index);
+  }, [slideIndex]);
 
   useEffect(() => {
     const slideAuto = setInterval(() => {
@@ -59,7 +57,9 @@ const HeroSliderItem = (props) => (
     <div className="sl_info">
       <h1 className="sl_title">{props.item.title}</h1>
       <p className="sl_desc">{props.item.desc}</p>
-      <button className="sl_btn">SHOW NOW</button>
+      <Link to={`/products/${props.item.cate}`}>
+        <button className="sl_btn">SHOW NOW</button>
+      </Link>
     </div>
   </div>
 );
