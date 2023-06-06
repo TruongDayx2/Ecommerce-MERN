@@ -76,6 +76,8 @@ router.post("/delete/:id", verifyTokenAndAuthorization, async (req, res) => {
           }
         }
       }
+      console.log('=========================')
+      // console.log(user)
       const updatedCart=await user.save()
       res.status(200).json(updatedCart);
       
