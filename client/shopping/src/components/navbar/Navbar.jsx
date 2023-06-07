@@ -14,15 +14,14 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [account,setAccount] = useState(false)
+  const [account, setAccount] = useState(false);
 
   const handleClick = (e) => {
     localStorage.removeItem("persist:root");
     logout(dispatch);
-    setAccount(false)
-    navigate('../login')
+    setAccount(false);
+    navigate("../login");
   };
-
 
   return (
     <>
@@ -61,37 +60,48 @@ const Navbar = () => {
                     </Badge>
                   </div>
                 </Link>
-                  <div className="nb_menuItem" onClick={()=>setAccount(!account)}>
-                    <Badge badgeContent={quantity} color="primary" overlap="rectangular">
-                      <AccountCircleOutlined />
-                    </Badge>
-                  </div>
+                <div className="nb_menuItem" onClick={() => setAccount(!account)}>
+                  <Badge badgeContent={quantity} color="primary" overlap="rectangular">
+                    <AccountCircleOutlined />
+                  </Badge>
+                </div>
               </>
             )}
-            
           </div>
         </div>
         {account && (
-              <div className="nb_account">
-                <div className="nb_accItem" style={{display:'flex',flexDirection:'column'}}>
-                  <span className="nb_rightText"><b>{user.data[0].name} {user.data[0].lastname}</b></span>
-                  <span>{user.data[0].email}</span>
-                </div>
-                <div className="nb_accItem">
-                  <span className="nb_rightText"><b>Setting</b></span>
-                </div>
-                <Link to='/order' style={{ textDecoration: 'none',color:'black' }}>
-                  <div className="nb_accItem">
-                    <span className="nb_rightText"><b>Orders</b></span>
-                  </div>
-                </Link>
-                <div className="nb_accItem" onClick={handleClick}>
-                  <span className="nb_rightText"><b>Log out</b></span>
-                </div>
+          <div className="nb_account">
+            <div className="nb_accItem" style={{ display: "flex", flexDirection: "column" }}>
+              <span className="nb_rightText">
+                <b>
+                  {user.data[0].name} {user.data[0].lastname}
+                </b>
+              </span>
+              <span>{user.data[0].email}</span>
+            </div>
+            <Link to="/setting" style={{ textDecoration: "none", color: "black" }}>
+              <div className="nb_accItem">
+                <span className="nb_rightText">
+                  <b>Setting</b>
+                </span>
               </div>
-            )}
+            </Link>
+
+            <Link to="/order" style={{ textDecoration: "none", color: "black" }}>
+              <div className="nb_accItem">
+                <span className="nb_rightText">
+                  <b>Orders</b>
+                </span>
+              </div>
+            </Link>
+            <div className="nb_accItem" onClick={handleClick}>
+              <span className="nb_rightText">
+                <b>Log out</b>
+              </span>
+            </div>
+          </div>
+        )}
       </div>
-      
     </>
   );
 };

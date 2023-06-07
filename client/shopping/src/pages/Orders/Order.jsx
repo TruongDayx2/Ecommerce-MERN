@@ -2,7 +2,7 @@ import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
 import Chat from "../../components/chatbot/Chat";
 import { useSelector } from "react-redux";
-import { getOrders } from "../../redux/apiOrder";
+import { CancelOrder, getOrders } from "../../redux/apiOrder";
 import { useEffect, useState } from "react";
 import "./order.css";
 import { Button } from "@material-ui/core";
@@ -14,17 +14,17 @@ const Order = () => {
   const [detailItem, setDetailItem] = useState({});
 
   const user = useSelector((state) => state.user.currentUser);
-
+  const fetchData = async () => {
+    let token = user.token;
+    const idUser = user.data[0]._id;
+    const res = await getOrders({ token, idUser });
+    if (res.status === 200) {
+      setData(res.data);
+    }
+  };
   useEffect(() => {
     if (user) {
-      const fetchData = async () => {
-        let token = user.token;
-        const idUser = user.data[0]._id;
-        const res = await getOrders({ token, idUser });
-        if (res.status === 200) {
-          setData(res.data);
-        }
-      };
+      
       fetchData();
     }
   }, [user]);
@@ -47,9 +47,21 @@ const Order = () => {
     setDetailItem(item);
     setDetailModal(true);
   };
-  console.log(detailItem);
 
-  console.log(data);
+  const handleCancel = async(item)=>{
+    let token = user.token
+    const idUser = user.data[0]._id
+    const id = item._id
+    const res = await CancelOrder({token,idUser,id})
+    if (res.status === 200) {
+      alert('Cancel Successful')
+      fetchData();
+
+    }else{
+      alert('Cancel Failed')
+    }
+  }
+
   return (
     <div className="or_container">
       <Navbar />
@@ -64,7 +76,7 @@ const Order = () => {
               <div
                 className="or_item"
                 style={{
-                  border: `1px solid ${
+                  border: `1.5px solid ${
                     item.status === "pending"
                       ? "orange"
                       : item.status === "Delivered"
@@ -90,7 +102,7 @@ const Order = () => {
                 </div>
                 <div className="or_itemRight">
                   {item.status === "pending" && (
-                    <button className="or_detailBtn" style={{ color: "red", marginRight: "5px" }}>
+                    <button onClick={()=>handleCancel(item)} className="or_detailBtn" style={{ color: "red", marginRight: "5px" }}>
                       Cancel
                     </button>
                   )}
@@ -174,7 +186,7 @@ const Order = () => {
             <div className="or_summaryItem">
               <span className="or_summaryItem_Text">Cancel</span>
               <span className="or_summaryItem_Price">
-                {countByStatus.Cancel ? countByStatus.Cancel : 0}
+                {countByStatus.Canceled ? countByStatus.Canceled : 0}
               </span>
             </div>
           </div>

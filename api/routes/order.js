@@ -36,6 +36,26 @@ router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
   }
 });
 
+//Update User
+router.post("/user/:id/:idItem/:status",verifyTokenAndAuthorization,async(req,res)=>{
+  try {
+    const updatedOrder = await Order.findByIdAndUpdate(
+      req.params.idItem,
+      {
+        $set: {status:req.params.status},
+      },
+      { new: true }
+    );
+    // const order = await Order.findOne({ userId: req.params.id })
+
+    console.log(updatedOrder)
+    res.status(200).json(updatedOrder);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
+
 //DELETE
 router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
   try {

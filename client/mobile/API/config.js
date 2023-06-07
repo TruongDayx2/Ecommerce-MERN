@@ -1,5 +1,5 @@
 import axios from "axios";
-export const baseURL = 'http://10.251.0.125:5000/api'
+export const baseURL = 'http://192.168.1.9:5000/api'
 
 export const publicRequest = axios.create({
     baseURL: baseURL,

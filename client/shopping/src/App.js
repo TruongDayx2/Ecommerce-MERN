@@ -15,6 +15,7 @@ import {
 } from "react-router-dom"
 import { useSelector } from "react-redux";
 import Order from "./pages/Orders/Order";
+import Setting from "./pages/setting/Setting";
 
 const App = () => {
   const user = useSelector((state)=>state.user.currentUser)
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/product/:id" element={<Product/>} />
         <Route path="/cart" element={<Cart/>} />
         <Route path="/order" element={<Order/>} />
+        <Route path="/setting" element={<Setting/>} />
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login/>} />
         <Route path="/register" element={user ? <Navigate to="/" /> : <Register/>} /> 
       </Routes>

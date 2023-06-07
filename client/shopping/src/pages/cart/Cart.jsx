@@ -7,7 +7,8 @@ import Chat from "../../components/chatbot/Chat";
 
 import "./cart.css";
 import { useEffect } from "react";
-import { deleteCart, getCart, updateCart } from "../../redux/apiCart";
+import { deleteCart, getCart, updateCart, updateCartOrder } from "../../redux/apiCart";
+import { addOrder } from "../../redux/apiOrder";
 
 const Cart = () => {
   const user = useSelector((state) => state.user.currentUser)
@@ -102,9 +103,42 @@ const Cart = () => {
     updateData()
   }, [data,user])
 
-  const handleCheckOut=()=>{
+  const handleCheckOut=async()=>{
     if (address && phone && phone.toString().length === 10){
       console.log('xac nhan')
+
+      const temp2 = data.map((obj)=>({
+        ...obj,
+        productId:obj.productId._id
+      }))
+      console.log(temp2)
+
+      let token = user.token
+      const idUser = user.data[0]._id
+
+      const data1 = {
+        "userId":idUser,
+        "products":temp2,
+        "amount":totalPrice + ship,
+        "status":"pending",
+        "address":address,
+        "phone":phone
+      }
+      const res = await addOrder({token,idUser,data1})
+      if (res.status === 200){
+        console.log('You have successfully ordered')
+        setData([])
+        handleUpdateCartOrder()
+        alert('You have successfully ordered');
+      }
+    }
+  }
+  const handleUpdateCartOrder= async()=>{
+    let token = user.token
+    const idUser = user.data[0]._id
+    const res = await updateCartOrder({ token, idUser, data });
+    if (res.status === 200) {
+      console.log(' updateCart')
     }
   }
 

@@ -55,3 +55,16 @@ export const deleteCart = async(field)=>{
         return e
     }
 }
+
+export const updateCartOrder = async(field)=>{
+    const userRequest = axios.create({
+        baseURL: BASE_URL,
+        headers: { token: `Bearer ${field.token}` },
+    });
+    try {
+        const res = await userRequest.post(`/carts/updateOrder/${field.idUser}`,field.data)
+        return res
+    } catch (e) {
+        return e
+    }
+}
