@@ -14,6 +14,11 @@ const Cart = () => {
   const cart = useSelector((state) => state.cart);
 
   const [data, setData] = useState([])
+  const [address, setAddress] = useState('')
+  const [phone, setPhone] = useState()
+  const [ship, setShip] = useState(10)
+  const [totalPrice, setTotalPrice] = useState(0)
+
   
   useEffect(() => {
     const fetchData = async () => {
@@ -27,7 +32,15 @@ const Cart = () => {
     fetchData();
   },[user]);
 
-
+  useEffect(() => {
+    let total = 0;
+    data.forEach((item) => {
+      if (item.productId.inStock) {
+        total += item.productId.price * item.quantity;
+      }
+    });
+    setTotalPrice(total);
+  }, [data]);
 
   const updateQuantity = (item,key) => {
     if (item.productId.inStock){
@@ -89,6 +102,12 @@ const Cart = () => {
     updateData()
   }, [data,user])
 
+  const handleCheckOut=()=>{
+    if (address && phone && phone.toString().length === 10){
+      console.log('xac nhan')
+    }
+  }
+
   return (
     <div className="cart_container">
       <Navbar />
@@ -148,23 +167,38 @@ const Cart = () => {
           </div>
           <div className="cart_summary">
             <h1 className="cart_summaryTitle">ORDER SUMMARY</h1>
-            <div className="cart_summaryItem">
-              <span className="cart_summaryItem_Text">Subtotal</span>
-              <span className="cart_summaryItem_Price">$ {cart.total}</span>
+            <div style={{display:'flex',flexDirection:'column',marginBottom:'20px'}}>
+              <span className="cart_summaryItem_Text">Address</span>
+              <input style={{marginTop:'10px'}} onChange={e=>setAddress(e.target.value)}/>
+            </div>
+            <div style={{display:'flex',flexDirection:'column',marginBottom:'20px'}}>
+              <span className="cart_summaryItem_Text">Phone</span>
+              <input style={{marginTop:'10px'}} onChange={e=>setPhone(e.target.value)}/>
+            </div>
+            <div style={{display:'flex',flexDirection:'column',marginBottom:'20px'}}>
+              <span className="cart_summaryItem_Text">Delivery Method</span>
+              <select
+                style={{marginTop:'10px'}}
+                onClick={(e) => setShip(e.target.value)}
+              >
+                <option key={'GHN'} value={10}>GHN</option>
+                <option key={'GHTK'} value={15}>GHTK</option>
+                <option key={'GH24h'} value={13}>GH24h</option>
+              </select>
             </div>
             <div className="cart_summaryItem">
-              <span className="cart_summaryItem_Text">Estimated Shipping</span>
-              <span className="cart_summaryItem_Price">VND 5000</span>
+              <span className="cart_summaryItem_Text">Order</span>
+              <span className="cart_summaryItem_Price">$ {totalPrice}</span>
             </div>
             <div className="cart_summaryItem">
-              <span className="cart_summaryItem_Text">Shipping Discount</span>
-              <span className="cart_summaryItem_Price">VND -5000</span>
+              <span className="cart_summaryItem_Text">Shipping</span>
+              <span className="cart_summaryItem_Price">$ {ship}</span>
             </div>
             <div className="cart_summaryItem" style={{ fontWeight: "500", fontSize: "24px" }}>
               <span className="cart_summaryItem_Text">Total</span>
-              <span className="cart_summaryItem_Price">VND {cart.total}.000</span>
+              <span className="cart_summaryItem_Price">$ {Number(ship) + totalPrice}</span>
             </div>
-            <button className="cart_summaryBtn">CHECKOUT NOW</button>
+            <button className="cart_summaryBtn" onClick={()=>handleCheckOut()}>CHECKOUT NOW</button>
           </div>
         </div>
       </div>

@@ -49,7 +49,7 @@ router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
 //GET USER ORDERS
 router.get("/find/:id", verifyTokenAndAuthorization, async (req, res) => {
   try {
-    const orders = await Order.find({ userId: req.params.id });
+    const orders = await Order.find({ userId: req.params.id }).populate("products.productId","title price img");
     res.status(200).json(orders);
   } catch (err) {
     res.status(500).json(err);

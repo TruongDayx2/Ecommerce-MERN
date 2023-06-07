@@ -1,9 +1,9 @@
 import { Badge } from "@material-ui/core";
-import { Search, ShoppingCartOutlined } from "@material-ui/icons";
+import { AccountCircleOutlined, Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../redux/apiCall";
 import Announcement from "./Announcement";
 import "./navbar.css";
@@ -12,13 +12,17 @@ const Navbar = () => {
   const quantity = useSelector((state) => state.cart.quantity);
   const user = useSelector((state) => state.user.currentUser);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [account,setAccount] = useState(false)
 
   const handleClick = (e) => {
     localStorage.removeItem("persist:root");
-    logout(dispatch)
-    
-    
+    logout(dispatch);
+    setAccount(false)
+    navigate('../login')
   };
+
 
   return (
     <>
@@ -49,19 +53,45 @@ const Navbar = () => {
               </>
             )}
             {user && (
-              <div className="nb_menuItem" onClick={handleClick}>SIGN OUT</div>
-
+              <>
+                <Link to="/cart">
+                  <div className="nb_menuItem">
+                    <Badge badgeContent={quantity} color="primary" overlap="rectangular">
+                      <ShoppingCartOutlined />
+                    </Badge>
+                  </div>
+                </Link>
+                  <div className="nb_menuItem" onClick={()=>setAccount(!account)}>
+                    <Badge badgeContent={quantity} color="primary" overlap="rectangular">
+                      <AccountCircleOutlined />
+                    </Badge>
+                  </div>
+              </>
             )}
-            <Link to="/cart">
-              <div className="nb_menuItem">
-                <Badge badgeContent={quantity} color="primary" overlap="rectangular">
-                  <ShoppingCartOutlined />
-                </Badge>
-              </div>
-            </Link>
+            
           </div>
         </div>
+        {account && (
+              <div className="nb_account">
+                <div className="nb_accItem" style={{display:'flex',flexDirection:'column'}}>
+                  <span className="nb_rightText"><b>{user.data[0].name} {user.data[0].lastname}</b></span>
+                  <span>{user.data[0].email}</span>
+                </div>
+                <div className="nb_accItem">
+                  <span className="nb_rightText"><b>Setting</b></span>
+                </div>
+                <Link to='/order' style={{ textDecoration: 'none',color:'black' }}>
+                  <div className="nb_accItem">
+                    <span className="nb_rightText"><b>Orders</b></span>
+                  </div>
+                </Link>
+                <div className="nb_accItem" onClick={handleClick}>
+                  <span className="nb_rightText"><b>Log out</b></span>
+                </div>
+              </div>
+            )}
       </div>
+      
     </>
   );
 };

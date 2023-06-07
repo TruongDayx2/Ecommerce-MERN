@@ -1,6 +1,5 @@
 .nb_container{
     height: 60px;
-    
 }
 
 .nb_wrapper{
@@ -58,6 +57,27 @@
 .nb_link{
     color: black;
     text-decoration: none;
+}
+
+.nb_account{
+    margin: 80px 20px 20px 20px;
+  position: fixed!important;
+  z-index: 9996!important;
+  top: 0;
+  border-radius: 5px!important;
+  background-color: white;
+  /* transition: all 195ms ease-in; */
+  /* padding: 20px 20px 20px 21px; */
+  right: 0;
+  max-height: 100%;
+  display: block;
+  border: 1px solid gray;
+}
+
+.nb_accItem{
+    padding: 10px 20px 10px 20px;
+    border-bottom: 1px solid black;
+    cursor: pointer;
 }
 
 @media only screen and (max-width:740px){
