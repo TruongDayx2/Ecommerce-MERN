@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "prime-radio-356205",
+  "private_key_id": "bf76dd0a3477bb987daaf596cd730232978eee3b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCnhZNesKVlIySd\nSYVpJeVbd+UzVHIVt62zxXE1rEN+yAtuE/q45eYaIlHyQSlmNqjNUM8OnXmKZzXR\n11IfiW4Oqy6Q97UkZ+UBHv07AEPuGUQGCAvP19SeuJe5svR4RoUWkCA1En8JpAhq\nS7K7bQSXtcYogZfDFRkIEkXgVFirR8T38GlCUWwinQOLfS/yir2GVVKwtP6YAu75\n1vs6HXw0Oo7Dlej6X6BlQIyk3KUivURqlBngul1WSE69vqvYqJ/YAlPYxApXKix5\n6jiZKR7V2qEjFPfikFG5Hk7GvTRYdozv8T5PcxZlnQ1sP0eN4zTbdMsi0ZuKaUZR\nZG2eIy8XAgMBAAECggEAHm+bZdHMSwLGjTklXwQ+lo7C+r919tInYgkWV30Tyj4I\nLZi9rcg/NTJVFyGVpvd5Vcw/wlUEFwxHb/eh+Q7cCxg43qfSpmml5r09nvGeZez7\nOelOVBXPkILTNi74Ub3mQkIvR9UzdYny6XUVZQ4ajoG9HfDlpND5ekjvnyFT9tJI\nyVpnPxWrwVfPeDx5OG+FqpAu/2SMEyp9y2A3uSZcYJi8hVnZok8nThcbbWcCM+3A\n6PhyjMcSrJDLATLPtOspfsFYHiroYRmILtLsOWI83D7oUmIMkYhXvQQ5YJly+ktz\nXGrO2N1tDQaQfLMvxNLdojrX9F7mcU+ytYOEz8VDEQKBgQDhC2jtOs+e5owIhkXx\nwmSgqXojowu/l25+HFAU3jGqbpSduxygTDMuZ2MSyoeGrhvL6eFMxE5MmzSpwGHH\nZH5BFVAanIgWWrnIODQiMSD6S2JJ7MTnzBYntwzjfanPjTihI0InsTnaDDpeFqjf\nT+tAiTxgttLKGzaeghl8bn3jKQKBgQC+kJdhrm86q0uB6PzRVfOK606w5pV/xCye\nUbDjGsvF7S8m2HpWdVqSK/7EruoqSCt1/kAheNZJdJb/OacXPhMOKLIIZduJFpA6\nG+7/M4pc3ELLJ7pREdXKhN/lbjW8/gP8cX+9YPbd/2UadoLPhxOHa/0SZXvoq9ii\nfqQ5dncIPwKBgER93n9lCM+Jx1DI3PzJdyrWqc+yzd6PzhcfstfHEEKYyS6ARiQb\nTPBwktyjO0AoOVmEYwekL1htXEfVv2yaDzrrq6eNwHVdQ3HGeUd2wFytGMr6/qq1\nmICZ25hZJJeAmZ2hR38hF0RfuFvudZMRlb3chr3ApsLQKX1whyUx06qRAoGAIg7z\nj1i+tmyg/SHn9X34Hg76LHG5rHEiTFVrWNuUKda/Q6ETFFq7Cj7ktMBSR6ZIZjk/\nuvu+yLgWuJzUOTo166ToVMnnl7O5qTkO2PucMgaHxYlfKlgWrrBa18V/wzxe+AJN\nA0rONFUN+9HMhUyt99kcDOqoX6g++qPJtB9xHL8CgYEA3u+ukd3H35F2GUQOTeQZ\nwt0EpOkcWp7VenvJ6m6za9HMzha1LtlEO20cu9g4+K3CGnn03NIG6aCUAcCQR0I3\nSewKGvvSmywVCWNrslTJDejmy5TjQ+YXWAaS9+pv4C4FMoJB4EXv1r4W/5I61l9C\nuhxfEu9epcocxPFyOFoTeuI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "googledrive@prime-radio-356205.iam.gserviceaccount.com",
+  "client_id": "112603203070494773736",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/googledrive%40prime-radio-356205.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

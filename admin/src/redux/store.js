@@ -1,36 +1,57 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import userReducer from "./userRedux";
-import productReducer from './productRedux'
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import { composeWithDevTools } from "redux-devtools-extension";
+import { userLoginReducer, userRegisterReducer, userListReducer, userUpdateReducer, userEditReducer } from "./reducers/userReducers";
 import {
-    persistStore,
-    persistReducer,
-    FLUSH,
-    REHYDRATE,
-    PAUSE,
-    PERSIST,
-    PURGE,
-    REGISTER,
-  } from "redux-persist";
-  import storage from "redux-persist/lib/storage";
-  const persistConfig = {
-    key: "root",
-    version: 1,
-    storage,
-  };
+  productCreateReducer,
+  productDeleteReducer,
+  productEditReducer,
+  productListReducer,
+  productUpdateReducer,
+} from "./reducers/ProductReducers";
+import {
+  orderDeliveredReducer,
+  orderDetailsReducer,
+  orderListReducer,
+  orderEditReducer,
+  orderUpdateReducer,
+  orderCancelReducer
+} from "./reducers/OrderReducres";
 
-  const rootReducer = combineReducers({ user: userReducer, product:productReducer });
-
-  const persistedReducer = persistReducer(persistConfig, rootReducer);
-
-export const store = configureStore({
-  reducer: persistedReducer, 
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
+const reducer = combineReducers({
+  userLogin: userLoginReducer,
+  userRegister: userRegisterReducer,
+  userList: userListReducer,
+  userUpdate: userUpdateReducer,
+  userEdit: userEditReducer,
+  productList: productListReducer,
+  productDelete: productDeleteReducer,
+  productCreate: productCreateReducer,
+  productEdit: productEditReducer,
+  productUpdate: productUpdateReducer,
+  orderList: orderListReducer,
+  orderDetails: orderDetailsReducer,
+  orderDeliver: orderDeliveredReducer,
+  orderEdit: orderEditReducer,
+  orderUpdate: orderUpdateReducer,
+  orderCancel: orderCancelReducer
 });
 
-export let persistor = persistStore(store);
+// login
+const userInfoFromLocalStorage = localStorage.getItem("userInfo")
+  ? JSON.parse(localStorage.getItem("userInfo"))
+  : null;
 
+const initialState = {
+  userLogin: { userInfo: userInfoFromLocalStorage }
+};
+
+const middleware = [thunk];
+
+const store = createStore(
+  reducer,
+  initialState,
+  composeWithDevTools(applyMiddleware(...middleware))
+);
+
+export default store;

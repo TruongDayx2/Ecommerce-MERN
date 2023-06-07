@@ -37,8 +37,17 @@ const MyOrder = () => {
   }, []);
   const renderItem = ({item,index})=>{
     console.log(item)
+    let backgroundColors = ''
+    if(item.status === 'pending'){
+      backgroundColors = 'orange'
+    }else if(item.status === 'Delivered'){
+      backgroundColors = 'teal'
+    }else if(item.status === 'Canceled'){
+      backgroundColors = 'red'
+    }
+
     return(
-    <View key={index} style={{backgroundColor:'white',margin:20,borderRadius:5,padding:20,borderColor:'green',borderWidth:1,flexDirection:'row'}}>
+    <View key={index} style={{backgroundColor:'white',margin:20,borderRadius:5,padding:20,borderColor: backgroundColors,borderWidth:1,flexDirection:'row'}}>
       <View>
         <View style={{flexDirection:'row'}}>
           <Text style={{fontWeight:'bold'}}>id: </Text>
@@ -57,12 +66,22 @@ const MyOrder = () => {
           <Text>{item.createdAt}</Text>
         </View>
       </View>
+      <View>
       <TouchableOpacity style={{marginLeft:40}}>
                 <View style={[styles.btn, styles.minus]}>
                   <Text>Detail</Text>
                 </View>
         </TouchableOpacity>
+      { item.status === 'pending' && <TouchableOpacity style={{marginLeft:40, marginTop:10}}>
+                <View style={[styles.btn, styles.minus,  {borderColor:'red'}]}>
+                  <Text>Cancel</Text>
+                  </View>
+        </TouchableOpacity>}
+
+      </View>
+      
     </View> 
+    
     )
     
   }
