@@ -1,20 +1,68 @@
 const User = require("../models/User")
 const { verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin } = require("./verifyToken")
 const CryptoJS = require("crypto-js")
+const fs = require('fs');
+const { google } = require('googleapis');
 
 const router = require("express").Router()
 
+const CLIENT_ID = '1047127329094-rq6ml1brtcptbifvbdsgk2fjcr3fhdi2.apps.googleusercontent.com';
+const CLIENT_SECRET = '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';
+const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
+
+const REFRESH_TOKEN = '1//04xS1k9PMyP-OCgYIARAAGAQSNwF-L9IrPeL4G_LJwnJX-OfEtUphzMojjb3R2mJ6R38NnaPq--560AMM21FZekBhoKzGxqbIFoM';
+
+const oauth2Client = new google.auth.OAuth2(
+  CLIENT_ID,
+  CLIENT_SECRET,
+  REDIRECT_URI
+);
+
+oauth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
+
+const drive = google.drive({
+  version: 'v3',
+  auth: oauth2Client,
+});
+
+
 // UPDATE
-router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
+router.post("/update/:id", verifyTokenAndAuthorization, async (req, res) => {
   if (req.body.password) {
     req.body.password = CryptoJS.AES.encrypt(req.body.password, process.env.PASS_SECRET).toString()
   }
 
+  let data = req.body;
+  console.log('data',data);
+  
   try {
+    if (!data.img.includes('drive.google.com')) {
+    const filePath = process.env.PATH_FILE_UPLOAD + data.img.split("\\")[2];
+    const response = await drive.files.create({
+      requestBody: {
+        name: filePath, //This can be name of your choice
+        mimeType: 'image/jpeg',
+        parents: ['1k-VOEN1iRBjNx3UyQP6xgycRTn4SkOtN'],
+      },
+      media: {
+        mimeType: 'image/jpeg',
+        body: fs.createReadStream(filePath),
+      },
+    });
+
+   
+    pathDriver = 'https://drive.google.com/uc?export=view&id=' + response.data.id;
+    req.body.img = pathDriver;
     const updateUser = await User.findByIdAndUpdate(req.params.id, {
       $set: req.body
     }, { new: true })
     res.status(200).json(updateUser)
+  } else {
+    const updateUser = await User.findByIdAndUpdate(req.params.id, {
+      $set: req.body
+    }, { new: true })
+    res.status(200).json(updateUser)
+  }
   } catch (err) {
     res.status(500).json(err)
   }
@@ -74,38 +122,45 @@ router.get("/stats", verifyTokenAndAdmin, async (req, res) => {
 // CREATE
 router.post("/create", verifyTokenAndAdmin, async (req, res) => {
 
-  
-  console.log('req.body', req.body);
+  console.log('req.body',req.body);
   const userByEmail = await User.findOne({ email: req.body.email });
-  const userByUsername = await User.findOne({ username: req.body.username });
-
-  console.log('userByEmail', userByEmail);
-  console.log('userByUsername', userByUsername);
-
   if (userByEmail) {
     return res.status(400).json({ message: "Email already exists" });
   }
-  if (userByUsername) {
-    return res.status(400).json({ message: "Username already exists" });
-  }
+
   const newUser = new User(
     {
-      lastName: req.body.lastName,
       name: req.body.name,
-      username: req.body.username,
+      lastname: req.body.lastname,
       email: req.body.email,
       password: CryptoJS.AES.encrypt(req.body.password, process.env.PASS_SECRET).toString(),
       isAdmin: req.body.isAdmin,
       img: req.body.img
     }
   )
-    try {
-      const savedUser = await newUser.save()
-      res.status(200).json(savedUser)
-    } catch (err) {
-      res.status(500).json(err)
-    }
-  })
+console.log('newUser',newUser);
+  const filePath = process.env.PATH_FILE_UPLOAD + req.body.img.split("\\")[2];
+  try {
+    const response = await drive.files.create({
+      requestBody: {
+        name: filePath, //This can be name of your choice
+        mimeType: 'image/jpeg',
+        parents: ['1k-VOEN1iRBjNx3UyQP6xgycRTn4SkOtN'],
+      },
+      media: {
+        mimeType: 'image/jpeg',
+        body: fs.createReadStream(filePath),
+      },
+    });
+    pathDriver = 'https://drive.google.com/uc?export=view&id=' + response.data.id;
+    newUser.img = pathDriver;
+    const savedUser = await newUser.save()
+    res.status(200).json({ success: 1, message: "User registered successfully", data: [savedUser] });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ error: error.message });
+  }
+})
 
 // GET ALL
 router.get("/", verifyTokenAndAdmin, async (req, res) => {
@@ -187,6 +242,38 @@ router.get("/admin/", async (req, res) => {
       res.status(201).json({ success: 0, message: "No Data Found!" })
     }
 
+  } catch (err) {
+    res.status(500).json({ status: 0, message: err.message })
+  }
+})
+
+// total users
+router.get("/totalUsers", async (req, res) => {
+  try {
+    const totalUsers = await User.countDocuments();
+    if (totalUsers) {
+      res.status(200).json({ success: 1, message: "", data: totalUsers });
+    } else {
+      res.status(201).json({ success: 0, message: "No Data Found!" })
+
+    }
+  } catch (err) {
+    res.status(500).json({ status: 0, message: err.message })
+  }
+})
+
+
+
+// get all users
+router.get("/allUsers/users", async (req, res) => {
+  try {
+    const users = await User.find();
+    if (users) {
+      res.status(200).json({ success: 1, message: "", data: users });
+    } else {
+      res.status(201).json({ success: 0, message: "No Data Found!" })
+
+    }
   } catch (err) {
     res.status(500).json({ status: 0, message: err.message })
   }

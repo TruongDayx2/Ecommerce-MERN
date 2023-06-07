@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 const nodemailer = require('nodemailer')
 
 var refreshTokens = []
-//REGISTER
+//REGISTER MAIL OTP
 router.post('/register', async (req, res) => {
 	const newUser = new User({
 		email: req.body.email,
@@ -17,7 +17,7 @@ router.post('/register', async (req, res) => {
 	try {
 		const savedUser = await newUser.save()
 		res.status(200).json({ success: 1, message: "User registered successfully", data: [savedUser] });
-		
+
 	} catch (e) {
 		console.log(e)
 		res.status(500).json(e)
@@ -27,24 +27,24 @@ router.post('/register', async (req, res) => {
 //OTP MAIL 
 router.post('/otp', async (req, res) => {
 	const { email } = req.body;
-	console.log('email:',email)
+	console.log('email:', email)
 	try {
 		const user = await User.findOne({ email: email });
-		if(!user){
+		if (!user) {
 			let transporter = nodemailer.createTransport({
 				host: "smtp.gmail.com",
 				port: 465,
 				secure: true,
 				auth: {
-					user: 'tuphancqc1995@gmail.com',
-					pass: 'zykeixrdhhxkivka'
+					user: 'nguyennguyentrung01@gmail.com',
+					pass: 'eawjkfqfeiuhxpxb'
 				},
 			});
-		
+
 			let otp = Math.floor(100000 + Math.random() * 900000);
-		
+
 			await transporter.sendMail({
-				from: 'tuphancqc1995@gmail.com',
+				from: 'nguyennguyentrung01@gmail.com',
 				to: email,
 				subject: 'OTP for registration',
 				text: 'Your OTP for registration is ' + otp
@@ -57,13 +57,13 @@ router.post('/otp', async (req, res) => {
 				}
 			});
 		}
-		else{
-			res.status(501).json({success:0,message:'Email already exists'})
+		else {
+			res.status(501).json({ success: 0, message: 'Email already exists' })
 		}
 	} catch (e) {
 		res.status(500).json(e)
 	}
-	
+
 })
 
 
@@ -88,12 +88,12 @@ router.post('/forgotpassword', async (req, res) => {
 				port: 465,
 				secure: true,
 				auth: {
-					user: 'tuphancqc1995@gmail.com',
-					pass: 'zykeixrdhhxkivka'
+					user: 'nguyennguyentrung01@gmail.com',
+					pass: 'eawjkfqfeiuhxpxb'
 				},
 			});
 			await transporter.sendMail({
-				from: 'tuphancqc1995@gmail.com',
+				from: 'nguyennguyentrung01@gmail.com',
 				to: email,
 				subject: 'Reset Password',
 				html: `<h2>Please click on given link to reset your password</h2>
@@ -176,7 +176,6 @@ router.post('/resetpassword/:id/:token', async (req, res) => {
 //     }
 // })
 router.post('/login', async (req, res) => {
-	console.log('req', req.body)
 	const { email, password } = req.body;
 	try {
 		const user = await User.findOne({ email: email });
