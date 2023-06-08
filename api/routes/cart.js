@@ -12,21 +12,21 @@ const router = require("express").Router();
 router.post("/update/:id", verifyTokenAndAuthorization, async (req, res) => {
   try {
     const user = await Cart.findOne({ userId: req.params.id })
-    if (user){
+    if (user) {
       // if (user.productId.length())
-      if (user.products.length === req.body.length){
-        for (i in req.body){
-          if ((user.products[i]._id).toString() === req.body[i]._id){
+      if (user.products.length === req.body.length) {
+        for (i in req.body) {
+          if ((user.products[i]._id).toString() === req.body[i]._id) {
             user.products[i].quantity = req.body[i].quantity
           }
         }
-        const updatedCart=await user.save()
+        const updatedCart = await user.save()
         res.status(200).json(updatedCart);
       }
-      
-      
+
+
     }
-    
+
   } catch (err) {
     console.log(err)
     res.status(500).json(err);
@@ -37,39 +37,54 @@ router.post("/update/:id", verifyTokenAndAuthorization, async (req, res) => {
 router.post("/updateOrder/:id", verifyTokenAndAuthorization, async (req, res) => {
   try {
     const user = await Cart.findOne({ userId: req.params.id })
-    if (user){
-      
-        console.log('update khi order')
-        console.log('1111111111111111111',user.products)
-        console.log('2222222222222222222',req.body)
-        const filteredFile = user.products.filter((obj) => {
-          return req.body.some((newObj) => newObj._id !== obj._id.toString());
-        });
-        console.log('filteredFile',filteredFile)
+    if (user) {
+
+      console.log('update khi order')
+      console.log('1111111111111111111', user.products)
+      console.log('2222222222222222222', req.body)
+      const filteredFile = user.products.filter((obj) => {
+        return !req.body.some((newObj) => newObj._id === obj._id.toString());
+      });
+      // const filteredFile = [];
+      // for (let i = 0; i < user.products.length; i++) {
+      //   const obj = user.products[i];
+      //   let found = false;
+      //   for (let j = 0; j < req.body.length; j++) {
+      //     const newObj = req.body[j];
+      //     if (newObj._id === obj._id.toString()) {
+      //       found = true;
+      //       break;
+      //     }
+      //   }
+      //   if (!found) {
+      //     filteredFile.push(obj);
+      //   }
+      // }
+        console.log('filteredFile', filteredFile)
         user.products = filteredFile;
         const savedCart = await user.save();
         res.status(200).json(savedCart);
-      
-      
-      
+
+
+
+      }
+
+    } catch (err) {
+      console.log(err)
+      res.status(500).json(err);
     }
-    
-  } catch (err) {
-    console.log(err)
-    res.status(500).json(err);
-  }
-});
+  });
 
 //DELETE
 router.post("/delete/:id", verifyTokenAndAuthorization, async (req, res) => {
   try {
     const user = await Cart.findOne({ userId: req.params.id })
-    if (user){
-      for(i in req.body){
+    if (user) {
+      for (i in req.body) {
         console.log('=====')
         console.log(req.body[i])
-        for(j in user.products){
-          if(req.body[i]===(user.products[j]._id).toString()){
+        for (j in user.products) {
+          if (req.body[i] === (user.products[j]._id).toString()) {
             console.log(user.products[j])
             user.products.splice(j, 1);
             break
@@ -78,9 +93,9 @@ router.post("/delete/:id", verifyTokenAndAuthorization, async (req, res) => {
       }
       console.log('=========================')
       // console.log(user)
-      const updatedCart=await user.save()
+      const updatedCart = await user.save()
       res.status(200).json(updatedCart);
-      
+
     }
   } catch (err) {
     res.status(500).json(err);
@@ -94,23 +109,23 @@ router.post("/", verifyToken, async (req, res) => {
   try {
     const user = await Cart.findOne({ userId: userId })
     if (user) {
-      const array=user.products
+      const array = user.products
       const existItem = array.find(
-        item=>
+        item =>
           item.productId.toString() === req.body.products[0].productId
           && item.size === req.body.products[0].size
           && item.color === req.body.products[0].color
-        )
-      if (existItem){
-        console.log('co ton tai',existItem)
+      )
+      if (existItem) {
+        console.log('co ton tai', existItem)
 
-      }else{
+      } else {
         console.log('ko ton tai')
         user.products.push(req.body.products[0])
       }
 
-      const update=await user.save()
-		  res.status(200).json({status:1,message:"Product added successfully",data:[update]})
+      const update = await user.save()
+      res.status(200).json({ status: 1, message: "Product added successfully", data: [update] })
 
     } else {
       console.log('ko co user')
@@ -134,7 +149,7 @@ router.post("/", verifyToken, async (req, res) => {
 //GET USER CART
 router.get("/find/:id", verifyTokenAndAuthorization, async (req, res) => {
   try {
-    const cart = await Cart.findOne({ userId: req.params.id }).find().populate("products.productId","title price img inStock size_color")
+    const cart = await Cart.findOne({ userId: req.params.id }).find().populate("products.productId", "title price img inStock size_color")
     res.status(200).json(cart);
   } catch (err) {
     res.status(500).json(err);
