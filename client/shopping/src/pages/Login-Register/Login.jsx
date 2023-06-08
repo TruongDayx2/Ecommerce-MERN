@@ -23,7 +23,7 @@ const Login = () => {
           <button className="lg_btn" onClick={handleClick} disabled={isFetching}>LOGIN</button>
           {error && (<span className="lg_err">Something went wrong...</span>)}
           <a href="" className="lg_link">DO NOT YOU REMEMBER THE PASSWORD</a>
-          <a href="" className="lg_link">CREATE A NEW ACCOUNT</a>
+          <a href="/register" className="lg_link">CREATE A NEW ACCOUNT</a>
         </form>
       </div>
     </div>

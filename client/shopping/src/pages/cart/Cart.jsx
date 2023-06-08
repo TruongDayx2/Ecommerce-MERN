@@ -27,7 +27,9 @@ const Cart = () => {
       const idUser = user.data[0]._id
       const res = await getCart({ token, idUser });
       if (res.status === 200) {
-        setData(res.data[0].products);
+        if (res.data.length){
+          setData(res.data[0].products);
+        }
       }
     };
     fetchData();
@@ -138,7 +140,7 @@ const Cart = () => {
     const idUser = user.data[0]._id
     const res = await updateCartOrder({ token, idUser, data });
     if (res.status === 200) {
-      console.log(' updateCart')
+      console.log(' updateCart sau khi order')
     }
   }
 

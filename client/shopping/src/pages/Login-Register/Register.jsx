@@ -229,18 +229,19 @@ const Register = () => {
         </>
       )}
       {isModal && (
-        <div className="rg_modal">
+        <div className="rg_modal" style={{border:'2px solid teal',borderRadius:'10px'}}>
           <h3 className="rg_md_title">Please Enter OTP from your email</h3>
           <input
             type="text"
             maxLength={6}
             className="re_md_input"
+            style={{marginTop:'20px',marginBottom:'20px',padding:'10px'}}
             onChange={(e) => setoptInput(e.target.value)}
           />
-          <div className="rg_md_btn">
-              <button onClick={()=>{window.location.reload();}}>Cancel</button>
-            <Link to={"/login"}>
-              <button onClick={(e) => handleSubmitOtp(e)}>Submit</button>
+          <div className="rg_md_btn" style={{display:'flex',justifyContent:'center'}}>
+              <button className="or_detailBtn" style={{flex:2,marginRight:'10px'}} onClick={()=>{window.location.reload();}}>Cancel</button>
+            <Link to={"/login"}style={{flex:2}}>
+              <button className="or_detailBtn" style={{marginLeft:'10px'}} onClick={(e) => handleSubmitOtp(e)}>Submit</button>
             </Link>
           </div>
         </div>

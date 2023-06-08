@@ -57,17 +57,17 @@ const router = require("express").Router();
 //   }
 // });
 
-// //CREATE
-// router.post("/", verifyToken, async (req, res) => {
-//   const newOrder = new Order(req.body);
+//CREATE
+router.post("/", verifyToken, async (req, res) => {
+  const newOrder = new Order(req.body);
 
-//   try {
-//     const savedOrder = await newOrder.save();
-//     res.status(200).json(savedOrder);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+  try {
+    const savedOrder = await newOrder.save();
+    res.status(200).json(savedOrder);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 //UPDATE
 router.put("/:id", verifyTokenAndAdmin, async (req, res) => {

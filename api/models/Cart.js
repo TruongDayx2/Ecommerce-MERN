@@ -21,23 +21,6 @@ const CartSchema = new mongoose.Schema(
                 }
             }
         ],
-        amount: {
-            type: Number,
-            default: 0,
-        },
-        Address: {
-            type: String,
-            default: "",
-            },  
-        status: {
-            type: String,
-            default: "pending",
-            },
-        phone: {
-            type: String,
-            default: "",
-            },
-
     },
     {timestamps:true}
 )

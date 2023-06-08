@@ -2,5 +2,32 @@
   padding: 20px;
   margin-right: 50px;
   margin-left: 50px;
+}
 
+.or_submit{
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.or_cancelBtn{
+  padding: 8px;
+    background-color: white;
+    color: black;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 2px solid red;
+    margin-right: 20px;
+}
+
+.or_submitBtn{
+    padding: 8px;
+    background-color: white;
+    color: black;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 2px solid teal;
+    
 }

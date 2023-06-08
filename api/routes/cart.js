@@ -43,9 +43,9 @@ router.post("/updateOrder/:id", verifyTokenAndAuthorization, async (req, res) =>
         console.log('1111111111111111111',user.products)
         console.log('2222222222222222222',req.body)
         const filteredFile = user.products.filter((obj) => {
-          return req.body.some((newObj) => newObj._id === obj._id.toString());
+          return req.body.some((newObj) => newObj._id !== obj._id.toString());
         });
-        console.log(filteredFile)
+        console.log('filteredFile',filteredFile)
         user.products = filteredFile;
         const savedCart = await user.save();
         res.status(200).json(savedCart);
